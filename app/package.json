@@ -1,0 +1,17 @@
+{
+  "name": "petfriendly",
+  "version": "1.0.0",
+  "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
+  "main": "index.js",
+  "scripts": {
+    "start": " "
+  },
+   "keywords": [
+    "PetFinder",
+    "pet",
+    "friendly",
+    "adopt"
+  ],
+  "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
+  "license": "MIT"
+}
