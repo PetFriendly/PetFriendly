@@ -15,6 +15,11 @@
   "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
   "license": "MIT",
   "devDependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-restify-mongoose": "^2.3.1",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.1",
     "chai": "^3.4.1",
     "gulp": "^3.9.0",
     "gulp-jscs": "^3.0.2",
