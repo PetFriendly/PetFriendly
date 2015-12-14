@@ -6,14 +6,21 @@
   "scripts": {
     "start": "nodemon server.js"
   },
-     "keywords": [
+  "keywords": [
     "PetFinder",
     "pet",
     "friendly",
     "adopt"
   ],
   "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.4"
+  }
 }
-
-
