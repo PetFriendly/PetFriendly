@@ -1,17 +1,37 @@
 {
-  "name": "petfriendly",
-  "version": "1.0.0",
+  "name": "PetFriendly",
+  "version": "0.0.1",
   "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
-  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.5.6",
+    "gulp-sass": "^2.0.4",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [],
+  "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
+  "license": "MIT",
   "scripts": {
     "start": " "
   },
-   "keywords": [
-    "PetFinder",
-    "pet",
-    "friendly",
-    "adopt"
-  ],
-  "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
-  "license": "MIT"
+ "keywords": [
+  "PetFinder",
+  "pet",
+  "friendly",
+  "adopt"
+  ]
 }
