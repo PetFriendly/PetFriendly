@@ -5,7 +5,7 @@ before_script:
   - npm install gulp
 services:
  - mongodb
-script: gulp
+script: server/gulp
 
 cache:
   directories:
