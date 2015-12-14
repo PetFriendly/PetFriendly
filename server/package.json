@@ -19,6 +19,13 @@
     "express": "^4.13.3",
     "express-restify-mongoose": "^2.3.1",
     "method-override": "^2.3.5",
-    "mongoose": "^4.3.1"
+    "mongoose": "^4.3.1",
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.4"
   }
 }
