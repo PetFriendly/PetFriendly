@@ -24,7 +24,7 @@ var Pet = new Schema({
   photo2: String,
   photo3: String,
   options: {
-    specialNeeds: String // add additional as new feature 
+    specialNeeds: String // add additional as new feature
   }
 }, { timestamps: true });
 

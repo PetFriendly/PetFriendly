@@ -10,9 +10,10 @@ var router = express.Router();
 app.use(bodyParser.json());
 app.use(methodOverride());
 
+
 mongoose.connect('mongodb://localhost/pet_app');
 
-restify.serve(router, Pet);
+restify.serve( router, Pet);
 
 app.use(router);
 

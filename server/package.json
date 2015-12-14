@@ -6,14 +6,19 @@
   "scripts": {
     "start": "nodemon server.js"
   },
-     "keywords": [
+  "keywords": [
     "PetFinder",
     "pet",
     "friendly",
     "adopt"
   ],
   "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-restify-mongoose": "^2.3.1",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.1"
+  }
 }
-
-
