@@ -4,7 +4,7 @@
   "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server/server.js"
   },
   "keywords": [
     "PetFinder",
