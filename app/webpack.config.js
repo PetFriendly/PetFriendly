@@ -35,6 +35,6 @@ module.exports = {
         ]
     },
     sassLoader: {
-        includePaths: ['./scss/content', './scss/core', './scss/includes', './scss/layout', './scss/mobile', './scss/general']
+        includePaths: ['./app/scss']
     }
 };
