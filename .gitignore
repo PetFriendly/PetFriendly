@@ -18,6 +18,9 @@ build/Release
 app/node_modules
 node_modules
 
+#Ignore npm debug file
+npm-debug.log
+
 # Bower www/lib directory
 app/www/lib
 
