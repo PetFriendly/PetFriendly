@@ -4,7 +4,7 @@
   "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server/server.js"
   },
   "keywords": [
     "PetFinder",
@@ -14,12 +14,14 @@
   ],
   "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "express-restify-mongoose": "^2.3.1",
     "method-override": "^2.3.5",
-    "mongoose": "^4.3.1",
+    "mongoose": "^4.3.1"
+  },
+  "devDependencies": {
     "chai": "^3.4.1",
     "gulp": "^3.9.0",
     "gulp-jscs": "^3.0.2",

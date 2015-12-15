@@ -8,18 +8,18 @@ gulp.task('default', function(){
 });
 
 gulp.task('jshint', function(){
-  gulp.src(['server/models/*.js', 'server/test/*.js'])
+  gulp.src(['/models/*.js', '/test/*.js'])
   .pipe(jshint())
   .pipe(jshint.reporter('default'));
 });
 
 gulp.task('jscs', function (){
-  return gulp.src(['server/models/*.js', 'server/*test.js'])
+  return gulp.src(['models/*.js', '/*test.js'])
   .pipe(jscs())
   .pipe(jscs.reporter());
 })
 
 gulp.task('mocha/chai', function(){
-  return gulp.src('server/test/*.js')
+  return gulp.src('/test/*.js')
   .pipe(mocha({reporter:'nyan'}));
 });
