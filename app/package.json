@@ -2,10 +2,10 @@
   "name": "PetFriendly",
   "version": "0.0.1",
   "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
-  "main": "index.js",
+  "main": "./www/js/app.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --hot --inline"//,
-    //"build": "webpack && cp index.html ../server/public/"
+    "build": "webpack && cp ./www/index.html ../server/",
+    "start": "webpack-dev-server --progress --colors --hot --inline"
   },
   "dependencies": {
     "gulp": "^3.5.6",
@@ -20,6 +20,7 @@
     "shelljs": "^0.3.0",
     "css-loader": "^0.23.0",
     "html-loader": "^0.4.0",
+    "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
@@ -36,10 +37,7 @@
   "cordovaPlatforms": [],
   "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
   "license": "MIT",
-  "scripts": {
-    "start": ""
-  },
- "keywords": [
+  "keywords": [
   "PetFinder",
   "pet",
   "friendly",

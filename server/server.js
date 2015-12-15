@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/'));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-// Set PF_USE_LOCAL_DB=1 for local DB, 
+// Set PF_USE_LOCAL_DB=1 for local DB,
 // otherwise use HEROKU MONGOLAB DB
 if (process.env.PF_USE_LOCAL_DB == true) {
   mongoose.connect('mongodb://localhost/pet_app');
