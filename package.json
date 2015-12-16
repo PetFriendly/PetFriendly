@@ -4,7 +4,8 @@
   "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "nodemon server.js",
+    "webpackserve": "webpack-dev-server --progress --colors --hot --inline"
   },
   "keywords": [
     "PetFinder",
@@ -15,6 +16,11 @@
   "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
   "license": "MIT",
   "dependencies": {
+    "gulp": "^3.5.6",
+    "gulp-sass": "^2.0.4",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "express-restify-mongoose": "^2.3.1",
@@ -22,6 +28,16 @@
     "mongoose": "^4.3.1"
   },
   "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0",
+    "css-loader": "^0.23.0",
+    "html-loader": "^0.4.0",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0",
     "chai": "^3.4.1",
     "gulp": "^3.9.0",
     "gulp-jscs": "^3.0.2",
@@ -29,5 +45,22 @@
     "gulp-mocha": "^2.2.0",
     "jshint": "^2.8.0",
     "mocha": "^2.3.4"
-  }
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [],
+  "author": "Laura Kuhner, Preet Gujral, Tara Kreft",
+  "license": "MIT",
+  "keywords": [
+    "PetFinder",
+    "pet",
+    "friendly",
+    "adopt"
+  ]
 }
