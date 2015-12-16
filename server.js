@@ -7,7 +7,7 @@ var Pet = require('./models/Pet');
 var app = express();
 var router = express.Router();
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/www'));
 app.use(bodyParser.json());
 app.use(methodOverride());
 

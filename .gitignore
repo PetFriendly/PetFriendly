@@ -15,13 +15,13 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-app/node_modules
 node_modules
+platforms/
+plugins/
 
 #Ignore npm debug file
 npm-debug.log
 
 # Bower www/lib directory
-app/www/lib
 
 .DS*
