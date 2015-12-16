@@ -5,8 +5,62 @@ angular.module('starter.controllers', [])
 .controller('DetailsCtrl', function($scope) {})
 
 //AUTH PASSPORT
-.controller('LoginCtrl', function($scope) {
+.controller('LoginCtrl', function($scope, $http) {
   console.log('Entering LoginCtrl....');
+
+  $scope.user  = {
+    username: '',
+    password: ''
+  };
+  $scope.alert = '';
+ 
+  $scope.login = function(user){
+    $http.post('/auth/login', user).
+      success(function(data) {
+        $scope.loggeduser = data;
+        $location.path('/user');
+      }).
+      error(function() {
+        $scope.alert = 'Login failed'
+      });
+    console.log('Login pressed...');
+ 
+  };
+ 
+  $scope.register = function(user){
+    $http.post('/auth/register', user).
+      success(function(data) {
+        $scope.alert = data.alert;
+      }).
+      error(function() {
+        $scope.alert = 'Registration failed'
+      });
+    console.log('Register pressed...');
+
+  };
+ 
+    // $scope.userinfo = function() {
+    //     $http.get('/auth/currentuser').
+    //         success(function (data) {
+    //             $scope.loggeduser = data;
+    //         }).
+    //         error(function () {
+    //             $location.path('/signin');
+    //         });
+    // }
+ 
+  $scope.logout = function(){
+    // $http.get('/auth/logout')
+    //   .success(function() {
+    //     $scope.loggeduser = {};
+    //     $location.path('/signin');
+
+    //   })
+    //   .error(function() {
+    //     $scope.alert = 'Logout failed'
+    //   });
+    console.log('Logout pressed...');
+  };
 })
 
 // .controller('ChatsCtrl', function($scope, Chats) {
