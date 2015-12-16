@@ -4,8 +4,13 @@ var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var restify = require('express-restify-mongoose');
 var Pet = require('./models/Pet');
+var dbURI = require('./config').dbURI;
+var port = process.env.PORT || 3000;
 var app = express();
 var router = express.Router();
+
+app.set('port', port);
+app.set('env', process.env.NODE_ENV);
 
 app.use(express.static(__dirname + '/www'));
 app.use(bodyParser.json());
@@ -18,7 +23,7 @@ if (process.env.PF_USE_LOCAL_DB == true) {
   console.log('Connecting to local database...');
 } else {
   //mongoose.connect(process.env.MONGOLAB_URI);
-  mongoose.connect('mongodb://heroku_vs2nd9mc:73s2p4slp257li6ftg6qh7jjnr@ds029615.mongolab.com:29615/heroku_vs2nd9mc');
+  mongoose.connect(dbURI);
   console.log('Connecting to Heroku MongoLab database...');
 }
 
@@ -28,6 +33,6 @@ restify.serve( router, Pet);
 
 app.use(router);
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Express server listening on port 3000')
+app.listen(port, function () {
+  console.log('Express server listening on port', port)
 });
