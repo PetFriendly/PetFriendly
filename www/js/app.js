@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-.state('details', {
+.state('tab.details', {
     url: '/details',
     views: {
       'details': {
