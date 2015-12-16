@@ -50,6 +50,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+.state('details', {
+    url: '/details',
+    views: {
+      'details': {
+        templateUrl: 'templates/details.html',
+        controller: 'DetailsCtrl'
+      }
+    }
+  })
+
   .state('tab.match', {
       url: '/match',
       views: {
