@@ -4,15 +4,20 @@
   "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
   "main": "./www/js/app.js",
   "scripts": {
-    "build": "webpack && cp ./www/index.html ../server/",
-    "start": "webpack-dev-server --progress --colors --hot --inline"
+    "webpackserve": "webpack-dev-server --progress --colors --hot --inline",
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-restify-mongoose": "^2.3.1",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.1"
   },
   "devDependencies": {
     "bower": "^1.3.3",
@@ -24,7 +29,15 @@
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^1.14.0",
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.4"
+
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
