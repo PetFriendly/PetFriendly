@@ -1,10 +1,16 @@
 <ion-view view-title="Pet Friendly">
-  <ion-content class="padding">
-    <ion-list ng-model="pet">
-      <ion-item><img src="{{pet.photo1}}"></ion-item>
-      <ion-item>{{pet.name}}</ion-item>
-      <ion-item>{{pet.age}}</ion-item>
-    </ion-list> 
+  <ion-content ng-model="pet" class="padding">
+    <a href="#/tab/details">
+      <div class="list card">
+        <div class="item item-avatar">
+          <h1>{{pet.name}}, {{pet.age}}</h1>
+        </div> 
+
+        <div class="item item-image">
+          <img src="{{pet.photo1}}">
+        <div>
+      </div>
+    </a> 
     <button class="button button-royal">
       No
     </button>
