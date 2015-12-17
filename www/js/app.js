@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.contrib.ui.tinderCards'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -93,21 +93,3 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   $urlRouterProvider.otherwise('/tab/settings');
 
 });
-
-$scope.cards = [
-  { image: './img/cute-dog-2.jpg'},
-  { image: './img/Cute-Dog-1.jpg'},
-  { image: './img/cute-dog-3.jpg'}
-];
-
-$scope.cardDestroyed = function(index) {
-  $scope.cards.splice(index, 1);
-};
-
-$scope.cardSwiped = function(index) {
-  var newCard = // new card data
-  $scope.cards.push(newCard);
-};
-
-
-

@@ -1,10 +1,7 @@
 {
-  "name": "HelloIonic",
+  "name": "petfriendly",
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.0"
-  },
-  "dependencies": {
-    "ionic-ion-tinder-cards": "ionic-contrib-tinder-cards#*"
   }
 }

@@ -1,11 +1,9 @@
 <ion-view view-title="Pet Friendly">
   <ion-content class="padding">
-    <swipe-cards>
-      <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
-        <img src="./img/cute-dog-2.jpg" height= "25%" width="50%">
-        <p>Jeffrey, 4mo</p>
-      </swipe-card>
-    </swipe-cards>  
+    <a class="item" href="#/tab/details">
+      <img src="./img/cute-dog-2.jpg" height= "25%" width="50%">
+      <p>Jeffrey, 4mo</p>
+    <a/>  
     <button class="button button-royal">
       No
     </button>
