@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
   $scope.login = function(user){
     $scope.alert = '';
     console.log(user);
-    $http.post('http://localhost:3000/login', user).
+    $http.post('http://petfriendly.herokuapp.com/login', user).
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
  
   $scope.register = function(user){
     $scope.alert = '';
-    $http.post('http://localhost:3000/register', user).
+    $http.post('http://petfriendly.herokuapp.com/login', user).
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
