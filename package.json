@@ -20,6 +20,7 @@
     "connect-mongo": "^0.8.2",
     "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
+    "express-request-proxy": "^1.0.10",
     "express-restify-mongoose": "^2.3.1",
     "express-session": "^1.12.1",
     "gulp-concat": "^2.2.0",

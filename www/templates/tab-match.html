@@ -1,7 +1,9 @@
 <ion-view view-title="Pet Friendly">
   <ion-content class="padding">
-    <ion-list>
-      <ion-item ng-repeat="item in items">{{Pet}}</ion-item>
+    <ion-list ng-model="pet">
+      <ion-item><img src="{{pet.photo1}}"></ion-item>
+      <ion-item>{{pet.name}}</ion-item>
+      <ion-item>{{pet.age}}</ion-item>
     </ion-list> 
     <button class="button button-royal">
       No
