@@ -5,11 +5,12 @@ angular.module('starter.controllers', [])
 .controller('DetailsCtrl', function($scope) {})
 
 .controller('MatchCtrl', function($scope, $rootScope, $http, PfApiService) {
-//.controller('MatchCtrl', function($scope, $http, PfApiService) {
 
   $scope.pet = {};
   console.log('Entering MatchCtrl....');
-  console.log($rootScope.session.user);
+  if ($rootScope.session && $rootScope.session.user) {
+    console.log($rootScope.session.user);
+  } 
 
   PfApiService.getPets()
     .then(function(response) {
@@ -40,8 +41,6 @@ angular.module('starter.controllers', [])
   $scope.login = function(user){
     $scope.alert = '';
     console.log(user);
-    //$http.post('http://petfriendly.herokuapp.com/login', user).
-    //$http.post('http://localhost:3000/login', user).
     $http.post('/login', user).
       success(function(data) {
         if (data.alert) {
@@ -66,8 +65,6 @@ angular.module('starter.controllers', [])
  
   $scope.register = function(user){
     $scope.alert = '';
-    //$http.post('http://petfriendly.herokuapp.com/register', user).
-    //$http.post('http://localhost:3000/register', user).
     $http.post('/register', user).
       success(function(data) {
         if (data.alert) {
