@@ -4,10 +4,13 @@
       <!-- Alert below needs styling -->
       <div ng-show="alert">{{alert}}</div>
       <label class="item item-input">
-        <input type="text" placeholder="Username" ng-model="user.username" required>
+        <input type="text" placeholder="Username" ng-model="user.username">
       </label>
       <label class="item item-input">
-        <input type="password" placeholder="Password" ng-model="user.password" required>
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </label>
+      <label class="item item-input">
+        <input type="zipcode" placeholder="Zipcode" ng-model="user.zipcode">
       </label>
     </div>
     <button class="button button-block button-positive" ng-click="register(user)">Register</button>

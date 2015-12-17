@@ -20,7 +20,7 @@ router.get('/#/register', function(req, res, next) {
 router.post('/register', function(req, res) {
     User.register(new User({
       username : req.body.username,
-      zipcode: '97007' 
+      zipcode: req.body.zipcode
     }), req.body.password, function(err, account) {
         if (err) {
           console.log('register ERROR....')
