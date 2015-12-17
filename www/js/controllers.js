@@ -4,6 +4,27 @@ angular.module('starter.controllers', [])
 
 .controller('DetailsCtrl', function($scope) {})
 
+.controller('MatchCtrl', function($scope, $http, PfApiService) {
+
+  $scope.pet = {};
+  console.log('Entering MatchCtrl....');
+
+  PfApiService.getPets()
+    .then(function(response) {
+      console.log("GET success");
+      console.log(response);
+      var pets = [];
+      pets = response.data.petfinder.pets.pet;
+      console.log(response.data.petfinder.pets.pet);
+      $scope.pet.name = pets[0].name.$t;
+      $scope.pet.age = pets[0].age.$t;
+      $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
+    })
+    .catch(function(error) {
+      console.log("GET/POST error");
+    });
+})
+
 //AUTH PASSPORT
 .controller('LoginCtrl', function($scope, $http, $location) {
   console.log('Entering LoginCtrl....');
