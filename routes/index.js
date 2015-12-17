@@ -9,10 +9,13 @@ var User = require('../models/User');
 //   res.render('index', { user: req.user});
 // });
 
-// router.get('/register', function(req, res, next) {
-//   if (req.isAuthenticated()) res.redirect('/settings');
-//   res.render('register', {regErr: req.regErr});
-// });
+router.get('/#/register', function(req, res, next) {
+  console.log('Checking if user is already logged in');
+  if (req.isAuthenticated()) {
+    console.log('User is already logged in');
+    res.redirect('/#/tab/settings');
+  }
+});
 
 router.post('/register', function(req, res) {
     User.register(new User({
