@@ -12,7 +12,10 @@ var User = new Schema({
   sex: String,
   age: String
  },
- petFavs: [{ type: Schema.Types.ObjectId, ref: 'Pet' }],
+ petFavs: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Pet'
+  }],
 }, { timestamps: true });
 
 User.plugin(passportLocalMongoose);
