@@ -13,6 +13,17 @@ var router = express.Router();
 var dbURI = require('./config').dbURI;
 var port = process.env.PORT || 3000;
 
+var requestProxy = require('express-request-proxy');
+
+app.get('/pfapi/pets', requestProxy({
+    url: "http://api.petfinder.com/pet.find",
+    query: {
+      key: 'f7940f8a4ac510a56c2b8bebbd6df0ce',
+      format: 'json',
+      output: 'full'
+    }
+}));
+
 app.set('port', port);
 app.set('env', process.env.NODE_ENV);
 
