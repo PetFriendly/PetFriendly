@@ -6,6 +6,7 @@ var restify = require('express-restify-mongoose');
 var Pet = require('./models/Pet');
 var dbURI = require('./config').dbURI;
 var port = process.env.PORT || 3000;
+
 var app = express();
 var router = express.Router();
 
@@ -17,18 +18,17 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 // Set PF_USE_LOCAL_DB=1 for local DB,
-// otherwise use HEROKU MONGOLAB DB
+// otherwise app will by default use MONGOLAB DB
 if (process.env.PF_USE_LOCAL_DB == true) {
   mongoose.connect('mongodb://localhost/pet_app');
   console.log('Connecting to local database...');
 } else {
   //mongoose.connect(process.env.MONGOLAB_URI);
   mongoose.connect(dbURI);
-  console.log('Connecting to Heroku MongoLab database...');
+  console.log('Connecting to MongoLab database...');
 }
 
-/*Pet is going to send to route as /Pets
-http methods are going to save to db collection pets*/
+//Pet is going to send to route '/Pets'. http methods are going to save to db collection pets
 restify.serve( router, Pet);
 
 app.use(router);

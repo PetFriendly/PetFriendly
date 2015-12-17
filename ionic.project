@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "petfriendly",
   "app_id": "",
   "gulpStartupTasks": ["sass", "watch"]
 }
