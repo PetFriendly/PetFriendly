@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
  
   $scope.register = function(user){
     $scope.alert = '';
-    $http.post('http://petfriendly.herokuapp.com/login', user).
+    $http.post('http://petfriendly.herokuapp.com/register', user).
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
