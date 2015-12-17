@@ -6,6 +6,12 @@ var User = new Schema({
  username: String,
  password: String,
  zipcode: String,
+ settings: {
+  animal: String,
+  size: String,
+  sex: String,
+  age: String
+ },
  petFavs: [{ type: Schema.Types.ObjectId, ref: 'Pet' }],
 }, { timestamps: true });
 

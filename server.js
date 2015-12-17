@@ -53,6 +53,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// app.use(function (req, res, next) {
+//     if (req.isAuthenticated()) res.expose(req.user, 'user');
+//     next ();
+// });
+
 app.use(bodyParser.json());
 app.use(methodOverride());
 
@@ -63,7 +68,7 @@ if (process.env.PF_USE_LOCAL_DB == true) {
   console.log('Connecting to local database...');
 } else {
   //mongoose.connect(process.env.MONGOLAB_URI);
-  mongoose.connect(dbURI);
+  mongoose.connect('mongodb://heroku_vs2nd9mc:73s2p4slp257li6ftg6qh7jjnr@ds029615.mongolab.com:29615/heroku_vs2nd9mc');
   console.log('Connecting to MongoLab database...');
 }
 
