@@ -25,3 +25,6 @@ npm-debug.log
 # Bower www/lib directory
 
 .DS*
+
+.env
+
