@@ -2,7 +2,27 @@ angular.module('starter.controllers', [])
 
 .controller('SettingsCtrl', function($scope) {})
 
-.controller('DetailsCtrl', function($scope) {})
+.controller('DetailsCtrl', function($scope, $http, PfApiService) {
+
+  $scope.pet = {};
+  console.log('Entering MatchCtrl....');
+
+  PfApiService.getPets()
+    .then(function(response) {
+      console.log("GET success");
+      console.log(response);
+      var pets = [];
+      pets = response.data.petfinder.pets.pet;
+      console.log(response.data.petfinder.pets.pet);
+      $scope.pet.name = pets[0].name.$t;
+      $scope.pet.age = pets[0].age.$t;
+      $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
+      $scope.pet.description = pets[0].description.$t;
+    })
+    .catch(function(error) {
+      console.log("GET/POST error");
+    });
+})
 
 .controller('MatchCtrl', function($scope, $rootScope, $http, PfApiService) {
 
@@ -22,6 +42,7 @@ angular.module('starter.controllers', [])
       $scope.pet.name = pets[0].name.$t;
       $scope.pet.age = pets[0].age.$t;
       $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
+      $scope.pet.description = pets[0].description.$t;
     })
     .catch(function(error) {
       console.log("GET/POST error");

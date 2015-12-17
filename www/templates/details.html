@@ -1,14 +1,32 @@
 <ion-view view-title="Pet Friendly">
-  <ion-content class="padding">
-    <img src="./img/cute-dog-2.jpg" height= "25%" width="50%">
-    <p>Billy is the best dog. He's too cute and knows how to sit and roll over. He's chipped and he's just the best!</p>
+  <ion-content ng-model="pet" class="padding">
+
+    <div class="list card">
+      <div class="bar bar-header bar-stable">
+        <h1.pet class="title">{{pet.name}}, {{pet.age}}</h1>
+      </div> 
+
+      <div class="item item-image">
+        <img src="{{pet.photo1}}">
+      <div>
+
+      <ion-item class="item-text-wrap">
+          <p>{{pet.description}}</p>
+      </ion-item>
+      
+    </div>
+
     <a class="item" href="#/tab/match">
-      <button class="button button-royal">
+      <button class="button button-block button-royal">
         Back to Match
       </button>
-    </a> 
-    <button class="button button-royal">
-      Add to Favorites
-    </button>
+    </a>
+    <a class="item" href="#/"> 
+      <button class="button button-block button-royal">
+        Add to Favorites
+      </button>
+    </a>  
   </ion-content>
 </ion-view>
+
+
