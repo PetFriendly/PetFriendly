@@ -6,7 +6,6 @@ var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var restify = require('express-restify-mongoose');
 var Pet = require('./models/Pet');
-<<<<<<< HEAD
 var User = require('./models/User');
 var passport = require('passport');
 var app = express();
@@ -42,7 +41,6 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
 
 app.use(bodyParser.json());
 app.use(methodOverride());
