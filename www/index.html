@@ -10,12 +10,9 @@
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
     <link href="css/ionic.app.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="../../collide/collide.js"></script>
-    <script src="../ionic.tdcards.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <!-- <script src="cordova.js"></script> -->
@@ -26,21 +23,6 @@
     <script src="js/services.js"></script>
   </head>
   <body ng-app="starter">
-    <ion-pane ng-controller="CardsCtrl">
-      <ion-header-bar class="bar-default">
-        <h1 class="title">TD Cards</h1>
-      </ion-header-bar>
-
-      <td-cards>
-        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
-          <div class="image" ng-controller="CardCtrl">
-            <div class="no-text">NOPE</div>
-            <img ng-src="{{card.image}}">
-            <div class="yes-text">LIKE</div>
-          </div>
-        </td-card>
-      </td-cards>
-      </ion-pane>
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
