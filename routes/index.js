@@ -18,6 +18,7 @@ router.get('/#/register', function(req, res, next) {
 });
 
 router.post('/register', function(req, res) {
+    console.log('Received Register POST from CLIENT');
     User.register(new User({
       username : req.body.username,
       zipcode: req.body.zipcode
@@ -39,6 +40,7 @@ router.post('/register', function(req, res) {
 // });
 
 router.post('/login', function(req, res, next) {
+  console.log('Received Login POST from CLIENT');
   passport.authenticate('local', function(err, user, info) {
     if (err) { 
       console.log('ERROR received POST req');
@@ -50,7 +52,8 @@ router.post('/login', function(req, res, next) {
       if (err) { 
         return res.json({'alert':'Sorry. That username or password are invalid. Try again.'});
       } 
-      return res.end();
+      //return res.end();
+      return res.send({user : req.user}); 
     });
   })(req, res, next);
 });

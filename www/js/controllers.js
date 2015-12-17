@@ -4,10 +4,13 @@ angular.module('starter.controllers', [])
 
 .controller('DetailsCtrl', function($scope) {})
 
-.controller('MatchCtrl', function($scope, $http, PfApiService) {
+.controller('MatchCtrl', function($scope, $rootScope, $http, PfApiService) {
 
   $scope.pet = {};
   console.log('Entering MatchCtrl....');
+  if ($rootScope.session && $rootScope.session.user) {
+    console.log($rootScope.session.user);
+  } 
 
   PfApiService.getPets()
     .then(function(response) {
@@ -26,7 +29,7 @@ angular.module('starter.controllers', [])
 })
 
 //AUTH PASSPORT
-.controller('LoginCtrl', function($scope, $http, $location) {
+.controller('LoginCtrl', function($scope, $http, $location, $rootScope) {
   console.log('Entering LoginCtrl....');
 
   $scope.user  = {
@@ -38,14 +41,18 @@ angular.module('starter.controllers', [])
   $scope.login = function(user){
     $scope.alert = '';
     console.log(user);
-    $http.post('http://petfriendly.herokuapp.com/login', user).
+    $http.post('/login', user).
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
         } else {
           // Login successful
           console.log('Login successful');
+          console.log(data);
+          $rootScope.session = {}
+          $rootScope.session.user = data.user;
           $location.path('/tab/match');
+          console.log('exiting LoginCtrl')
         }
       }).
       error(function(err) {
@@ -58,7 +65,7 @@ angular.module('starter.controllers', [])
  
   $scope.register = function(user){
     $scope.alert = '';
-    $http.post('http://petfriendly.herokuapp.com/register', user).
+    $http.post('/register', user).
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
