@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
 .controller('DetailsCtrl', function($scope) {})
 
 //AUTH PASSPORT
-.controller('LoginCtrl', function($scope, $http) {
+.controller('LoginCtrl', function($scope, $http, $location) {
   console.log('Entering LoginCtrl....');
 
   $scope.user  = {
@@ -15,22 +15,36 @@ angular.module('starter.controllers', [])
   $scope.alert = '';
  
   $scope.login = function(user){
-    $http.post('/auth/login', user).
+    $scope.alert = '';
+    console.log(user);
+    $http.post('http://localhost:3000/login', user).
       success(function(data) {
-        $scope.loggeduser = data;
-        $location.path('/user');
+        if (data.alert) {
+          $scope.alert = data.alert;
+        } else {
+          // Login successful
+          console.log('Login successful');
+          $location.path('/tab/match');
+        }
       }).
-      error(function() {
+      error(function(err) {
         $scope.alert = 'Login failed'
+        console.log(err);
       });
     console.log('Login pressed...');
  
   };
  
   $scope.register = function(user){
-    $http.post('/auth/register', user).
+    $scope.alert = '';
+    $http.post('http://localhost:3000/register', user).
       success(function(data) {
-        $scope.alert = data.alert;
+        if (data.alert) {
+          $scope.alert = data.alert;
+        } else {
+          // Registration successful
+          $location.path('/settings');
+        }
       }).
       error(function() {
         $scope.alert = 'Registration failed'
