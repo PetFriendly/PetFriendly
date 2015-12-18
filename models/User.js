@@ -10,7 +10,8 @@ var User = new Schema({
   sizes: String,
   sex: String,
   age: String,
-  zipcode: String
+  zipcode: String,
+  distance: String
  },
  petFavs: [{
     type: Schema.Types.ObjectId,

@@ -26,7 +26,8 @@ router.post('/register', function(req, res) {
         sizes: '',
         sex: '',
         age: '',
-        zipcode: req.body.zipcode || "97024"
+        zipcode: req.body.zipcode || "97024",
+        distance: ''
       }
     }), req.body.password, function(err, account) {
         if (err) {

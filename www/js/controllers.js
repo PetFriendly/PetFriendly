@@ -131,6 +131,7 @@ angular.module('starter.controllers', [])
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
     options.settings.zipcode = user.settings.zipcode;
+    options.settings.distance = user.settings.distance;
     console.log(options);
   }
 
