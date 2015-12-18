@@ -76,7 +76,7 @@ if (process.env.PF_USE_LOCAL_DB == true) {
 // Basic routes -- index.js
 app.use('/', routes);
 
-//Pet is going to send to route '/Pets'. 
+//Pet is going to send to route '/Pets'.
 //http methods are going to save to db collection pets
 restify.serve( router, Pet);
 
