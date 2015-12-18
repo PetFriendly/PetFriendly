@@ -9,15 +9,8 @@ angular.module('starter')
 function queryPetFinderAPIService($http, API_ROUTE) {
   return {
     getPets: function(options) {
-      console.log('called getPets in service..');
-      //count defaults to 25 records. distance commented out until tested and added to user model
-      // console.log('?location=' + options.zipcode +
-      //   '&animal=' + options.settings.animal +
-      //   '&size=' + options.settings.size +
-      //   '&sex=' + options.settings.sex +
-      //   '&age=' + options.settings.age);
       return $http.get(API_ROUTE +
-        '?location=' + options.zipcode +
+        '?location=' + options.settings.zipcode +
         '&animal=' + options.settings.animal +
         '&size=' + options.settings.sizes +
         '&sex=' + options.settings.sex +

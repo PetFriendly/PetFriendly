@@ -5,12 +5,12 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var User = new Schema({
  username: String,
  password: String,
- zipcode: String,
  settings: {
   animal: String,
   sizes: String,
   sex: String,
-  age: String
+  age: String,
+  zipcode: String
  },
  petFavs: [{
     type: Schema.Types.ObjectId,

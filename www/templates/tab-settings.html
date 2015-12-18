@@ -1,5 +1,6 @@
 <ion-view view-title="Pet Friendly">
   <ion-content class="padding">
+  <form name="frm">
     <label class="item item-input item-select">
       <div class="input-label">I am looking for...(pet type)
       </div>
@@ -45,9 +46,11 @@
           <option>Adult</option>
           <option>Senior</option>
         </select>
-    </label>
-    <!--<a class="item" href="#/tab/match"> -->
-    </a>
+    </label> 
+    <label class="item item-input">
+      <input type="text" placeholder="zip code" ng-model="settings.zipcode">
+    </label>   
+  </form>
     <button class="button button-clear button-royal">
       Log Out
     </button>
