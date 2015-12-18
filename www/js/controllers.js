@@ -54,21 +54,21 @@ angular.module('starter.controllers', [])
     var user = $rootScope.session.user;
   }
   var options = {
-    zipcode: "97204",
     settings: {
-      animal: "",
-      size: "",
-      sex: "",
-      age: ""
+    //   animal: "",
+    //   size: "",
+    //   sex: "",
+    //   age: "",
+    //   zipcode: user.settings.zipcode || "97204"
     }
   };
 
   if (user) {
-    options.zipcode = user.zipcode || "97204";
     options.settings.animal = user.settings.animal;
     options.settings.size = user.settings.size;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
+    options.settings.zipcode = user.settings.zipcode;
   }
 
   queryPetFinderAPIService.getPets(options)
@@ -89,21 +89,23 @@ angular.module('starter.controllers', [])
     var user = $rootScope.session.user;
   }
   var options = {
-    zipcode: "97204",
     settings: {
-      animal: "",
-      size: "",
-      sex: "",
-      age: ""
+      // animal: "",
+      // size: "",
+      // sex: "",
+      // age: "",
+      // zipcode: user.zipcode || "97204"
     }
   };
 
   if (user) {
-    options.zipcode = user.zipcode || "97204";
+    console.log(user);
     options.settings.animal = user.settings.animal;
     options.settings.size = user.settings.size;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
+    options.settings.zipcode = user.settings.zipcode;
+    console.log(options);
   }
 
   queryPetFinderAPIService.getPets(options)
