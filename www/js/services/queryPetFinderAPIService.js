@@ -23,7 +23,9 @@ function queryPetFinderAPIService($http, API_ROUTE) {
         '&sex=' + options.settings.sex +
         '&age=' + options.settings.age
         //'&distance=' + currentUser.settings.distance
-      );
+      ).then( function(response){
+        return response.data.petfinder.pets.pet;
+      });
     }
   };
 }

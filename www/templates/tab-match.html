@@ -1,17 +1,15 @@
 <ion-view view-title="Pet Friendly">
   <ion-content ng-model="pet" class="padding">
-    <a href="#/tab/details">
-      <div class="list card">
-        <div class="bar bar-header bar-stable">
-        <h1.pet class="title">{{pet.name}}, {{pet.age}}</h1>
-      </div>  
-
-        <div class="item item-image">
-          <img src="{{pet.photo1}}">
-        <div>
-      </div>
-    </a> 
-    <button class="button button-royal">
+    <ion-list>
+      <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
+      <a href="#/tab/details">
+        <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
+        <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
+        <img ng-src="{{pet.media.photos.photo[2].$t}}">
+      </a>  
+      </ion-item>
+    </ion-list>
+    <button class="button button-royal" ng-click='$parent.selected = $parent.selected + 1'>
       No
     </button>
     <button class="button button-royal">
@@ -20,21 +18,18 @@
   </ion-content>
 </ion-view>
 
+<!-- <ion-list>
+      <ion-item ng-repeat="pet in pets" ng:show="$parent.selected ==$index">
+        <a href="#/tab/details">
+          <div class="card">
+            <div class="bar bar-header bar-stable">
+              <h1 class="title">{{pet.name.$t}}, {{pet.age.$t}}</h1>
+            </div>  
 
-<!-- <ion-view view-title="Pet Friendly">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
+            <div class="item item-image">
+              <img src="{{pet.photo1}}">
+            <div>
+          </div>
+        </a>
       </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-view>
- -->
+    </ion-list>  -->

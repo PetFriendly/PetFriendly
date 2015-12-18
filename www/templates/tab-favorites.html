@@ -1,14 +1,28 @@
 <ion-view view-title="Pet Friendly">
-  <ion-content>
-    <div class="list">
-
-      <div class="item item-button-right">
-        <img src="./img/cute-dog-2.jpg" height= "60px" width="60px">
-        Billy
-        <button class="button button-royal">
-          Remove Pet
-        </button>
-      </div>
-    </div>
+  <ion-content ng-model="pet" class="padding">
+    <a class="item item-avatar item-button-right" href="#">
+      <img src="./img/cute-dog-2.jpg">
+      <h2>Jeffrey</h2>
+      <p>2 mo</p>
+    <button class="button button-royal">
+      <i class="icon ion-trash-a"></i>
+    </button>
+    </a>
   </ion-content>
 </ion-view>
+
+
+
+
+
+ <!--   <div class="list">
+
+  <a class="item item- avatar item-button-right" href="#">
+    <img src="./img/cute-dog-2.jpg">
+    <h2>Jeffrey</h2>
+    <button class="button button-royal">
+      <i class="icon ion-trash-a"></i>
+    </button>
+  </a>
+
+</div> -->
