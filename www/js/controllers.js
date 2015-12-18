@@ -52,17 +52,50 @@ angular.module('starter.controllers', [])
   queryPetFinderAPIService.getPets(options)
     .then(function(response) {
       console.log("GET success");
-      console.log(response);
+      //console.log(response);
       //build stack of cards
 
-      var pets = [];
-      pets = response.data.petfinder.pets.pet;
-      console.log(response.data.petfinder.pets.pet);
-      $scope.pet.name = pets[0].name.$t;
-      $scope.pet.age = pets[0].age.$t;
-      $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
-      $scope.pet.description = pets[0].description.$t;
-    })
+    //   var pets = [];
+    //   pets = response.data.petfinder.pets.pet;
+    //   console.log(response.data.petfinder.pets.pet);
+    //   $scope.pet.name = pets[0].name.$t;
+    //   $scope.pet.age = pets[0].age.$t;
+    //   $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
+    //   $scope.pet.description = pets[0].description.$t;
+    // })
+
+    var pets = [];
+    pets = response.data.petfinder.pets.pet;
+    console.log(response.data.petfinder.pets.pet);
+
+    cardIndex = 0;
+
+
+    this.currentCard = pets[cardIndex];
+    this.nextCard = function() {
+      cardIndex = cardIndex + 1;
+      this.currentCard = pets[cardIndex];
+    }
+    $scope.pet.name = pets[i].name.$t;
+    $scope.pet.age = pets[i].age.$t;
+    $scope.pet.photo1 = pets[i].media.photos.photo[1].$t;
+    $scope.pet.description = pets[i].description.$t;
+
+
+
+
+    for (i = 0; i < pets.length; i++) {
+      $scope.pet.name = pets[i].name.$t;
+      $scope.pet.age = pets[i].age.$t;
+      $scope.pet.photo1 = pets[i].media.photos.photo[1].$t;
+      $scope.pet.description = pets[i].description.$t;
+    }
+    console.log(pets)
+  })
+
+
+
+
     .catch(function(error) {
       console.log("GET/POST error");
     });
