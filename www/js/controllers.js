@@ -28,12 +28,12 @@ angular.module('starter.controllers', [])
       return;
     }
     dirty = true;
-    console.log('is dirty', newValue, oldValue);
+    // console.log('is dirty', newValue, oldValue);
   }, true)
   $scope.$on('$destroy', function(){
     var settings = $scope.settings;
     $scope.alert = '';
-    console.log('Settings dirty', dirty);
+    // console.log('Settings dirty', dirty);
     if (!dirty) {
       return;
     }
