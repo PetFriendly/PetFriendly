@@ -2,12 +2,12 @@ angular.module('starter.controllers', [])
 
 .controller('SettingsCtrl', function($scope) {})
 
-.controller('DetailsCtrl', function($scope, $http, PfApiService) {
+.controller('DetailsCtrl', function($scope, $http, queryPetFinderAPIService) {
 
   $scope.pet = {};
   console.log('Entering MatchCtrl....');
 
-  PfApiService.getPets()
+  queryPetFinderAPIService.getPets()
     .then(function(response) {
       console.log("GET success");
       console.log(response);
@@ -24,18 +24,37 @@ angular.module('starter.controllers', [])
     });
 })
 
-.controller('MatchCtrl', function($scope, $rootScope, $http, PfApiService) {
+.controller('MatchCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
 
   $scope.pet = {};
   console.log('Entering MatchCtrl....');
-  if ($rootScope.session && $rootScope.session.user) {
-    console.log($rootScope.session.user);
-  } 
+  if ($rootScope.session) {
+    var user = $rootScope.session.user;
+  }
+  var options = {
+    zipcode: "97204",
+    settings: {
+      animal: "",
+      size: "",
+      sex: "",
+      age: ""
+    }
+  };
 
-  PfApiService.getPets()
+  if (user) {
+    options.zipcode = user.zipcode || "97204";
+    options.settings.animal = user.settings.animal;
+    options.settings.size = user.settings.size;
+    options.settings.sex = user.settings.sex;
+    options.settings.age = user.settings.age;
+  }
+
+  queryPetFinderAPIService.getPets(options)
     .then(function(response) {
       console.log("GET success");
       console.log(response);
+      //build stack of cards
+
       var pets = [];
       pets = response.data.petfinder.pets.pet;
       console.log(response.data.petfinder.pets.pet);
@@ -58,7 +77,7 @@ angular.module('starter.controllers', [])
     password: ''
   };
   $scope.alert = '';
- 
+
   $scope.login = function(user){
     $scope.alert = '';
     console.log(user);
@@ -81,9 +100,9 @@ angular.module('starter.controllers', [])
         console.log(err);
       });
     console.log('Login pressed...');
- 
+
   };
- 
+
   $scope.register = function(user){
     $scope.alert = '';
     $http.post('/register', user).
@@ -101,7 +120,7 @@ angular.module('starter.controllers', [])
     console.log('Register pressed...');
 
   };
- 
+
     // $scope.userinfo = function() {
     //     $http.get('/auth/currentuser').
     //         success(function (data) {
@@ -111,7 +130,7 @@ angular.module('starter.controllers', [])
     //             $location.path('/signin');
     //         });
     // }
- 
+
   $scope.logout = function(){
     // $http.get('/auth/logout')
     //   .success(function() {

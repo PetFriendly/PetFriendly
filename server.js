@@ -68,15 +68,15 @@ if (process.env.PF_USE_LOCAL_DB == true) {
   console.log('Connecting to local database...');
 } else {
   //mongoose.connect(process.env.MONGOLAB_URI);
-  //mongoose.connect('mongodb://heroku_vs2nd9mc:73s2p4slp257li6ftg6qh7jjnr@ds029615.mongolab.com:29615/heroku_vs2nd9mc');
-  mongoose.connect(dbURI);
+  mongoose.connect('mongodb://heroku_vs2nd9mc:73s2p4slp257li6ftg6qh7jjnr@ds029615.mongolab.com:29615/heroku_vs2nd9mc');
+  // mongoose.connect(dbURI);
   console.log('Connecting to MongoLab database...');
 }
 
 // Basic routes -- index.js
 app.use('/', routes);
 
-//Pet is going to send to route '/Pets'. 
+//Pet is going to send to route '/Pets'.
 //http methods are going to save to db collection pets
 restify.serve( router, Pet);
 
