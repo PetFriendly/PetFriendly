@@ -58,6 +58,35 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
+router.put('/settings/:id', function(req, res, next) {
+  console.log('Received Settings PUT from CLIENT');
+  if (!req.isAuthenticated()) {
+    console.log('User is NOT logged in; cannot update Settings');
+    return res.redirect('/#/login');
+  } 
+  console.log('user id', req.params.id);
+  console.log('settings', req.body.settings);
+
+  User.findById(req.params.id, function(err, user) {
+    if (err) {
+      return next(err);
+    } else {
+      for (var prop in req.body.settings) {
+        user.settings[prop] = req.body.settings[prop];
+      }
+
+      user.save(function(err) {
+        if (err) {
+          return next(err);
+        } else {
+          res.send();
+        }
+      });
+    }
+  });
+
+});
+
 // router.get('/logout', function(req, res) {
 //   req.logout();
 //   res.redirect('/');

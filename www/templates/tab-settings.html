@@ -3,7 +3,7 @@
     <label class="item item-input item-select">
       <div class="input-label">I am looking for...(pet type)
       </div>
-        <select class="dropdowns">
+        <select class="dropdowns" ng-model="settings.animal">
           <option>barnyard</option>
           <option>bird</option>
           <option selected>cat</option>
@@ -17,7 +17,7 @@
     <label class="item item-input item-select">
       <div class="input-label">My ideal pet is...(size)
       </div>
-        <select class="dropdowns">
+        <select class="dropdowns" ng-model="settings.size">
           <option selected>small</option>
           <option>medium</option>
           <option>large</option>
@@ -27,7 +27,7 @@
     <label class="item item-input item-select">
       <div class="input-label">I would like a...(m/f)
       </div>
-        <select class="dropdowns">
+        <select class="dropdowns" ng-model="settings.sex">
           <option selected>M</option>
           <option>F</option>
         </select>
@@ -35,7 +35,7 @@
     <label class="item item-input item-select">
       <div class="input-label">My pet should be...(Age)
       </div>
-        <select class="dropdowns">
+        <select class="dropdowns" ng-model="settings.age">
           <option selected>Baby</option>
           <option>Young</option>
           <option>Adult</option>
@@ -43,7 +43,7 @@
         </select>
     </label>    
     <a class="item" href="#/tab/match">
-      <button class="button button-block button-royal">
+      <button class="button button-block button-royal" ng-click="saveSettings(settings)">
         Find me a Friend!
       </button>
     </a>

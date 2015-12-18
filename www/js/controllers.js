@@ -1,6 +1,39 @@
 angular.module('starter.controllers', [])
 
-.controller('SettingsCtrl', function($scope) {})
+.controller('SettingsCtrl', function($scope, $rootScope, $http) {
+  console.log('Entering SettingsCtrl....');
+
+  $scope.settings = {};
+  $scope.alert = '';
+  if ($rootScope.session) {
+    var user = $rootScope.session.user;
+  } 
+  console.log('SettingsCtrl..user', user);
+
+  $scope.saveSettings = function(settings){
+    $scope.alert = '';
+    console.log('Settings', settings);
+    $http.put('/settings/' + user._id, {settings: settings}).
+      success(function(data) {
+        if (data.alert) {
+          $scope.alert = data.alert;
+        } else {
+          // Login successful
+          console.log('Save successful');
+          // console.log(data);
+          // $rootScope.session = {}
+          // $rootScope.session.user = data.user;
+          // $location.path('/tab/match');
+          // console.log('exiting LoginCtrl')
+        }
+      }).
+      error(function(err) {
+        $scope.alert = 'Settings save failed'
+        console.log(err);
+      });
+    console.log('Login pressed...');
+  }
+})
 
 .controller('DetailsCtrl', function($scope, $http, queryPetFinderAPIService) {
 
