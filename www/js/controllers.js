@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
   }
   // if ($rootScope.session) {
   //   var user = $rootScope.session.user;
-  // } 
+  // }
   console.log('SettingsCtrl..user', user);
 
   $scope.saveSettings = function(settings){
@@ -57,7 +57,7 @@ angular.module('starter.controllers', [])
     zipcode: "97204",
     settings: {
       animal: "",
-      size: "",
+      sizes: "",
       sex: "",
       age: ""
     }
@@ -66,7 +66,7 @@ angular.module('starter.controllers', [])
   if (user) {
     options.zipcode = user.zipcode || "97204";
     options.settings.animal = user.settings.animal;
-    options.settings.size = user.settings.size;
+    options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
   }
@@ -92,7 +92,7 @@ angular.module('starter.controllers', [])
     zipcode: "97204",
     settings: {
       animal: "",
-      size: "",
+      sizes: "",
       sex: "",
       age: ""
     }
@@ -101,7 +101,7 @@ angular.module('starter.controllers', [])
   if (user) {
     options.zipcode = user.zipcode || "97204";
     options.settings.animal = user.settings.animal;
-    options.settings.size = user.settings.size;
+    options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
   }
@@ -161,7 +161,7 @@ angular.module('starter.controllers', [])
           // Registration successful
           $rootScope.session = {}
           $rootScope.session.user = data.user;
-          $state.go('tab.settings'); 
+          $state.go('tab.settings');
         }
       }).
       error(function() {

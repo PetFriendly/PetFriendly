@@ -8,7 +8,7 @@ var User = new Schema({
  zipcode: String,
  settings: {
   animal: String,
-  size: String,
+  sizes: String,
   sex: String,
   age: String
  },
