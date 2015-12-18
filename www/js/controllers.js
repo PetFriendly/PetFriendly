@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MatchCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
-
+  $scope.selected = 0;
   $scope.pet = {};
   console.log('Entering MatchCtrl....');
   if ($rootScope.session) {
@@ -81,29 +81,9 @@ angular.module('starter.controllers', [])
   }
 
   queryPetFinderAPIService.getPets(options)
-    .then(function(response) {
-      console.log("GET success");
-      console.log(response);
-      //build stack of cards
-
-      // create empty pets array
-      var pets = [];
-
-      // add pets objects to pets array
-      pets = response.data.petfinder.pets.pet;
-
-      // loop through pets array, extract prop/val from each pet object
-      // for ( var i=0; i < pets.length; i++ )
-      // in your loop, grab pets[i] - unless you need a hardcoded sub object
-
-      for ( var i=0; i < pets.length; i++ ) {
-      console.dir(i);
-      console.dir($scope.pet.name);
-      $scope.pet.name = pets[i].name.$t;
-      $scope.pet.age = pets[i].age.$t;
-      // $scope.pet.photo1 = pets[i].media.photos.photo[0].$t;
-      $scope.pet.description = pets[i].description.$t;
-      }
+    .then(function(pets) {
+      console.log(pets);
+      $scope.pets = pets;
     })
     .catch(function(error) {
       console.log("GET/POST error");
