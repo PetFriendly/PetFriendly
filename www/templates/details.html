@@ -1,17 +1,12 @@
 <ion-view view-title="Pet Friendly">
   <ion-content ng-model="pet" class="padding">
-
-    <div class="list card">
-      <div class="bar bar-header bar-stable">
-        <h1 class="title">{{pet.name}}, {{pet.age}}</h1>
-      </div> 
-
-      <div class="item item-image">
-        <img src="{{pet.photo1}}">
-      <div>
-
-      <ion-item class="item-text-wrap">
-          <p>{{pet.description}}</p>
+    <ion-list>
+      <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
+      <a href="#/tab/details">
+        <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
+        <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
+        <img ng-src="{{pet.media.photos.photo[2].$t}}">
+      </a>  
       </ion-item>
       
     </div>
