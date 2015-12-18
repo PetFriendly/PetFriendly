@@ -21,7 +21,13 @@ router.post('/register', function(req, res) {
     console.log('Received Register POST from CLIENT');
     User.register(new User({
       username : req.body.username,
-      zipcode: req.body.zipcode
+      zipcode: req.body.zipcode,
+      settings: {
+        animal: '',
+        size: '',
+        sex: '',
+        age: ''
+      }
     }), req.body.password, function(err, account) {
         if (err) {
           console.log('register ERROR....')
@@ -29,7 +35,7 @@ router.post('/register', function(req, res) {
         } 
         passport.authenticate('local')(req, res, function () {
           //res.json({'message': 'Success'});
-          res.end();
+          res.send({user: account});
         });
     });
 });
@@ -79,7 +85,7 @@ router.put('/settings/:id', function(req, res, next) {
         if (err) {
           return next(err);
         } else {
-          res.send();
+          res.send({user : user});
         }
       });
     }
