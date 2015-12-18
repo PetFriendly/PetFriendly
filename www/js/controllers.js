@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
   }
   // if ($rootScope.session) {
   //   var user = $rootScope.session.user;
-  // } 
+  // }
   console.log('SettingsCtrl..user', user);
   var initialized = false;
   var dirty = false;
@@ -28,12 +28,12 @@ angular.module('starter.controllers', [])
       return;
     }
     dirty = true;
-    // console.log('is dirty', newValue, oldValue);
+    console.log('is dirty', newValue, oldValue);
   }, true)
   $scope.$on('$destroy', function(){
     var settings = $scope.settings;
     $scope.alert = '';
-    // console.log('Settings dirty', dirty);
+    console.log('Settings dirty', dirty);
     if (!dirty) {
       return;
     }
@@ -67,17 +67,24 @@ angular.module('starter.controllers', [])
   }
   var options = {
     settings: {
-    //   animal: "",
-    //   size: "",
-    //   sex: "",
-    //   age: "",
-    //   zipcode: user.settings.zipcode || "97204"
+// <<<<<<< HEAD
+//       animal: "",
+//       sizes: "",
+//       sex: "",
+//       age: ""
+// =======
+//     //   animal: "",
+//     //   size: "",
+//     //   sex: "",
+//     //   age: "",
+//     //   zipcode: user.settings.zipcode || "97204"
+// >>>>>>> dev
     }
   };
 
   if (user) {
     options.settings.animal = user.settings.animal;
-    options.settings.size = user.settings.size;
+    options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
     options.settings.zipcode = user.settings.zipcode;
@@ -102,18 +109,25 @@ angular.module('starter.controllers', [])
   }
   var options = {
     settings: {
-      // animal: "",
-      // size: "",
-      // sex: "",
-      // age: "",
-      // zipcode: user.zipcode || "97204"
+// <<<<<<< HEAD
+//       animal: "",
+//       sizes: "",
+//       sex: "",
+//       age: ""
+// =======
+//       // animal: "",
+//       // size: "",
+//       // sex: "",
+//       // age: "",
+//       // zipcode: user.zipcode || "97204"
+// >>>>>>> dev
     }
   };
 
   if (user) {
     console.log(user);
     options.settings.animal = user.settings.animal;
-    options.settings.size = user.settings.size;
+    options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
     options.settings.zipcode = user.settings.zipcode;
@@ -175,7 +189,7 @@ angular.module('starter.controllers', [])
           // Registration successful
           $rootScope.session = {}
           $rootScope.session.user = data.user;
-          $state.go('tab.settings'); 
+          $state.go('tab.settings');
         }
       }).
       error(function() {

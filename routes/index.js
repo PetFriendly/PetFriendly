@@ -23,7 +23,7 @@ router.post('/register', function(req, res) {
       username : req.body.username,
       settings: {
         animal: '',
-        size: '',
+        sizes: '',
         sex: '',
         age: '',
         zipcode: req.body.zipcode || "97024"
@@ -32,7 +32,7 @@ router.post('/register', function(req, res) {
         if (err) {
           console.log('register ERROR....')
           return res.json({'alert':'Sorry. That username already exists. Try again.'});
-        } 
+        }
         passport.authenticate('local')(req, res, function () {
           //res.json({'message': 'Success'});
           res.send({user: account});
@@ -48,18 +48,18 @@ router.post('/register', function(req, res) {
 router.post('/login', function(req, res, next) {
   console.log('Received Login POST from CLIENT');
   passport.authenticate('local', function(err, user, info) {
-    if (err) { 
+    if (err) {
       console.log('ERROR received POST req');
       return next(err); }
     if (!user) {
       return res.json({'alert':'Sorry. That username or password are invalid. Try again.'});
     }
     req.logIn(user, function(err) {
-      if (err) { 
+      if (err) {
         return res.json({'alert':'Sorry. That username or password are invalid. Try again.'});
-      } 
+      }
       //return res.end();
-      return res.send({user : req.user}); 
+      return res.send({user : req.user});
     });
   })(req, res, next);
 });
@@ -69,7 +69,7 @@ router.put('/settings/:id', function(req, res, next) {
   if (!req.isAuthenticated()) {
     console.log('User is NOT logged in; cannot update Settings');
     return res.redirect('/#/login');
-  } 
+  }
   console.log('user id', req.params.id);
   console.log('settings', req.body.settings);
 
