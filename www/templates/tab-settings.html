@@ -1,29 +1,30 @@
 <ion-view view-title="Pet Friendly">
   <ion-content class="padding">
+  <form name="frm">
     <label class="item item-input item-select">
       <div class="input-label">I am looking for...(pet type)
       </div>
         <select class="dropdowns" ng-model="settings.animal">
           <option value="" selected>any</option>
-          <option>barnyard</option>
           <option>bird</option>
+          <option>barnyard</option>
           <option>cat</option>
           <option>dog</option>
           <option>horse</option>
           <option>pig</option>
           <option>reptile</option>
-          <option>small furry</option>
+          <option>smallfurry</option>
         </select>
     </label>
     <label class="item item-input item-select">
       <div class="input-label">My ideal pet is...(size)
       </div>
-        <select class="dropdowns" ng-model="settings.size">
+        <select class="dropdowns" ng-model="settings.sizes">
           <option value="" selected>any</option>
-          <option>small</option>
-          <option>medium</option>
-          <option>large</option>
-          <option>extra-large</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
         </select>
     </label>
     <label class="item item-input item-select">
@@ -45,11 +46,13 @@
           <option>Adult</option>
           <option>Senior</option>
         </select>
-    </label>    
-    <!--<a class="item" href="#/tab/match"> -->
-    </a>
+    </label> 
+    <label class="item item-input">
+      <input type="text" placeholder="zip code" ng-model="settings.zipcode">
+    </label>   
+  </form>
     <button class="button button-clear button-royal">
       Log Out
-    </button>  
+    </button>
   </ion-content>
 </ion-view>

@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('SettingsCtrl', function($scope, $rootScope, $http, $state) {
   console.log('Entering SettingsCtrl....');
 
-  $scope.settings = {};
+  // $scope.settings = {};
   $scope.alert = '';
   var user;
 
@@ -18,12 +18,25 @@ angular.module('starter.controllers', [])
   }
   // if ($rootScope.session) {
   //   var user = $rootScope.session.user;
-  // } 
+  // }
   console.log('SettingsCtrl..user', user);
-
-  $scope.saveSettings = function(settings){
+  var initialized = false;
+  var dirty = false;
+  $scope.$watch('settings', function(newValue, oldValue){
+    if (!initialized) {
+      initialized = true;
+      return;
+    }
+    dirty = true;
+    console.log('is dirty', newValue, oldValue);
+  }, true)
+  $scope.$on('$destroy', function(){
+    var settings = $scope.settings;
     $scope.alert = '';
-    console.log('Settings', settings);
+    console.log('Settings dirty', dirty);
+    if (!dirty) {
+      return;
+    }
     $http.put('/settings/' + user._id, {settings: settings}).
       success(function(data) {
         if (data.alert) {
@@ -32,10 +45,9 @@ angular.module('starter.controllers', [])
           // Login successful
           console.log('Save successful');
           console.log(data);
-          $rootScope.session = {}
-          $rootScope.session.user = data.user;
+          // $rootScope.session = {}
+          // $rootScope.session.user = data.user;
           //$state.go('tab.match', { reload: true });
-          $state.go('tab.match');
         }
       }).
       error(function(err) {
@@ -43,7 +55,7 @@ angular.module('starter.controllers', [])
         console.log(err);
       });
     console.log('Login pressed...');
-  }
+  })
 })
 
 .controller('DetailsCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
@@ -54,21 +66,28 @@ angular.module('starter.controllers', [])
     var user = $rootScope.session.user;
   }
   var options = {
-    zipcode: "97204",
     settings: {
-      animal: "",
-      size: "",
-      sex: "",
-      age: ""
+// <<<<<<< HEAD
+//       animal: "",
+//       sizes: "",
+//       sex: "",
+//       age: ""
+// =======
+//     //   animal: "",
+//     //   size: "",
+//     //   sex: "",
+//     //   age: "",
+//     //   zipcode: user.settings.zipcode || "97204"
+// >>>>>>> dev
     }
   };
 
   if (user) {
-    options.zipcode = user.zipcode || "97204";
     options.settings.animal = user.settings.animal;
-    options.settings.size = user.settings.size;
+    options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
+    options.settings.zipcode = user.settings.zipcode;
   }
 
   queryPetFinderAPIService.getPets(options)
@@ -89,21 +108,30 @@ angular.module('starter.controllers', [])
     var user = $rootScope.session.user;
   }
   var options = {
-    zipcode: "97204",
     settings: {
-      animal: "",
-      size: "",
-      sex: "",
-      age: ""
+// <<<<<<< HEAD
+//       animal: "",
+//       sizes: "",
+//       sex: "",
+//       age: ""
+// =======
+//       // animal: "",
+//       // size: "",
+//       // sex: "",
+//       // age: "",
+//       // zipcode: user.zipcode || "97204"
+// >>>>>>> dev
     }
   };
 
   if (user) {
-    options.zipcode = user.zipcode || "97204";
+    console.log(user);
     options.settings.animal = user.settings.animal;
-    options.settings.size = user.settings.size;
+    options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
+    options.settings.zipcode = user.settings.zipcode;
+    console.log(options);
   }
 
   queryPetFinderAPIService.getPets(options)
@@ -188,7 +216,7 @@ angular.module('starter.controllers', [])
           // Registration successful
           $rootScope.session = {}
           $rootScope.session.user = data.user;
-          $state.go('tab.settings'); 
+          $state.go('tab.settings');
         }
       }).
       error(function() {
