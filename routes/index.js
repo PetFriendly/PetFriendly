@@ -27,7 +27,8 @@ router.post('/register', function(req, res) {
         sex: '',
         age: '',
         zipcode: req.body.zipcode || "97024"
-      }
+      },
+      petFavs: []
     }), req.body.password, function(err, account) {
         if (err) {
           console.log('register ERROR....')
@@ -89,6 +90,32 @@ router.put('/settings/:id', function(req, res, next) {
         }
       });
     }
+  });
+
+});
+
+router.put('/favorites/:id', function(req, res, next) {
+  console.log('Received Favorites PUT from CLIENT');
+  if (!req.isAuthenticated()) {
+    console.log('User is NOT logged in; cannot update Settings');
+    return res.redirect('/#/login');
+  } 
+  console.log('user id', req.params.id);
+  console.log('petFav', req.body.petFav);
+
+  User.findById(req.params.id, function(err, user) {
+    if (err) {
+      return next(err);
+    } else {
+       user.petFavs.push(req.body.petFav);
+    }
+    user.save(function(err) {
+      if (err) {
+        return next(err);
+      } else {
+        res.send({user : user});
+      }
+    });
   });
 
 });

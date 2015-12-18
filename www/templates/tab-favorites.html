@@ -1,4 +1,4 @@
-<ion-view view-title="Pet Friendly">
+<!--<ion-view view-title="Pet Friendly">
   <ion-content ng-model="pet" class="padding">
     <a class="item item-avatar item-button-right" href="#">
       <img src="./img/cute-dog-2.jpg">
@@ -9,8 +9,26 @@
     </button>
     </a>
   </ion-content>
-</ion-view>
+</ion-view> -->
 
+<ion-view view-title="Pet Friendly">
+  <ion-content class="padding">{{selected}}-{{$index}}
+    <ion-list>
+      <ion-item ng-repeat="petFav in petFavs" ng:show="$parent.selected == $index"> 
+        <h2>-{{petFavs.length}}-{{petFav.name}}, {{petFav.age}}</h2>
+        <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
+        <img ng-src="{{petFav.photo1}}">
+      <button class="button button-royal" ng-click='$parent.selected = $parent.selected + 1'>
+        No
+      </button>
+      <button class="button button-royal">
+        Yes
+      </button>
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>
 
 
 

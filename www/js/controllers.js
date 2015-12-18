@@ -142,6 +142,33 @@ angular.module('starter.controllers', [])
     .catch(function(error) {
       console.log("GET/POST error");
     });
+
+    $scope.saveFavorite = function(pet, isFav) {
+      console.log('saveFavorite...');
+      var petFav = {
+        isFav: isFav,
+        name: pet.name.$t,
+        age: pet.age.$t
+      };
+      $http.put('/favorites/' + user._id, {petFav: petFav}).
+      success(function(data) {
+        if (data.alert) {
+          $scope.alert = data.alert;
+        } else {
+          // Login successful
+          console.log('Save successful');
+          console.log(data);
+          $rootScope.session.user = data.user;
+          //$state.go('tab.match', { reload: true });
+          //$state.go('tab.match');
+        }
+      }).
+      error(function(err) {
+        $scope.alert = 'Settings save failed'
+        console.log(err);
+      });
+
+    }
 })
 
 //AUTH PASSPORT
@@ -245,8 +272,17 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('FavoritesCtrl', function($scope) {
-  $scope.settings = {
-    // enableFriends: true
-  };
+.controller('FavoritesCtrl', function($scope, $rootScope, $state) {
+  console.log('Entering FavoritesCtrl....');
+
+  $scope.selected = 0;
+  $scope.petFav = {};
+
+  if ($rootScope.session && $rootScope.session.user) {
+    $scope.petFavs = $rootScope.session.user.petFavs;
+    console.log($scope.petFavs);
+  } else {
+    console.log('User session unavailable, route to login..');
+    $state.go('login');
+  }
 });
