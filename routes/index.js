@@ -21,12 +21,12 @@ router.post('/register', function(req, res) {
     console.log('Received Register POST from CLIENT');
     User.register(new User({
       username : req.body.username,
-      zipcode: req.body.zipcode,
       settings: {
         animal: '',
         size: '',
         sex: '',
-        age: ''
+        age: '',
+        zipcode: req.body.zipcode || "97024"
       }
     }), req.body.password, function(err, account) {
         if (err) {
