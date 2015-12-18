@@ -93,15 +93,17 @@ angular.module('starter.controllers', [])
       pets = response.data.petfinder.pets.pet;
 
       // loop through pets array, extract prop/val from each pet object
-      // ex: for ( var i=0; i < pets.length; i++ )
+      // for ( var i=0; i < pets.length; i++ )
       // in your loop, grab pets[i] - unless you need a hardcoded sub object
 
-      console.dir(pets);
-      $scope.pet.name = pets[0].name.$t;
-      $scope.pet.age = pets[0].age.$t;
-      $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
-      $scope.pet.description = pets[0].description.$t;
-
+      for ( var i=0; i < pets.length; i++ ) {
+      console.dir(i);
+      console.dir($scope.pet.name);
+      $scope.pet.name = pets[i].name.$t;
+      $scope.pet.age = pets[i].age.$t;
+      // $scope.pet.photo1 = pets[i].media.photos.photo[0].$t;
+      $scope.pet.description = pets[i].description.$t;
+      }
     })
     .catch(function(error) {
       console.log("GET/POST error");

@@ -1,16 +1,11 @@
 <ion-view view-title="Pet Friendly">
   <ion-content ng-model="pet" class="padding">
-    <a href="#/tab/details">
-      <div class="list card">
-        <div class="bar bar-header bar-stable">
-        <h1 class="title">{{pet.name}}, {{pet.age}}</h1>
-      </div>  
-
-        <div class="item item-image">
-          <img src="{{pet.photo1}}">
-        <div>
-      </div>
-    </a> 
+    <ion-list>
+      <ion-item>
+        <h2>{{pet.name}}, {{pet.age}}</h2>
+        <!-- <img src="{{pet.photo1}}"/> -->
+      </ion-item>
+    </ion-list>
     <button class="button button-royal">
       No
     </button>
@@ -38,3 +33,18 @@
   </ion-content>
 </ion-view>
  -->
+<!-- <ion-list>
+      <ion-item ng-repeat="pet in pets">
+        <a href="#/tab/details">
+          <div class="list card">
+            <div class="bar bar-header bar-stable">
+              <h1 class="title">{{pet.name}}, {{pet.age}}</h1>
+            </div>  
+
+            <div class="item item-image">
+              <img src="{{pet.photo1}}">
+            <div>
+          </div>
+        </a>
+      </ion-item>
+    </ion-list> --> 
