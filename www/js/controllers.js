@@ -2,22 +2,53 @@ angular.module('starter.controllers', [])
 
 .controller('SettingsCtrl', function($scope) {})
 
-.controller('DetailsCtrl', function($scope, $http, queryPetFinderAPIService) {
+.controller('DetailsCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
 
   $scope.pet = {};
-  console.log('Entering MatchCtrl....');
+  console.log('Entering DetailsCtrl....');
+  if ($rootScope.session) {
+    var user = $rootScope.session.user;
+  }
+  var options = {
+    zipcode: "97204",
+    settings: {
+      animal: "",
+      size: "",
+      sex: "",
+      age: ""
+    }
+  };
 
-  queryPetFinderAPIService.getPets()
+  if (user) {
+    options.zipcode = user.zipcode || "97204";
+    options.settings.animal = user.settings.animal;
+    options.settings.size = user.settings.size;
+    options.settings.sex = user.settings.sex;
+    options.settings.age = user.settings.age;
+  }
+
+  queryPetFinderAPIService.getPets(options)
     .then(function(response) {
       console.log("GET success");
       console.log(response);
+      //build stack of cards
+
+      // create empty pets array
       var pets = [];
+
+      // add pets objects to pets array
       pets = response.data.petfinder.pets.pet;
-      console.log(response.data.petfinder.pets.pet);
+
+      // loop through pets array, extract prop/val from each pet object
+      // ex: for ( var i=0; i < pets.length; i++ )
+      // in your loop, grab pets[i] - unless you need a hardcoded sub object
+
+      console.dir(pets);
       $scope.pet.name = pets[0].name.$t;
       $scope.pet.age = pets[0].age.$t;
       $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
       $scope.pet.description = pets[0].description.$t;
+
     })
     .catch(function(error) {
       console.log("GET/POST error");
@@ -55,13 +86,22 @@ angular.module('starter.controllers', [])
       console.log(response);
       //build stack of cards
 
+      // create empty pets array
       var pets = [];
+
+      // add pets objects to pets array
       pets = response.data.petfinder.pets.pet;
-      console.log(response.data.petfinder.pets.pet);
+
+      // loop through pets array, extract prop/val from each pet object
+      // ex: for ( var i=0; i < pets.length; i++ )
+      // in your loop, grab pets[i] - unless you need a hardcoded sub object
+
+      console.dir(pets);
       $scope.pet.name = pets[0].name.$t;
       $scope.pet.age = pets[0].age.$t;
       $scope.pet.photo1 = pets[0].media.photos.photo[2].$t;
       $scope.pet.description = pets[0].description.$t;
+
     })
     .catch(function(error) {
       console.log("GET/POST error");
