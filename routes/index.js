@@ -21,7 +21,13 @@ router.post('/register', function(req, res) {
     console.log('Received Register POST from CLIENT');
     User.register(new User({
       username : req.body.username,
-      zipcode: req.body.zipcode
+      zipcode: req.body.zipcode,
+      settings: {
+        animal: '',
+        size: '',
+        sex: '',
+        age: ''
+      }
     }), req.body.password, function(err, account) {
         if (err) {
           console.log('register ERROR....')
@@ -29,7 +35,7 @@ router.post('/register', function(req, res) {
         } 
         passport.authenticate('local')(req, res, function () {
           //res.json({'message': 'Success'});
-          res.end();
+          res.send({user: account});
         });
     });
 });
@@ -56,6 +62,35 @@ router.post('/login', function(req, res, next) {
       return res.send({user : req.user}); 
     });
   })(req, res, next);
+});
+
+router.put('/settings/:id', function(req, res, next) {
+  console.log('Received Settings PUT from CLIENT');
+  if (!req.isAuthenticated()) {
+    console.log('User is NOT logged in; cannot update Settings');
+    return res.redirect('/#/login');
+  } 
+  console.log('user id', req.params.id);
+  console.log('settings', req.body.settings);
+
+  User.findById(req.params.id, function(err, user) {
+    if (err) {
+      return next(err);
+    } else {
+      for (var prop in req.body.settings) {
+        user.settings[prop] = req.body.settings[prop];
+      }
+
+      user.save(function(err) {
+        if (err) {
+          return next(err);
+        } else {
+          res.send({user : user});
+        }
+      });
+    }
+  });
+
 });
 
 // router.get('/logout', function(req, res) {
