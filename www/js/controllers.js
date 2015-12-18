@@ -146,6 +146,8 @@ angular.module('starter.controllers', [])
 //   $scope.chat = Chats.get($stateParams.chatId);
 // })
 
+
+
 .controller('FavoritesCtrl', function($scope) {
   $scope.settings = {
     // enableFriends: true
