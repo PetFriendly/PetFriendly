@@ -6,7 +6,7 @@
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
         <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
         <img ng-src="{{pet.media.photos.photo[1].$t}}">
-        <div class="item item-text-wrap">{{pet.description.$t}}</div>
+        <div class="item item-text-wrap">{{pet.description.$t}} {{pet.contact.name.$t}} • {{pet.contact.city.$t}} • {{pet.contact.phone.$t}} • {{pet.contact.email.$t}}</div>
       </a>
       <button class="button button-royal" ng-click='selectNext()'>
         No
