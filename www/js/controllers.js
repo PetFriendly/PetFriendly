@@ -133,62 +133,62 @@ angular.module('starter.controllers', [])
         
       $scope.selectNext();
     }
-})
+});
 
-//AUTH PASSPORT
-.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
-  console.log('Entering LoginCtrl....');
+// //AUTH PASSPORT
+// .controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
+//   console.log('Entering LoginCtrl....');
 
-  $scope.user  = {
-    username: '',
-    password: ''
-  };
-  $scope.alert = '';
+//   $scope.user  = {
+//     username: '',
+//     password: ''
+//   };
+//   $scope.alert = '';
 
-  $scope.login = function(user){
-    $scope.alert = '';
-    console.log(user);
-    $http.post('/login', user).
-      success(function(data) {
-        if (data.alert) {
-          $scope.alert = data.alert;
-        } else {
-          // Login successful
-          console.log('Login successful');
-          console.log(data);
-          $rootScope.session = {}
-          $rootScope.session.user = data.user;
-          $state.go('tab.match');
-          console.log('exiting LoginCtrl')
-        }
-      }).
-      error(function(err) {
-        $scope.alert = 'Login failed'
-        console.log(err);
-      });
-    console.log('Login pressed...');
+//   $scope.login = function(user){
+//     $scope.alert = '';
+//     console.log(user);
+//     $http.post('/login', user).
+//       success(function(data) {
+//         if (data.alert) {
+//           $scope.alert = data.alert;
+//         } else {
+//           // Login successful
+//           console.log('Login successful');
+//           console.log(data);
+//           $rootScope.session = {}
+//           $rootScope.session.user = data.user;
+//           $state.go('tab.match');
+//           console.log('exiting LoginCtrl')
+//         }
+//       }).
+//       error(function(err) {
+//         $scope.alert = 'Login failed'
+//         console.log(err);
+//       });
+//     console.log('Login pressed...');
 
-  };
+//   };
 
-  $scope.register = function(user){
-    $scope.alert = '';
-    $http.post('/register', user).
-      success(function(data) {
-        if (data.alert) {
-          $scope.alert = data.alert;
-        } else {
-          // Registration successful
-          $rootScope.session = {}
-          $rootScope.session.user = data.user;
-          $state.go('tab.settings');
-        }
-      }).
-      error(function() {
-        $scope.alert = 'Registration failed'
-      });
-    console.log('Register pressed...');
+//   $scope.register = function(user){
+//     $scope.alert = '';
+//     $http.post('/register', user).
+//       success(function(data) {
+//         if (data.alert) {
+//           $scope.alert = data.alert;
+//         } else {
+//           // Registration successful
+//           $rootScope.session = {}
+//           $rootScope.session.user = data.user;
+//           $state.go('tab.settings');
+//         }
+//       }).
+//       error(function() {
+//         $scope.alert = 'Registration failed'
+//       });
+//     console.log('Register pressed...');
 
-  };
+//   };
 
     // $scope.userinfo = function() {
     //     $http.get('/auth/currentuser').
@@ -200,19 +200,19 @@ angular.module('starter.controllers', [])
     //         });
     // }
 
-  $scope.logout = function(){
-    // $http.get('/auth/logout')
-    //   .success(function() {
-    //     $scope.loggeduser = {};
-    //     $location.path('/signin');
+//   $scope.logout = function(){
+//     // $http.get('/auth/logout')
+//     //   .success(function() {
+//     //     $scope.loggeduser = {};
+//     //     $location.path('/signin');
 
-    //   })
-    //   .error(function() {
-    //     $scope.alert = 'Logout failed'
-    //   });
-    console.log('Logout pressed...');
-  };
-})
+//     //   })
+//     //   .error(function() {
+//     //     $scope.alert = 'Logout failed'
+//     //   });
+//     console.log('Logout pressed...');
+//   };
+// })
 
 // .controller('ChatsCtrl', function($scope, Chats) {
 //   // With the new view caching in Ionic, Controllers are only called
@@ -236,20 +236,20 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('FavoritesCtrl', function($scope, $rootScope, $state) {
-  console.log('Entering FavoritesCtrl....');
+// .controller('FavoritesCtrl', function($scope, $rootScope, $state) {
+//   console.log('Entering FavoritesCtrl....');
 
-  $scope.selected = 0;
-  $scope.petFav = {};
-  $scope.selectNext = function (){
-    $scope.selected = $scope.selected + 1
-  };
+//   $scope.selected = 0;
+//   $scope.petFav = {};
+//   $scope.selectNext = function (){
+//     $scope.selected = $scope.selected + 1
+//   };
 
-  if ($rootScope.session && $rootScope.session.user) {
-    $scope.petFavs = $rootScope.session.user.petFavs;
-    console.log($scope.petFavs);
-  } else {
-    console.log('User session unavailable, route to login..');
-    $state.go('login');
-  }
-});
+//   if ($rootScope.session && $rootScope.session.user) {
+//     $scope.petFavs = $rootScope.session.user.petFavs;
+//     console.log($scope.petFavs);
+//   } else {
+//     console.log('User session unavailable, route to login..');
+//     $state.go('login');
+//   }
+// });
