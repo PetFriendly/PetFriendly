@@ -62,14 +62,14 @@ angular.module('starter.controllers', [])
 .controller('MatchCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
   $scope.selected = 0;
   $scope.pet = {};
+  var options = {
+    settings: {}
+  };
+
   console.log('Entering MatchCtrl....');
   if ($rootScope.session) {
     var user = $rootScope.session.user;
   }
-  var options = {
-    settings: {
-    }
-  };
 
   if (user) {
     console.log(user);
@@ -79,6 +79,17 @@ angular.module('starter.controllers', [])
     options.settings.age = user.settings.age;
     options.settings.zipcode = user.settings.zipcode;
     console.log(options);
+  } else {
+    //Initialize all setting to black srings
+    var options = {
+      settings: {
+        animal: '',
+        sizes: '',
+        sex: '',
+        age: '',
+        zipcode: "97024"
+      }
+    }
   }
 
   queryPetFinderAPIService.getPets(options)
@@ -91,10 +102,18 @@ angular.module('starter.controllers', [])
     });
 
     $scope.saveFavorite = function(pet, isFav) {
-      console.log('saveFavorite...');
+      
       $scope.selectNext = function (){
         $scope.selected = $scope.selected + 1
       };
+
+      //No user logged in so don't attempt to save
+      if (!user) { 
+        $scope.selectNext();
+        return;
+      }
+
+      console.log('saving Favorite...');
       var petFav = {
         isFav: isFav,
         name: pet.name.$t,
