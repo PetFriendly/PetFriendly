@@ -5,9 +5,9 @@
       <a href="#">
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
         <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
-        <img ng-src="{{pet.media.photos.photo[2].$t}}">
+        <img ng-src="{{pet.media.photos.photo[1].$t}}">
         <div class="item item-text-wrap">{{pet.description.$t}}</div>
-      </a>  
+      </a>
       <button class="button button-royal" ng-click='$parent.selected = $parent.selected + 1'>
         No
       </button>
@@ -16,7 +16,7 @@
       </button>
       </ion-item>
     </ion-list>
-    
+
   </ion-content>
 </ion-view>
 
@@ -26,7 +26,7 @@
           <div class="card">
             <div class="bar bar-header bar-stable">
               <h1 class="title">{{pet.name.$t}}, {{pet.age.$t}}</h1>
-            </div>  
+            </div>
 
             <div class="item item-image">
               <img src="{{pet.photo1}}">
