@@ -1,33 +1,33 @@
 "use strict";
 
 function mapPetAPIParmsToFavs(pet, isFav) {
-  var petFav = {}; 
-  petFav.contact = {};
-  petFav.options = {};
+  var favorite = {}; 
+  favorite.contact = {};
+  favorite.options = {};
 
-  petFav.isFav = isFav;
-  petFav.name = pet.name.$t;
-  petFav.age = pet.age.$t;
-  petFav.pfId = pet.id.$t;
-  petFav.description = pet.description.$t;
-  petFav.age = pet.age.$t; //Not sure if string or number
-  petFav.gender = pet.sex.$t;
-  petFav.siz = pet.size.$t;
-  petFav.animal = pet.animal.$t;
-  petFav.contact.email = pet.contact.email.$t;
-  petFav.contact.phone = pet.contact.phone.$t;
-  petFav.contact.address1 = pet.contact.address1.$t;
-  petFav.contact.address2 = pet.contact.address2.$t;
-  petFav.contact.city = pet.contact.city.$t;
-  petFav.contact.state = pet.contact.state.$t;
-  petFav.contact.zip = pet.contact.zip.$t;
-  petFav.url = ''; //NOT sure what this is
-  petFav.shelterId = pet.shelterId.$t;
-  petFav.photo1 = pet.media.photos.photo[0].$t;
-  petFav.photo2 = pet.media.photos.photo[1].$t;
-  petFav.photo3 = pet.media.photos.photo[2].$t;
+  favorite.isFav = isFav;
+  favorite.name = pet.name.$t;
+  favorite.age = pet.age.$t;
+  favorite.pfId = pet.id.$t;
+  favorite.description = pet.description.$t;
+  favorite.age = pet.age.$t; //Not sure if string or number
+  favorite.gender = pet.sex.$t;
+  favorite.siz = pet.size.$t;
+  favorite.animal = pet.animal.$t;
+  favorite.contact.email = pet.contact.email.$t;
+  favorite.contact.phone = pet.contact.phone.$t;
+  favorite.contact.address1 = pet.contact.address1.$t;
+  favorite.contact.address2 = pet.contact.address2.$t;
+  favorite.contact.city = pet.contact.city.$t;
+  favorite.contact.state = pet.contact.state.$t;
+  favorite.contact.zip = pet.contact.zip.$t;
+  favorite.url = ''; //NOT sure what this is
+  favorite.shelterId = pet.shelterId.$t;
+  favorite.photo1 = pet.media.photos.photo[0].$t;
+  favorite.photo2 = pet.media.photos.photo[1].$t;
+  favorite.photo3 = pet.media.photos.photo[2].$t;
 
-  return petFav;
+  return favorite;
 }
 
 angular.module('starter')
