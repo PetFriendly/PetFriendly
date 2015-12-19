@@ -14,11 +14,11 @@
 <ion-view view-title="Pet Friendly">
   <ion-content class="padding">{{selected}}-{{$index}}
     <ion-list>
-      <ion-item ng-repeat="petFav in petFavs" ng:show="$parent.selected == $index"> 
+      <ion-item ng-repeat="petFav in petFavs" ng:show="$parent.selected == $index">
         <h2>-{{petFavs.length}}-{{petFav.name}}, {{petFav.age}}</h2>
         <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
         <img ng-src="{{petFav.photo1}}">
-      <button class="button button-royal" ng-click='$parent.selected = $parent.selected + 1'>
+      <button class="button button-royal" ng-click='selectNext()'>
         No
       </button>
       <button class="button button-royal">
@@ -26,7 +26,7 @@
       </button>
       </ion-item>
     </ion-list>
-    
+
   </ion-content>
 </ion-view>
 

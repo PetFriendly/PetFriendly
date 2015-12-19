@@ -8,7 +8,7 @@
         <img ng-src="{{pet.media.photos.photo[1].$t}}">
         <div class="item item-text-wrap">{{pet.description.$t}}</div>
       </a>
-      <button class="button button-royal" ng-click='$parent.selected = $parent.selected + 1'>
+      <button class="button button-royal" ng-click='selectNext()'>
         No
       </button>
       <button class="button button-royal" ng-click="saveFavorite(pet, true)">

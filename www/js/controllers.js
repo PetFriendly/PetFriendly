@@ -80,7 +80,9 @@ angular.module('starter.controllers', [])
     options.settings.zipcode = user.settings.zipcode;
     console.log(options);
   }
-
+  $scope.selectNext = function (){
+    $scope.selected = $scope.selected + 1
+  };
   queryPetFinderAPIService.getPets(options)
     .then(function(pets) {
       console.log(pets);
@@ -224,6 +226,9 @@ angular.module('starter.controllers', [])
 
   $scope.selected = 0;
   $scope.petFav = {};
+  $scope.selectNext = function (){
+    $scope.selected = $scope.selected + 1
+  };
 
   if ($rootScope.session && $rootScope.session.user) {
     $scope.petFavs = $rootScope.session.user.petFavs;
