@@ -58,47 +58,6 @@ angular.module('starter.controllers', [])
   })
 })
 
-.controller('DetailsCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
-  $scope.selected = 0;
-  $scope.pet = {};
-  console.log('Entering MatchCtrl....');
-  if ($rootScope.session) {
-    var user = $rootScope.session.user;
-  }
-  var options = {
-    settings: {
-// <<<<<<< HEAD
-//       animal: "",
-//       sizes: "",
-//       sex: "",
-//       age: ""
-// =======
-//     //   animal: "",
-//     //   size: "",
-//     //   sex: "",
-//     //   age: "",
-//     //   zipcode: user.settings.zipcode || "97204"
-// >>>>>>> dev
-    }
-  };
-
-  if (user) {
-    options.settings.animal = user.settings.animal;
-    options.settings.sizes = user.settings.sizes;
-    options.settings.sex = user.settings.sex;
-    options.settings.age = user.settings.age;
-    options.settings.zipcode = user.settings.zipcode;
-  }
-
-  queryPetFinderAPIService.getPets(options)
-    .then(function(pets) {
-      console.log(pets);
-      $scope.pets = pets;
-    })
-    .catch(function(error) {
-      console.log("GET/POST error");
-    });
-})
 
 .controller('MatchCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
   $scope.selected = 0;
@@ -109,18 +68,6 @@ angular.module('starter.controllers', [])
   }
   var options = {
     settings: {
-// <<<<<<< HEAD
-//       animal: "",
-//       sizes: "",
-//       sex: "",
-//       age: ""
-// =======
-//       // animal: "",
-//       // size: "",
-//       // sex: "",
-//       // age: "",
-//       // zipcode: user.zipcode || "97204"
-// >>>>>>> dev
     }
   };
 
