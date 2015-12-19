@@ -80,7 +80,7 @@ angular.module('starter.controllers', [])
     options.settings.zipcode = user.settings.zipcode;
     console.log(options);
   } else {
-    //Initialize all setting to black srings
+    //Initialize all setting to blank srings
     var options = {
       settings: {
         animal: '',
