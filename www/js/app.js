@@ -47,7 +47,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/settings',
     views: {
       'tab-settings': {
-        templateUrl: 'templates/tab-settings.html',
+        templateUrl: 'settings/tab-settings.html',
         controller: 'SettingsCtrl'
       }
     }
@@ -57,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/match',
       views: {
         'tab-match': {
-          templateUrl: 'templates/tab-match.html',
+          templateUrl: 'match/tab-match.html',
           controller: 'MatchCtrl'
         }
       }
@@ -76,7 +76,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/favorites',
     views: {
       'tab-favorites': {
-        templateUrl: 'templates/tab-favorites.html',
+        templateUrl: 'favorites/tab-favorites.html',
         controller: 'FavoritesCtrl'
       }
     }
@@ -85,12 +85,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // PASSPORT AUTH
   .state('login', {
     url: '/login',
-    templateUrl: 'templates/login.html',
+    templateUrl: 'auth/login.html',
     controller: 'LoginCtrl'
   })
   .state('register', {
     url: '/register',
-    templateUrl: 'templates/register.html',
+    templateUrl: 'auth/register.html',
     controller: 'LoginCtrl'
   })
   .state('logout', {

@@ -19,10 +19,10 @@ var User = new Schema({
     description: String,
     age: String, //Not sure if string or number
     gender: String,
-    size: String,
+    siz: String,
     animal: String,
     contact: {
-      name: String,
+      //name: String, //not in API
       email: String,
       phone: String,
       address1: String,
@@ -32,6 +32,7 @@ var User = new Schema({
       zip: String,
     },
     url: String,
+    shelterId: String,
     photo1: String,
     photo2: String,
     photo3: String,
