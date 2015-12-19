@@ -80,9 +80,7 @@ angular.module('starter.controllers', [])
     options.settings.zipcode = user.settings.zipcode;
     console.log(options);
   }
-  $scope.selectNext = function (){
-    $scope.selected = $scope.selected + 1
-  };
+
   queryPetFinderAPIService.getPets(options)
     .then(function(pets) {
       console.log(pets);
@@ -94,13 +92,16 @@ angular.module('starter.controllers', [])
 
     $scope.saveFavorite = function(pet, isFav) {
       console.log('saveFavorite...');
+      $scope.selectNext = function (){
+        $scope.selected = $scope.selected + 1
+      };
       var petFav = {
         isFav: isFav,
         name: pet.name.$t,
         age: pet.age.$t
       };
-      $http.put('/favorites/' + user._id, {petFav: petFav}).
-      success(function(data) {
+      $http.put('/favorites/' + user._id, {petFav: petFav})
+      .success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
         } else {
@@ -111,12 +112,12 @@ angular.module('starter.controllers', [])
           //$state.go('tab.match', { reload: true });
           //$state.go('tab.match');
         }
-      }).
-      error(function(err) {
+      })
+      .error(function(err) {
         $scope.alert = 'Settings save failed'
         console.log(err);
       });
-
+      $scope.selectNext();
     }
 })
 
