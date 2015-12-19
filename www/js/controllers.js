@@ -186,18 +186,18 @@ angular.module('starter.controllers', [])
     //         });
     // }
 
-  $scope.logout = function(){
-    // $http.get('/auth/logout')
-    //   .success(function() {
-    //     $scope.loggeduser = {};
-    //     $location.path('/signin');
+  // $scope.logout = function(){
+  //   // $http.get('/auth/logout')
+  //   //   .success(function() {
+  //   //     $scope.loggeduser = {};
+  //   //     $location.path('/signin');
 
-    //   })
-    //   .error(function() {
-    //     $scope.alert = 'Logout failed'
-    //   });
-    console.log('Logout pressed...');
-  };
+  //   //   })
+  //   //   .error(function() {
+  //   //     $scope.alert = 'Logout failed'
+  //   //   });
+  //   console.log('Logout pressed...');
+  // };
 })
 
 // .controller('ChatsCtrl', function($scope, Chats) {

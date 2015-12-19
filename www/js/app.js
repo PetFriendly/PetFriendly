@@ -92,6 +92,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/register',
     templateUrl: 'templates/register.html',
     controller: 'LoginCtrl'
+  })
+  .state('logout', {
+    url: '/logout',
+    controller: 'LogoutCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
