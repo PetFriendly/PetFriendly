@@ -59,7 +59,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('MatchCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService) {
+.controller('MatchCtrl', function($scope, $rootScope, $http, queryPetFinderAPIService, favoritesService) {
   $scope.selected = 0;
   $scope.pet = {};
   var options = {
@@ -113,29 +113,24 @@ angular.module('starter.controllers', [])
         return;
       }
 
-      console.log('saving Favorite...');
-      var petFav = {
-        isFav: isFav,
-        name: pet.name.$t,
-        age: pet.age.$t
-      };
-      $http.put('/favorites/' + user._id, {petFav: petFav})
-      .success(function(data) {
-        if (data.alert) {
-          $scope.alert = data.alert;
-        } else {
-          // Login successful
-          console.log('Save successful');
-          console.log(data);
-          $rootScope.session.user = data.user;
-          //$state.go('tab.match', { reload: true });
-          //$state.go('tab.match');
-        }
-      })
-      .error(function(err) {
-        $scope.alert = 'Settings save failed'
-        console.log(err);
-      });
+      favoritesService.savFavs(user._id, pet, isFav)  
+        .success(function(data) {
+          if (data.alert) {
+            $scope.alert = data.alert;
+          } else {
+            // Login successful
+            console.log('Save successful');
+            console.log(data);
+            $rootScope.session.user = data.user;
+            //$state.go('tab.match', { reload: true });
+            //$state.go('tab.match');
+          }
+        })
+        .error(function(err) {
+          $scope.alert = 'Settings save failed'
+          console.log(err);
+        });
+        
       $scope.selectNext();
     }
 })
