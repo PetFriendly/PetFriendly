@@ -15,7 +15,6 @@ function queryPetFinderAPIService($http, API_ROUTE) {
         '&size=' + options.settings.sizes +
         '&sex=' + options.settings.sex +
         '&age=' + options.settings.age
-        //'&distance=' + currentUser.settings.distance
       ).then( function(response){
         console.log(response);
         return response.data.petfinder.pets.pet;
