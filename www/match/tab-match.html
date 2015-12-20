@@ -3,8 +3,15 @@
     <ion-list>
       <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
-        <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
-        <img ng-src="{{pet.media.photos.photo[1].$t}}" ng-click="description = ! description">
+          <div class="list-card">
+            <div class="item item-image" ng-click="nextSlide()">
+            <img ng-src="{{pet.media.photos.photo[2].$t}}">
+            </div>
+          </div>
+
+        <button class="button button-clear button-royal" ng-click="description = ! description">
+        Show Description
+      </button>
         <div ng:show="description" class="item item-text-wrap">{{pet.description.$t}} <br>
         <em>Contact Info</em> <br>
         {{pet.contact.name.$t}} <br>
