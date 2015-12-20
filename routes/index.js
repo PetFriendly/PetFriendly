@@ -94,8 +94,8 @@ router.put('/settings/:id', function(req, res, next) {
 
 });
 
-router.put('/favorites/:id', function(req, res, next) {
-  console.log('Received Favorites PUT from CLIENT');
+router.put('/favorite/add/:id', function(req, res, next) {
+  console.log('Received ADD Favorite PUT from CLIENT');
   if (!req.isAuthenticated()) {
     console.log('User is NOT logged in; cannot update Settings');
     return res.redirect('/#/login');
@@ -119,6 +119,39 @@ router.put('/favorites/:id', function(req, res, next) {
   });
 
 });
+
+router.put('/favorite/update/:id', function(req, res, next) {
+  var petFav = req.body.petFav;
+
+  console.log('Received UPDATE Favorite PUT from CLIENT');
+  if (!req.isAuthenticated()) {
+    console.log('User is NOT logged in; cannot update Settings');
+    return res.redirect('/#/login');
+  } 
+  console.log('user id', req.params.id);
+  console.log('petFav', petFav);
+
+  User.findById(req.params.id, function(err, user) {
+    if (err) {
+      return next(err);
+    } else {
+      user.petFavs.forEach( function(ele, index) {
+        if (ele.pfId === petFav.pfId) {
+          user.petFavs[index].isFav = petFav.isFav; 
+        }
+      });
+    }
+    user.save(function(err) {
+      if (err) {
+        return next(err);
+      } else {
+        res.send({user : user});
+      }
+    });
+  });
+
+});
+
 
 // router.get('/logout', function(req, res) {
 //   req.logout();

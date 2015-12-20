@@ -9,6 +9,11 @@ angular.module('starter')
 function queryPetFinderAPIService($http, API_ROUTE) {
   return {
     getPets: function(options) {
+      console.log('?location=' + options.settings.zipcode +
+        '&animal=' + options.settings.animal +
+        '&size=' + options.settings.sizes +
+        '&sex=' + options.settings.sex +
+        '&age=' + options.settings.age);
       return $http.get(API_ROUTE +
         '?location=' + options.settings.zipcode +
         '&animal=' + options.settings.animal +
