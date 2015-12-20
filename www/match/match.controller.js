@@ -12,7 +12,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
   }
 
   if (user) {
-    console.log(user);
+    //console.log(user);
     options.settings.animal = user.settings.animal;
     options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
@@ -34,26 +34,43 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
 
   queryPetFinderAPIService.getPets(options)
     .then(function(pets) {
-      console.log(pets);
-      $scope.pets = pets;
+      if (user) {
+        //console.log(user);
+        //filter the below search to only show pets that do not already exist in DB
+        var dbIds = [];
+        user.petFavs.forEach(function(el){
+          dbIds.push(el.pfId)
+        })
+        //console.log($scope.dbIds)
+        $scope.pets = pets.filter(function(element){
+          return dbIds.indexOf(element.id.$t) == -1;
+        })
+        console.log("filtered results from petfinder:");
+        console.log($scope.pets);
+      } else {
+        console.log("unfiltered query results from petfinder:");
+        console.log(pets);
+        $scope.pets = pets;
+      };
+
     })
     .catch(function(error) {
       console.log("GET/POST error");
     });
 
     $scope.saveFavorite = function(pet, isFav) {
-      
+
       $scope.selectNext = function (){
         $scope.selected = $scope.selected + 1
       };
 
       //No user logged in so don't attempt to save
-      if (!user) { 
+      if (!user) {
         $scope.selectNext();
         return;
       }
 
-      favoritesService.savFavs(user._id, pet, isFav)  
+      favoritesService.savFavs(user._id, pet, isFav)
         .success(function(data) {
           if (data.alert) {
             $scope.alert = data.alert;
@@ -70,7 +87,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
           $scope.alert = 'Settings save failed'
           console.log(err);
         });
-        
+
       $scope.selectNext();
     }
 }
