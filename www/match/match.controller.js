@@ -70,7 +70,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
         return;
       }
 
-      favoritesService.savFavs(user._id, pet, isFav)
+      favoritesService.savFav(user._id, pet, isFav)
         .success(function(data) {
           if (data.alert) {
             $scope.alert = data.alert;
