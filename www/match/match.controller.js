@@ -90,6 +90,12 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
 
       $scope.selectNext();
     }
+
+
+  $scope.nextSlide = function() {
+    $ionicSlideBoxDelegate.next();
+  }
+ 
 }
 
 angular.module('starter.controllers')
