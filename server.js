@@ -10,7 +10,7 @@ var User = require('./models/User');
 var passport = require('passport');
 var app = express();
 var router = express.Router();
-var dbURI = require('./config').dbURI;
+// var dbURI = require('./config').dbURI;
 var port = process.env.PORT || 3000;
 
 var requestProxy = require('express-request-proxy');

@@ -1,29 +1,27 @@
-<!--<ion-view view-title="Pet Friendly">
+<ion-view view-title="Pet Friendly">
   <ion-content ng-model="pet" class="padding">
-    <a class="item item-avatar item-button-right" href="#">
-      <img src="./img/cute-dog-2.jpg">
-      <h2>Jeffrey</h2>
-      <p>2 mo</p>
-    <button class="button button-royal">
-      <i class="icon ion-trash-a"></i>
+    <ion-list>
+      <a class="item item-avatar item-button-right" ng-repeat="petFav in petFavs" href="#">
+      <img ng-src="{{petFav.photo1}}">
+      <h2>{{petFav.name}}, {{petFav.age}}</h2>
+      <button class="button button-royal" ng-click="saveFavorite(pet, false)">
+        <i class="icon ion-trash-a"></i>
     </button>
     </a>
-  </ion-content>
-</ion-view> -->
-
-<ion-view view-title="Pet Friendly">
-  <ion-content class="padding">{{selected}}-{{$index}}
     <ion-list>
-      <ion-item ng-repeat="petFav in petFavs" ng:show="$parent.selected == $index">
-        <h2>-{{petFavs.length}}-{{petFav.name}}, {{petFav.age}}</h2>
-        <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
+  </ion-content>
+</ion-view> 
+
+<!-- <ion-view view-title="Pet Friendly">
+  <ion-content class="padding">
+    <ion-list>
+      <ion-item item-avatar item-button-right ng-repeat="petFav in petFavs">
         <img ng-src="{{petFav.photo1}}">
-      <button class="button button-royal" ng-click='selectNext()'>
-        No
-      </button>
-      <button class="button button-royal">
-        Yes
-      </button>
+        <h2>{{petFav.name}}, {{petFav.age}}</h2>
+        <img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>
+        <button class="button button-royal" ng-click="saveFavorite(pet, false)">
+          <i class="icon ion-trash-a"></i>
+        </button>
       </ion-item>
     </ion-list>
 
@@ -31,10 +29,9 @@
 </ion-view>
 
 
-
+ -->
 
  <!--   <div class="list">
-
   <a class="item item- avatar item-button-right" href="#">
     <img src="./img/cute-dog-2.jpg">
     <h2>Jeffrey</h2>
@@ -42,5 +39,4 @@
       <i class="icon ion-trash-a"></i>
     </button>
   </a>
-
 </div> -->
