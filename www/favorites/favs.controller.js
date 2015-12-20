@@ -3,6 +3,7 @@ function FavoritesCtrl($scope, $rootScope, $state) {
 
   $scope.selected = 0;
   $scope.petFav = {};
+  $scope.pet = {};
   $scope.selectNext = function (){
     $scope.selected = $scope.selected + 1
   };

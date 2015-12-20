@@ -8524,8 +8524,8 @@ progress {
   position: relative;
   display: inline-block;
   margin: 0;
-  padding: 0 12px;
-  min-width: 52px;
+  padding: 0 50px;
+  min-width: 166px;
   min-height: 47px;
   border-width: 1px;
   border-style: solid;
