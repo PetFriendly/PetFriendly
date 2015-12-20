@@ -41,11 +41,17 @@ angular.module('starter')
 
 function favoritesService($http) {
   return {
-    savFavs: function(id, pet, isFav) {
+    savFav: function(id, pet, isFav) {
       var petFav = mapPetAPIParmsToFavs(pet, isFav); 
-      console.log(petFav);
+      console.log('petFav in savFav:', petFav);
 
-      return $http.put('/favorites/' + id, {petFav: petFav}); 
+      return $http.put('/favorite/add/' + id, {petFav: petFav}); 
+    },
+    deleteFav: function(id, petFav) {
+      petFav.isFav = false; 
+      console.log('petFav in deleteFav:', petFav);
+
+      return $http.put('/favorite/update/' + id, {petFav: petFav}); 
     }
   };
 }
