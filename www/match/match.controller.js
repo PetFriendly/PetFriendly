@@ -38,7 +38,15 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
   queryPetFinderAPIService.getPets(options)
     .then(function(pets) {
       if (user) {
-        //console.log(user);
+        // If sends back same # records as requested,
+        // API reload is required
+        // length is num and apiRecordCount is string so use ==
+        if (pets.length == $rootScope.session.apiRecordCount) {
+          $scope.petsRemaining.apiReload = true;
+        }
+        console.log('pets.length = ', pets.length);
+        console.log('$rootScope.session.apiRecordCount = ', $rootScope.session.apiRecordCount);
+        console.log('$scope.petsRemaining.apiReload = ', $scope.petsRemaining.apiReload);
         //filter the below search to only show pets that do not already exist in DB
         var dbIds = [];
         user.petFavs.forEach(function(el){
@@ -48,16 +56,16 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
         $scope.pets = pets.filter(function(element){
           return dbIds.indexOf(element.id.$t) == -1;
         })
-        $scope.petsRemaining = $scope.pets.length;
+        $scope.petsRemaining.count = $scope.pets.length;
         console.log($scope.pets);
-        console.log('petsRemaining = ', $scope.petsRemaining);
+        console.log('petsRemaining = ', $scope.petsRemaining.count);
         console.log("filtered results from petfinder:");
       } else {
         console.log("unfiltered query results from petfinder:");
         console.log(pets);
         $scope.pets = pets;
-        $scope.petsRemaining = $scope.pets.length;
-        console.log('petsRemaining = ', $scope.petsRemaining);
+        $scope.petsRemaining.count = $scope.pets.length;
+        console.log('petsRemaining = ', $scope.petsRemaining.count);
       };
 
     })
@@ -69,8 +77,8 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
 
     $scope.selectNext = function (){
       $scope.selected = $scope.selected + 1
-      $scope.petsRemaining--;
-      console.log('petsRemaining = ', $scope.petsRemaining);
+      $scope.petsRemaining.count--;
+      console.log('petsRemaining = ', $scope.petsRemaining.count);
     };
 
     //No user logged in so don't attempt to save
@@ -100,6 +108,12 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     $scope.selectNext();
     console.log('pets.length =', $scope.pets.length);
   }
+
+  $scope.$watch('petsRemaining.count', function(newValue, oldValue){
+    if ($scope.petsRemaining.count === 0 && $scope.petsRemaining.apiReload === true) {
+      console.log('Ready to call API again!!!!');
+    }
+  }, true);
 }
 
 angular.module('starter.controllers')
