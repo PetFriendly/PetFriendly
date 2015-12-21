@@ -1,23 +1,13 @@
-<ion-view view-title="Pet Friendly">
-  <ion-content ng-model="pet" class="padding">
-    <ion-list>
-      <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
+<ion-view view-title="<img class='title-image' src='./img/PetBar.jpg'>" hide-back-button="true" class="padding">
+  <ion-content>
+    <ion-list class="swipe">
+      <ion-item can swipe="true" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)" ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
-        <div class="list-card" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()">
-          <!-- <ion-slide-box on-slide-change="slideHasChanged($index)">
-            <ion-slide>
-              <div class="item item-image" ng-click="nextSlide()"> -->
-                <img ng-src="{{pet.media.photos.photo[2].$t}}">
-             <!--  </div>
-            </ion-slide>
-            <ion-slide>
-              <div class="item item-image" ng-click="nextSlide()">
-                <img ng-src="{{pet.media.photos.photo[2].$t}}">
-              </div>
-            </ion-slide>
-          </ion-slide-box> -->
-         
+        <div class="list-card">
+          <div class="item item-image" ng-click="next" ng-repeat="pic in pet.media.photos.photo">
+            <img ng-src="{{pic.$t}}">
           </div>
+        </div>  
           <button class="button button-clear button-royal" ng-click="description = ! description">
           Show Description
           </button>
@@ -40,7 +30,6 @@
               </button>
             </div>
           </div>
-        </div>
       </ion-item>
     </ion-list>
   </ion-content>

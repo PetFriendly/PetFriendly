@@ -1,12 +1,12 @@
-<ion-view view-title="Pet Friendly">
-  <ion-content ng-model="pet" class="padding">
+<ion-view view-title="<img class='title-image' src='./img/PetBar.jpg'>" hide-back-button="true" class="padding">
+  <ion-content>
     <ion-list>
       <a class="item item-avatar item-button-right" ng-repeat="petFav in petFavs" ng-click="description = ! description" ng-hide="petFav.isFav == false" href="#">
         <img ng-src="{{petFav.photo1}}">
         <h2>{{petFav.name}}</h2>
         <p>{{petFav.age}}</p>
         <div ng:show="description" class="item item-text-wrap">{{petFav.description}} {{petFav.contact.name}} • {{petFav.contact.phone}} • {{petFav.contact.email}}</div>
-        <button class="button button-royal"  ng-click="deleteFavorite(petFav)">
+        <button class="list-delete button button-royal"  ng-click="deleteFavorite(petFav)">
           <i class="icon ion-trash-a"></i>
         </button>
       </a>
