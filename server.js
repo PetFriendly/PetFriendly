@@ -11,6 +11,7 @@ var passport = require('passport');
 var app = express();
 var router = express.Router();
 // var dbURI = require('./config').dbURI;
+var apiRecordCount = require('./config').apiRecordCount; 
 var port = process.env.PORT || 3000;
 
 var requestProxy = require('express-request-proxy');
@@ -21,7 +22,7 @@ app.get('/pfapi/pets', requestProxy({
       key: 'f7940f8a4ac510a56c2b8bebbd6df0ce',
       format: 'json',
       output: 'full',
-      count: "200"
+      count: apiRecordCount
     }
 }));
 

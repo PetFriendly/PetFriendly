@@ -20,6 +20,7 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
           console.log(data);
           $rootScope.session = {}
           $rootScope.session.user = data.user;
+          $rootScope.session.apiRecordCount = data.apiRecordCount;
           $state.go('tab.match');
           console.log('exiting LoginCtrl')
         }
