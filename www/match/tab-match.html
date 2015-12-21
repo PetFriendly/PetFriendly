@@ -1,4 +1,4 @@
-<ion-view view-title="<img class='title-image' src='./img/PetBar.jpg'>" hide-back-button="true" class="padding">
+<ion-view view-title="<img class='title-image-pic' src='./img/PetBar.jpg'>" hide-back-button="true" class="padding">
   <ion-content>
     <ion-list class="swipe">
       <ion-item can swipe="true" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)" ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
@@ -35,7 +35,7 @@
   </ion-content>
   <br><br>
   <div class="item item-text-wrap col text-center">
-    <h1>{{alert}}</h1>
+    <h1 class="alert-style">{{alert}}</h1>
   </div>
 </ion-view>
 
