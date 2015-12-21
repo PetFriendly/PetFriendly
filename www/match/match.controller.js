@@ -2,6 +2,10 @@ function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIServ
 
   queryPetFinderAPIService.getPets(options)
     .then(function(data) {
+      if (!data.pets) {
+        $scope.alert = "You've run out of pets! Try changing your settings."
+        return;
+      }
       if (user) {
         $scope.selected = 0; //reset after successful API call
         // If sends back same # records as requested,
@@ -9,6 +13,8 @@ function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIServ
         // length is num and apiRecordCount is string so use ==
         if (data.pets.length == $rootScope.session.apiRecordCount) {
           $scope.petsRemaining.apiReload = true;
+        } else {
+           $scope.petsRemaining.apiReload = false;
         }
         console.log('pets.length = ', data.pets.length);
         console.log('$rootScope.session.apiRecordCount = ', $rootScope.session.apiRecordCount);
@@ -55,6 +61,7 @@ function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIServ
 function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favoritesService) {
   $scope.selected = 0;
   $scope.pet = {};
+  $scope.alert = '';
   $scope.petsRemaining = {
     count: -1,
     apiReload: false
@@ -75,7 +82,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     options.settings.sex = user.settings.sex;
     options.settings.age = user.settings.age;
     options.settings.zipcode = user.settings.zipcode;
-    options.offset = $rootScope.session.apiRecordCount;
+    options.offset = $rootScope.session.apiOffset;
     console.log(options);
   } else {
     //Initialize all setting to blank srings
@@ -87,7 +94,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
         age: '',
         zipcode: "97024"
       },
-      offset: '200'
+      offset: ''
     }
   }
 
@@ -182,6 +189,8 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
       // }
       // //while ($scope.petsRemaining.count === 0);
       // while (i < 10);
+    } else if ($scope.petsRemaining.count === 0) {
+      $scope.alert = "You've run out of pets! Try changing your settings."
     }
   }, true);
 }
