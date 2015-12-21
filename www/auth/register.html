@@ -1,6 +1,7 @@
-<ion-view view-title="<img class='title-image' src='./img/PetBar.jpg'>">
-  <ion-content>
+<ion-view view-title="Login" name="login-view">
+  <ion-content class="padding">
     <div class="list list-inset">
+      <!-- Alert below needs styling -->
       <div ng-show="alert">{{alert}}</div>
       <label class="item item-input">
         <input type="text" placeholder="Username" ng-model="user.username">
@@ -8,10 +9,12 @@
       <label class="item item-input">
         <input type="password" placeholder="Password" ng-model="user.password">
       </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Zipcode" ng-model="user.zipcode">
-      </label>
     </div>
-    <button class="button button-block button-royal" ng-click="register(user)">Register</button>
+    <button class="button button-block button-royal" ng-click="login(user)">Login</button>
+    <a href="/#/register">
+      <button class="button button-clear button-royal">
+        New user? Register here
+      </button>
+    </a>
   </ion-content>
 </ion-view>
