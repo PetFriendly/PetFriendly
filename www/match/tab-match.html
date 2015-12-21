@@ -3,19 +3,21 @@
     <ion-list>
       <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
-        <div class="list-card">
-          <ion-slide-box on-slide-change="slideHasChanged($index)">
+        <div class="list-card" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()">
+          <!-- <ion-slide-box on-slide-change="slideHasChanged($index)">
             <ion-slide>
-              <div class="item item-image" ng-click="nextSlide()">
+              <div class="item item-image" ng-click="nextSlide()"> -->
                 <img ng-src="{{pet.media.photos.photo[2].$t}}">
-              </div>
+             <!--  </div>
             </ion-slide>
             <ion-slide>
               <div class="item item-image" ng-click="nextSlide()">
                 <img ng-src="{{pet.media.photos.photo[2].$t}}">
               </div>
             </ion-slide>
-          </ion-slide-box>
+          </ion-slide-box> -->
+         
+          </div>
           <button class="button button-clear button-royal" ng-click="description = ! description">
           Show Description
           </button>
@@ -43,21 +45,8 @@
     </ion-list>
   </ion-content>
   <br><br>
-  <h1>{{alert}}</h1>
+  <div class="item item-text-wrap col text-center">
+    <h1>{{alert}}</h1>
+  </div>
 </ion-view>
 
-<!-- <ion-list>
-      <ion-item ng-repeat="pet in pets" ng:show="$parent.selected ==$index">
-        <a href="#/tab/details">
-          <div class="card">
-            <div class="bar bar-header bar-stable">
-              <h1 class="title">{{pet.name.$t}}, {{pet.age.$t}}</h1>
-            </div>
-
-            <div class="item item-image">
-              <img src="{{pet.photo1}}">
-            <div>
-          </div>
-        </a>
-      </ion-item>
-    </ion-list>  -->

@@ -16,17 +16,16 @@ $dark:                            #444 !default;
 */
 
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
 
 $font-family-base: "Open-Sans", sans-serif !default;
-$input-height-large:              (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 3) + 3) !default;
-$button-margin-top:               20px !default;
+$button-margin-top:               10px !default;
 $button-clear-font-size:          16px !default;
 $button-font-size:                20px !default;
-$item-button-font-size:           22px !default;
+$item-button-font-size:           18px !default;
 $bar-height:                      50px !default;
 $button-icon-size:                20px !default;
-$card-margin:                    20px !default;
+$card-margin:                    50px !default;
 $bar-title-shadow:             17px !default;
 $bar-title-font-size:             22px !default;
 $list-margin:                    20px !default;
@@ -40,7 +39,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 
 
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";

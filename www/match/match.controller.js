@@ -142,8 +142,12 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     }
   }, true);
 
-  $scope.nextSlide = function() {
-    $ionicSlideBoxDelegate.next();
+  $scope.onSwipeRight = function() {
+    saveFavorite(pet, true)
+  }
+
+   $scope.onSwipeLeft = function() {
+    saveFavorite(pet, false)
   }
  
 }
