@@ -15,10 +15,26 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+$font-family-base: "Open-Sans", sans-serif !default;
+$input-height-large:              (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 3) + 3) !default;
+$button-margin-top:               20px !default;
+$button-clear-font-size:          16px !default;
+$button-font-size:                20px !default;
+$item-button-font-size:           22px !default;
+$bar-height:                      50px !default;
+$button-icon-size:                20px !default;
+$card-margin:                    20px !default;
+$bar-title-shadow:             17px !default;
+$bar-title-font-size:             22px !default;
+$list-margin:                    20px !default;
+$card-border-width:               1px !default;
 $royal:                           #886aea !default;
 $button-padding:                  50px !default;
-$button-margin-top:               20px !default;
 $stable:                          #e1e1fb !default;
+$font-size:                       25px !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
