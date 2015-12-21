@@ -20,8 +20,12 @@ $dark:                            #444 !default;
 button.del-btn {
   margin-top: 12px; }
 
+.padding {
+  padding: 20px; }
+
 .scroll h2.animal-name {
-  font-size: 30px; }
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif; }
 
 /*!
   Ionicons, v2.0.1
