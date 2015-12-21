@@ -1,12 +1,12 @@
-<ion-view view-title="<img class='title-image' src='./img/PetBar.jpg'><div>this is title</div>" hide-back-button="true">
-  <ion-content ng-model="pet" class="padding">
+<ion-view view-title="<img class='title-image' src='./img/PetBar.jpg'>" hide-back-button="true">
+  <ion-content>
     <ion-list can swipe="true" class="swipe" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)">
       <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
         <div class="list-card">
-              <div class="item item-image">
-                <img ng-src="{{pet.media.photos.photo[2].$t}}">
-              </div>
+          <div class="item item-image">
+            <img ng-src="{{pet.media.photos.photo[2].$t}}">
+          </div>
           <button class="button button-clear button-royal" ng-click="description = ! description">
           Show Description
           </button>
