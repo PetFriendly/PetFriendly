@@ -1,13 +1,50 @@
 <ion-view view-title="Pet Friendly">
   <ion-content ng-model="pet" class="padding">
     <ion-list>
-      <a class="item item-avatar item-button-right" ng-repeat="petFav in petFavs" href="#" ng-hide="petFav.isFav == false">
-      <img ng-src="{{petFav.photo1}}">
-      <h2>{{petFav.name}}, {{petFav.age}}</h2>
-      <button class="button button-royal"  ng-click="deleteFavorite(petFav)">
-        <i class="icon ion-trash-a"></i>
-    </button>
-    </a>
+      <a class="item item-avatar item-button-right" ng-repeat="petFav in petFavs" ng-click="description = ! description" ng-hide="petFav.isFav == false" href="#">
+        <img ng-src="{{petFav.photo1}}">
+        <h2>{{petFav.name}}</h2>
+        <p>{{petFav.age}}</p>
+        <div ng:show="description" class="item item-text-wrap">{{petFav.description}} {{petFav.contact.name}} • {{petFav.contact.phone}} • {{petFav.contact.email}}</div>
+        <button class="button button-royal"  ng-click="deleteFavorite(petFav)">
+          <i class="icon ion-trash-a"></i>
+        </button>
+      </a>
     <ion-list>
   </ion-content>
 </ion-view> 
+
+
+
+
+
+<!-- <ion-view view-title="Pet Friendly">
+  <ion-content class="padding">
+    <ion-list>
+      <ion-item item-avatar item-button-right ng-repeat="petFav in petFavs">
+        <img ng-src="{{petFav.photo1}}">
+        <h2>{{petFav.name}}, {{petFav.age}}</h2>
+        <img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>
+        <button class="button button-royal" ng-click="saveFavorite(pet, false)">
+          <i class="icon ion-trash-a"></i>
+        </button>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
+
+
+ -->
+
+ <!--   <div class="list">
+  <a class="item item- avatar item-button-right" href="#">
+    <img src="./img/cute-dog-2.jpg">
+    <h2>Jeffrey</h2>
+    <button class="button button-royal">
+      <i class="icon ion-trash-a"></i>
+    </button>
+  </a>
+</div> -->
+=======
+>>>>>>> 364ec9e1268d82e6ee68648481fd49cf0f9690c9

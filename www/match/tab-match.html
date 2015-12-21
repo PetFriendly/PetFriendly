@@ -3,23 +3,42 @@
     <ion-list>
       <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
-        <!--<img ng-repeat="img in pet.media.photos.photo" ng-src="{{img.$t}}"/>-->
-        <img ng-src="{{pet.media.photos.photo[1].$t}}" ng-click="description = ! description">
-        <div ng:show="description" class="item item-text-wrap">{{pet.description.$t}} <br>
-        <em>Contact Info</em> <br>
-        {{pet.contact.name.$t}} <br>
-        <a target="_blank"href="http://www.petfinder.com/petdetail/{{pet.id.$t}}">See me on Petfinder</a> <br>
-        {{pet.contact.phone.$t}} <br>
-        {{pet.contact.email.$t}} <br>
-        {{pet.contact.address1.$t}} {{pet.contact.address2.$t}} <br>
-        {{pet.contact.city.$t}} , {{pet.contact.state.$t}} {{pet.contact.zip.$t}} <br>
+        <div class="list-card">
+          <ion-slide-box on-slide-change="slideHasChanged($index)">
+            <ion-slide>
+              <div class="item item-image" ng-click="nextSlide()">
+                <img ng-src="{{pet.media.photos.photo[2].$t}}">
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div class="item item-image" ng-click="nextSlide()">
+                <img ng-src="{{pet.media.photos.photo[2].$t}}">
+              </div>
+            </ion-slide>
+          </ion-slide-box>
+          <button class="button button-clear button-royal" ng-click="description = ! description">
+          Show Description
+          </button>
+          <div ng:show="description" class="item item-text-wrap">{{pet.description.$t}} <br>
+            <em>Contact Info</em> <br>
+            {{pet.contact.name.$t}} <br>
+            <a target="_blank" href="http://www.petfinder.com/petdetail/{{pet.id.$t}}">See additional information</a> <br>
+            <a href="tel:{{pet.contact.phone.$t}}">{{pet.contact.phone.$t}}</a> <br>
+            <a href="mailto:{{pet.contact.email.$t}}?subject={{pet.name.$t}}">{{pet.contact.email.$t}}</a><br>
+            {{pet.contact.address1.$t}} {{pet.contact.address2.$t}} <br>
+            {{pet.contact.city.$t}} , {{pet.contact.state.$t}} {{pet.contact.zip.$t}} <br>
+          </div><br>
+          <div class="row">
+            <div class="col text-center">
+              <button class="button button-royal" ng-click="saveFavorite(pet, false)">
+                No
+              </button>
+              <button class="button button-royal" ng-click="saveFavorite(pet, true)">
+                Yes
+              </button>
+            </div>
+          </div>
         </div>
-      <button class="button button-royal" ng-click="saveFavorite(pet, false)">
-        No
-      </button>
-      <button class="button button-royal" ng-click="saveFavorite(pet, true)">
-        Yes
-      </button>
       </ion-item>
     </ion-list>
   </ion-content>
