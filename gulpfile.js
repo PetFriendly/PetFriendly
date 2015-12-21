@@ -1,5 +1,4 @@
 var bower = require('bower');
-var sh = require('shelljs');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
