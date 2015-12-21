@@ -2,22 +2,21 @@
   <ion-content ng-model="pet" class="padding">
     <ion-list>
       <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
+        <div on-swipe-right="onSwipeRight()">
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
-        <div class="list-card" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()">
-          <!-- <ion-slide-box on-slide-change="slideHasChanged($index)">
+        <div class="list-card">
+          <ion-slide-box on-slide-change="slideHasChanged($index)">
             <ion-slide>
-              <div class="item item-image" ng-click="nextSlide()"> -->
+              <div class="item item-image" ng-click="nextSlide()">
                 <img ng-src="{{pet.media.photos.photo[2].$t}}">
-             <!--  </div>
+              </div>
             </ion-slide>
             <ion-slide>
               <div class="item item-image" ng-click="nextSlide()">
                 <img ng-src="{{pet.media.photos.photo[2].$t}}">
               </div>
             </ion-slide>
-          </ion-slide-box> -->
-         
-          </div>
+          </ion-slide-box>
           <button class="button button-clear button-royal" ng-click="description = ! description">
           Show Description
           </button>
