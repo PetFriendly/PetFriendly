@@ -1,4 +1,4 @@
-function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService) {
+function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService, $ionicGesture) {
 
   queryPetFinderAPIService.getPets(options)
     .then(function(data) {
@@ -142,12 +142,13 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     }
   }, true);
 
+
   $scope.onSwipeRight = function() {
-    saveFavorite(pet, true)
+    $scope.saveFavorite(pet, true)
   }
 
    $scope.onSwipeLeft = function() {
-    saveFavorite(pet, false)
+    $scope.saveFavorite(pet, false)
   }
  
 }
