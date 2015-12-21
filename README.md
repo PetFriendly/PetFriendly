@@ -1,22 +1,22 @@
 #PetFriendly
 
 ## Demo
-for an active demo please visit http://petfriendly.herokuapp.com/
+For an active demo please visit http://petfriendly.herokuapp.com/
 
-This app is still in development and is not meant for a production deployment. Do not use reuse login information from other sites while testing without your own risk assessment.
+This app is still in development and is not meant for a production deployment. Do not reuse login information from other sites while testing.
 
 ##User Overview
 PetFriendly is an application that helps people quickly browse nearby pets available for adoption. For the best experience it should be viewed on a mobile device or touch enabled device. If using on a desktop the user should adjust the window size to be smaller and be prepared for limited mouse/keyboard navigation.
 
 ###How it works
 
-When the user registers they enter in a zip code and are then given the option of specifying the type of pet they would like to see. The zip code can be updated at any time. Zip code is required in order for matching to function.
+When the user registers they enter in a zip code and are then given the option of specifying the type of pet they would like to see. The zip code can be updated at any time. Zip code is required for matching to work
 
-They are presented with a picture of a pet which they can click for more details and adoption contact information as well as a link to petfinder for full information. They can touch yes to save the pet to a favorites list or no to not see it again.
+They are presented with a picture of a pet which they can click for additional pictures (if available) and click on 'Show Description' for additional info and adoption contact details as well as a link to petfinder. They can touch yes or swipe right to save the pet to a favorites list. Touching no or swiping left will remove the pet from showing in the app again.
 
-Animals can be deleted from favorites list. They will not be shown again in the match view. If user wants to see a pet they have previously declined they should register a new account.
+Animals can be deleted from favorites list. They will not be shown again in the match view. A future feature will allow user to see a pet they have previously declined.
 
-All pet data comes from www.petfinder.com through their API. This may result in certain fields being empty or appearing to have odd characters/grammer and is not an error in this application
+All pet data comes from www.petfinder.com through their API. This may result in certain fields being empty or appearing to have odd characters/grammer and is not an error in this application.
 
 ##Developer Notes:
 Master Branch for large version changes
