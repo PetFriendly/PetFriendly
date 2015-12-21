@@ -20,6 +20,8 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
           console.log(data);
           $rootScope.session = {}
           $rootScope.session.user = data.user;
+          $rootScope.session.apiRecordCount = data.apiRecordCount;
+          $rootScope.session.apiOffset = 0;
           $state.go('tab.match');
           console.log('exiting LoginCtrl')
         }
@@ -42,6 +44,7 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
           // Registration successful
           $rootScope.session = {}
           $rootScope.session.user = data.user;
+          $rootScope.session.apiRecordCount = data.apiRecordCount;
           $state.go('tab.settings');
         }
       }).

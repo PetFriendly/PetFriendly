@@ -28,10 +28,12 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
     }
     dirty = true;
     console.log('is dirty', newValue, oldValue);
+    $rootScope.session.apiOffset = 0;
   }, true)
   $scope.$on('$destroy', function(){
     var settings = $scope.settings;
     $scope.alert = '';
+
     console.log('Settings dirty', dirty);
     if (!dirty) {
       return;

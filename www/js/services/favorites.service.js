@@ -27,7 +27,7 @@ function mapPetAPIParmsToFavs(pet, isFav) {
   favorite.url = 'www.petfinder.com/petdetail/' + favorite.pfId;
   favorite.shelterId = pet.shelterId ? pet.shelterId.$t : '';
 
-  if (pet.media.photos) {
+  if (pet.media && pet.media.photos) {
     favorite.photo1 = pet.media.photos.photo[0] ? pet.media.photos.photo[0].$t : '';
     favorite.photo2 = pet.media.photos.photo[1] ? pet.media.photos.photo[1].$t : '';
     favorite.photo3 = pet.media.photos.photo[2] ? pet.media.photos.photo[2].$t : '';

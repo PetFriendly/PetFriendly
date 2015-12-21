@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/User');
+var apiRecordCount = require('../config').apiRecordCount; 
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -36,7 +37,7 @@ router.post('/register', function(req, res) {
         }
         passport.authenticate('local')(req, res, function () {
           //res.json({'message': 'Success'});
-          res.send({user: account});
+          res.send({user: account, apiRecordCount: apiRecordCount});
         });
     });
 });
@@ -60,7 +61,7 @@ router.post('/login', function(req, res, next) {
         return res.json({'alert':'Sorry. That username or password are invalid. Try again.'});
       }
       //return res.end();
-      return res.send({user : req.user});
+      return res.send({user : req.user, apiRecordCount: apiRecordCount});
     });
   })(req, res, next);
 });
