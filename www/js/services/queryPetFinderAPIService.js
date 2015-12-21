@@ -13,16 +13,21 @@ function queryPetFinderAPIService($http, API_ROUTE) {
         '&animal=' + options.settings.animal +
         '&size=' + options.settings.sizes +
         '&sex=' + options.settings.sex +
-        '&age=' + options.settings.age);
+        '&age=' + options.settings.age + 
+        '&offset=' + options.offset);
       return $http.get(API_ROUTE +
         '?location=' + options.settings.zipcode +
         '&animal=' + options.settings.animal +
         '&size=' + options.settings.sizes +
         '&sex=' + options.settings.sex +
-        '&age=' + options.settings.age
+        '&age=' + options.settings.age + 
+        '&offset=' + options.offset
       ).then( function(response){
         console.log(response);
-        return response.data.petfinder.pets.pet;
+        return {
+          pets: response.data.petfinder.pets.pet,
+          offset: response.data.petfinder.lastOffset
+        };
       });
     }
   };
