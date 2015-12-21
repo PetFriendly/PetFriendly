@@ -141,15 +141,6 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
       $scope.alert = "You've run out of pets! Try changing your settings."
     }
   }, true);
-
-
-  $scope.onSwipeRight = function() {
-    $scope.saveFavorite(pet, true)
-  }
-
-   $scope.onSwipeLeft = function() {
-    $scope.saveFavorite(pet, false)
-  }
  
 }
 

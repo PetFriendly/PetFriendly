@@ -1,6 +1,6 @@
 <ion-view view-title="Pet Friendly">
   <ion-content ng-model="pet" class="padding">
-    <ion-list can swipe="true"  on-swipe-right="SwipeRight()" on-swipe-left="SwipeLeft()">
+    <ion-list can swipe="true" class="swipe" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)">
       <ion-item ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
         <div class="list-card">
