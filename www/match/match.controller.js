@@ -1,10 +1,7 @@
-function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService, $ionicGesture, $ionicSlideBoxDelegate) {
-
 function filterPhotos(pets) {
   var photos = [];
 
   pets.forEach(function(pet){
-    console.log(pet.media.photos.photo);
     if (pet.media && pet.media.photos) {
       photos = pet.media.photos.photo.filter(function(pic) {
           return (pic['@size'] === 'x');
@@ -15,12 +12,17 @@ function filterPhotos(pets) {
   return;
 }
 
+function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService, $ionicGesture, $ionicSlideBoxDelegate) {
   queryPetFinderAPIService.getPets(options)
     .then(function(data) {
       if (!data.pets) {
         $scope.alert = "You've run out of pets! Try changing your settings.";
         return;
+      } else {
+        //Save only original 'x' photos returned from API
+        filterPhotos(data.pets);
       }
+
       if (user) {
         $scope.selected = 0; //reset after successful API call
         // If sends back same # records as requested,
@@ -72,6 +74,7 @@ function filterPhotos(pets) {
 
 function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favoritesService, $ionicSlideBoxDelegate) {
   $scope.selected = 0;
+  $scope.photoSelected = 0;
   $scope.pet = {};
   $scope.alert = '';
   $scope.petsRemaining = {
@@ -81,7 +84,6 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
   var options = {
     settings: {}
   };
-
   var user;
 
   console.log('Entering MatchCtrl....');
@@ -114,11 +116,20 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
 
   callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService);
 
+  $scope.photoNext = function (pet){
+    $scope.photoSelected = $scope.photoSelected + 1
+    if ($scope.photoSelected === pet.media.photos.photo.length) {
+      $scope.photoSelected = 0;
+    }
+    console.log('photoSelected = ', $scope.photoSelected);
+  };
+
   $scope.saveFavorite = function(pet, isFav) {
 
     $scope.selectNext = function (){
       $scope.selected = $scope.selected + 1;
       $scope.petsRemaining.count--;
+      $scope.photoSelected = 0;
       console.log('petsRemaining = ', $scope.petsRemaining.count);
     };
 
@@ -159,7 +170,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     }
   }, true);
 
-   $scope.nextSlide = function() {
+  $scope.nextSlide = function() {
     $ionicSlideBoxDelegate.next();
     $ionicSlideBoxDelegate.update();
   };
