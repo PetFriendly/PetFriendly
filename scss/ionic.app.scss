@@ -15,17 +15,18 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+
 $font-family-base: "Open-Sans", sans-serif !default;
-$button-margin:                   10px !default;
+$button-margin-top:               1px !default;
 $button-clear-font-size:          16px !default;
 $button-font-size:                20px !default;
 $item-button-font-size:           18px !default;
-$bar-height:                      60px !default;
+$bar-height:                      61px !default;
 $button-icon-size:                20px !default;
-$card-margin:                    50px !default;
-$bar-title-shadow:             17px !default;
+$card-margin:                     50px !default;
+$bar-title-shadow:                17px !default;
 $bar-title-font-size:             22px !default;
-$list-margin:                    20px !default;
+$list-margin:                     20px !default;
 $card-border-width:               1px !default;
 $royal:                           #886aea !default;
 $button-padding:                  50px !default;
@@ -35,6 +36,46 @@ $font-size:                       25px !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 
+/* custom styles */
+
+button.del-btn {
+  margin-top: 12px;
+}
+
+img.title-image-pic {
+  padding-top: 8px;
+}
+
+div.alert-style.ng-binding {
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 5px;
+}
+
+h1.alert-style.ng-binding {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 10px;
+}
+
+div.item.item-text-wrap {
+  border: 0;
+}
+
+img.item-avatar {
+  max-height: 50px;
+  max-width: 50px;
+
+}
+
+.padding {
+  padding: 20px;
+}
+
+.scroll h2.animal-name {
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 

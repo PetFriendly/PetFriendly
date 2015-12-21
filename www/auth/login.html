@@ -1,8 +1,8 @@
-<ion-view view-title="Login" name="login-view">
+<ion-view view-title="<img class='title-image-pic' src='./img/PetBar.jpg'>">
   <ion-content class="padding">
     <div class="list list-inset">
       <!-- Alert below needs styling -->
-      <div ng-show="alert">{{alert}}</div>
+      <div class="alert-style" ng-show="alert">{{alert}}</div>
       <label class="item item-input">
         <input type="text" placeholder="Username" ng-model="user.username">
       </label>
@@ -10,7 +10,7 @@
         <input type="password" placeholder="Password" ng-model="user.password">
       </label>
     </div>
-    <button class="button button-block button-royal" ng-click="login(user)">Login</button>
+    <button class="wide-btn button button-block button-royal" ng-click="login(user)">Login</button>
     <a href="/#/register">
       <button class="button button-clear button-royal">
         New user? Register here
