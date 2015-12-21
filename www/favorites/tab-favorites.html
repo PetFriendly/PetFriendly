@@ -6,7 +6,7 @@
         <h2>{{petFav.name}}</h2>
         <p>{{petFav.age}}</p>
         <div ng:show="description" class="item item-text-wrap">{{petFav.description}} {{petFav.contact.name}} • {{petFav.contact.phone}} • {{petFav.contact.email}}</div>
-        <button class="list-delete button button-royal"  ng-click="deleteFavorite(petFav)">
+        <button class="del-btn button button-royal"  ng-click="deleteFavorite(petFav)">
           <i class="icon ion-trash-a"></i>
         </button>
       </a>

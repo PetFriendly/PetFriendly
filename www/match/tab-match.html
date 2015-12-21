@@ -2,7 +2,7 @@
   <ion-content>
     <ion-list class="swipe">
       <ion-item can swipe="true" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)" ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
-        <h2>{{pet.name.$t}}, {{pet.age.$t}}</h2>
+        <h2 class="animal-name">{{pet.name.$t}}, {{pet.age.$t}}</h2>
         <div class="list-card">
           <div class="item item-image" ng-click="next" ng-repeat="pic in pet.media.photos.photo">
             <img ng-src="{{pic.$t}}">
