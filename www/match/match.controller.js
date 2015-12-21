@@ -1,5 +1,5 @@
 
-function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favoritesService) {
+function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favoritesService, $ionicSlideBoxDelegate) {
   $scope.selected = 0;
   $scope.pet = {};
   var options = {
