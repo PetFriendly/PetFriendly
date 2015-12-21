@@ -1,11 +1,10 @@
 {
-  "name": "petfriendly",
+  "name": "PetFriendly",
   "version": "1.0.0",
-  "description": "Web application to match users with adoptable pets in their area using the PetFinder API",
+  "description": "Web application to match users with adoptable pets in their area",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "webpackserve": "webpack-dev-server --progress --colors --hot --inline"
+    "start": "nodemon server.js"
   },
   "keywords": [
     "PetFinder",

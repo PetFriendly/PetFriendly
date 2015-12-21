@@ -1,11 +1,9 @@
 var express = require('express');
 var routes = require('./routes/index');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
-var restify = require('express-restify-mongoose');
-var Pet = require('./models/Pet');
+
 var User = require('./models/User');
 var passport = require('passport');
 var app = express();
@@ -79,7 +77,6 @@ app.use('/', routes);
 
 //Pet is going to send to route '/Pets'.
 //http methods are going to save to db collection pets
-restify.serve( router, Pet);
 
 app.use(router);
 
