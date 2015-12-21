@@ -1,4 +1,4 @@
 module.exports = {
   dbURI: process.env.MONGOLAB_URI || 'mongodb://localhost/dbstest',
-  apiRecordCount: '200' 
+  apiRecordCount: '50'
 };
