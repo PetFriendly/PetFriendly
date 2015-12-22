@@ -10,17 +10,16 @@ PetFriendly is an application that helps people quickly browse nearby pets avail
 
 ###How it works
 
-When the user registers they enter in a zip code and are then given the option of specifying the type of pet they would like to see. The zip code can be updated at any time. Zip code is required for matching to work
+When the user registers they enter in their zip code and are given the option of specifying the type of pet they would like to see. Zip code can be updated at any time. It is required for matching to work.
 
-They are presented with a picture of a pet which they can click for additional pictures (if available) and click on 'Show Description' for additional info and adoption contact details as well as a link to petfinder. They can touch yes or swipe right to save the pet to a favorites list. Touching no or swiping left will remove the pet from showing in the app again.
+User can click picture of the pet for additional pictures (if available) and click on 'Show Description' for additional info, adoption contact details and a link to petfinder. They can touch yes or swipe right to save the pet to a favorites list. Touching no or swiping left will remove the pet from showing in the app again.
 
-Animals can be deleted from favorites list. They will not be shown again in the match view. A future feature will allow user to see a pet they have previously declined.
+Pets can be deleted from favorites list. They will not be shown again in the match view. A future feature will allow user to see a pet they have previously declined.
 
-All pet data comes from www.petfinder.com through their API. This may result in certain fields being empty or appearing to have odd characters/grammer and is not an error in this application.
+All pet data comes from www.petfinder.com through their public API. This may result in certain fields being empty or appearing to have odd characters/grammar and is not an error in this application.
 
 ##Developer Notes:
-Master Branch for large version changes
-Dev if you are brave
+Currently at v1.0.0 in the Dev Branch. This will shortly be pushed to the Master Branch. Dev will be for internal builds.
 
 ###Third Party Integration
 
