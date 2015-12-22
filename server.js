@@ -8,9 +8,7 @@ var User = require('./models/User');
 var passport = require('passport');
 var app = express();
 var router = express.Router();
-// var dbURI = require('./config').dbURI;
-var apiRecordCount = require('./config').apiRecordCount; 
-var port = process.env.PORT || 3000;
+var config = require('./config');
 
 var requestProxy = require('express-request-proxy');
 
@@ -20,11 +18,11 @@ app.get('/pfapi/pets', requestProxy({
       key: 'f7940f8a4ac510a56c2b8bebbd6df0ce',
       format: 'json',
       output: 'full',
-      count: apiRecordCount
+      count: config.apiRecordCount
     }
 }));
 
-app.set('port', port);
+app.set('port', config.port);
 app.set('env', process.env.NODE_ENV);
 
 app.use( ( req, res, next ) => {
@@ -61,17 +59,9 @@ passport.deserializeUser(User.deserializeUser());
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-// Set PF_USE_LOCAL_DB=1 for local DB,
-// otherwise app will by default use MONGOLAB DB
-if (process.env.PF_USE_LOCAL_DB == true) {
-  mongoose.connect('mongodb://localhost/pet_app');
-  console.log('Connecting to local database...');
-} else {
-  //mongoose.connect(process.env.MONGOLAB_URI);
-  mongoose.connect('mongodb://heroku_vs2nd9mc:73s2p4slp257li6ftg6qh7jjnr@ds029615.mongolab.com:29615/heroku_vs2nd9mc');
-  // mongoose.connect(dbURI);
-  console.log('Connecting to MongoLab database...');
-}
+mongoose.connect(config.dbURI);
+console.log(config.dbURI);
+
 
 // Basic routes -- index.js
 app.use('/', routes);
@@ -81,6 +71,6 @@ app.use('/', routes);
 
 app.use(router);
 
-app.listen(port, function () {
-  console.log('Express server listening on port', port)
+app.listen(config.port, function () {
+  console.log('Express server listening on port', config.port);
 });
