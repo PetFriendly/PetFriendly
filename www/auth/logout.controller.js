@@ -4,5 +4,5 @@ function LogoutCtrl ($rootScope, $state) {
   $state.go('login');
 }
 
-angular.module('starter.controllers')
+angular.module('pfApp.controllers')
     .controller( 'LogoutCtrl', LogoutCtrl );

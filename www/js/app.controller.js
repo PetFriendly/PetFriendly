@@ -1,1 +1,1 @@
-angular.module('starter.controllers', []);
+angular.module('pfApp.controllers', []);

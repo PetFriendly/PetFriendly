@@ -38,5 +38,5 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
   }
 }
 
-angular.module('starter.controllers')
+angular.module('pfApp.controllers')
     .controller( 'FavoritesCtrl', FavoritesCtrl );
