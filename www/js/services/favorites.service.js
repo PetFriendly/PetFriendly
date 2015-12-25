@@ -36,7 +36,7 @@ function mapPetAPIParmsToFavs(pet, isFav) {
   return favorite;
 }
 
-angular.module('starter')
+angular.module('pfApp')
   .factory('favoritesService', favoritesService);
 
 function favoritesService($http) {

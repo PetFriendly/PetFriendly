@@ -56,5 +56,5 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
   };
 }
 
-angular.module('starter.controllers')
+angular.module('pfApp.controllers')
     .controller( 'LoginCtrl', LoginCtrl );

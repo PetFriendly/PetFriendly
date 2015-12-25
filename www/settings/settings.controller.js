@@ -59,5 +59,5 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
   })
 }
 
-angular.module('starter.controllers')
+angular.module('pfApp.controllers')
     .controller( 'SettingsCtrl', SettingsCtrl );

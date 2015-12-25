@@ -177,5 +177,5 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
   
 }
 
-angular.module('starter.controllers')
+angular.module('pfApp.controllers')
     .controller( 'MatchCtrl', MatchCtrl );
