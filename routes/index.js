@@ -30,14 +30,16 @@ router.post('/register', function(req, res) {
         zipcode: req.body.zipcode || "97024"
       },
       petFavs: []
-    }), req.body.password, function(err, account) {
+    }), req.body.password, function(err, user) {
         if (err) {
           // console.log('register ERROR....')
           return res.json({'alert':'Sorry. That username already exists. Try again.'});
         }
         passport.authenticate('local')(req, res, function () {
-          //res.json({'message': 'Success'});
-          res.send({user: account, apiRecordCount: apiRecordCount});
+          // Zero out hash and salt before passing back to App
+          user.hash = '';
+          user.salt = '';
+          res.send({user: user, apiRecordCount: apiRecordCount});
         });
     });
 });
@@ -60,8 +62,10 @@ router.post('/login', function(req, res, next) {
       if (err) {
         return res.json({'alert':'Sorry. That username or password are invalid. Try again.'});
       }
-      //return res.end();
-      return res.send({user : req.user, apiRecordCount: apiRecordCount});
+      // Zero out hash and salt before passing back to App
+      user.hash = '';
+      user.salt = '';
+      return res.send({user: user, apiRecordCount: apiRecordCount});
     });
   })(req, res, next);
 });
