@@ -1,4 +1,3 @@
-
 function SettingsCtrl($scope, $rootScope, $http, $state) {
   console.log('Entering SettingsCtrl....');
 
@@ -18,7 +17,7 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
   // if ($rootScope.session) {
   //   var user = $rootScope.session.user;
   // }
-  console.log('SettingsCtrl..user', user);
+  console.log('SettingsCtrl....user', user);
   var initialized = false;
   var dirty = false;
   $scope.$watch('settings', function(newValue, oldValue){
@@ -43,19 +42,14 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
         if (data.alert) {
           $scope.alert = data.alert;
         } else {
-          // Login successful
-          console.log('Save successful');
+          console.log('Settings save successful');
           console.log(data);
-          // $rootScope.session = {}
-          // $rootScope.session.user = data.user;
-          //$state.go('tab.match', { reload: true });
         }
       }).
       error(function(err) {
         $scope.alert = 'Settings save failed'
         console.log(err);
       });
-    console.log('Login pressed...');
   })
 }
 
