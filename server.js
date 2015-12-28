@@ -18,7 +18,6 @@ app.get('/pfapi/pets', requestProxy({
       key: 'f7940f8a4ac510a56c2b8bebbd6df0ce',
       format: 'json',
       output: 'full'
-      //count: config.apiRecordCount
     }
 }));
 

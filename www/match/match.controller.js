@@ -27,15 +27,12 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
         $scope.selected = 0; //reset after successful API call
         // If sends back same # records as requested,
         // API reload is required
-        // length is num and apiRecordCount is string so use ==
-        if (data.pets.length == $rootScope.session.apiRecordCount) {
+        if (data.pets.length === apiRecordCount) {
           $scope.petsRemaining.apiReload = true;
         } else {
            $scope.petsRemaining.apiReload = false;
         }
         console.log('pets.length = ', data.pets.length);
-        console.log('$rootScope.session.apiRecordCount = ', $rootScope.session.apiRecordCount);
-        //console.log('API_RECORD_COUNT = ', API_RECORD_COUNT);
         console.log('apiRecordCount = ', apiRecordCount);
         console.log('$scope.petsRemaining.apiReload = ', $scope.petsRemaining.apiReload);
         
@@ -59,7 +56,7 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
         }
 
         if ($scope.petsRemaining.count === 0) {
-          callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService);
+          callAPIService($scope, $rootScope, user, options, apiRecordCount, queryPetFinderAPIService);
         }
 
       } else {

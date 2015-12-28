@@ -1,5 +1,4 @@
 module.exports = {
   dbURI: process.env.MONGOLAB_URI || 'mongodb://localhost/pet_app',
-  apiRecordCount: '6',
   port : process.env.PORT || 3000
 };

@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/User');
-var apiRecordCount = require('../config').apiRecordCount; 
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -39,7 +38,7 @@ router.post('/register', function(req, res) {
           // Zero out hash and salt before passing back to App
           user.hash = '';
           user.salt = '';
-          res.send({user: user, apiRecordCount: apiRecordCount});
+          res.send({user: user});
         });
     });
 });
@@ -65,7 +64,7 @@ router.post('/login', function(req, res, next) {
       // Zero out hash and salt before passing back to App
       user.hash = '';
       user.salt = '';
-      return res.send({user: user, apiRecordCount: apiRecordCount});
+      return res.send({user: user});
     });
   })(req, res, next);
 });
@@ -91,7 +90,7 @@ router.put('/settings/:id', function(req, res, next) {
         if (err) {
           return next(err);
         } else {
-          res.send({user : user});
+          res.send({user: user});
         }
       });
     }
@@ -118,7 +117,7 @@ router.put('/favorite/add/:id', function(req, res, next) {
       if (err) {
         return next(err);
       } else {
-        res.send({user : user});
+        res.send({user: user});
       }
     });
   });
@@ -150,7 +149,7 @@ router.put('/favorite/update/:id', function(req, res, next) {
       if (err) {
         return next(err);
       } else {
-        res.send({user : user});
+        res.send({user: user});
       }
     });
   });
