@@ -12,7 +12,7 @@ function filterPhotos(pets) {
   return;
 }
 
-function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService, $ionicGesture, $ionicSlideBoxDelegate) {
+function callAPIService($scope, $rootScope, user, options, apiRecordCount, queryPetFinderAPIService, $ionicGesture, $ionicSlideBoxDelegate) {
   queryPetFinderAPIService.getPets(options)
     .then(function(data) {
       if (!data.pets) {
@@ -35,6 +35,8 @@ function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIServ
         }
         console.log('pets.length = ', data.pets.length);
         console.log('$rootScope.session.apiRecordCount = ', $rootScope.session.apiRecordCount);
+        //console.log('API_RECORD_COUNT = ', API_RECORD_COUNT);
+        console.log('apiRecordCount = ', apiRecordCount);
         console.log('$scope.petsRemaining.apiReload = ', $scope.petsRemaining.apiReload);
         
         //filter the below search to only show pets that do not already exist in DB
@@ -72,7 +74,7 @@ function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIServ
     });
 }
 
-function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favoritesService, $ionicSlideBoxDelegate) {
+function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECORD_COUNT, favoritesService, $ionicSlideBoxDelegate) {
   $scope.selected = 0;
   $scope.photoSelected = 0;
   $scope.pet = {};
@@ -114,7 +116,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     };
   }
 
-  callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService);
+  callAPIService($scope, $rootScope, user, options, API_RECORD_COUNT, queryPetFinderAPIService);
 
   $scope.photoNext = function (pet){
     $scope.photoSelected = $scope.photoSelected + 1
@@ -164,7 +166,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
       console.log('Ready to call API again!!!!');
       options.offset = $rootScope.session.apiOffset;
       console.log('offset = ', options.offset);
-      callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService);
+      callAPIService($scope, $rootScope, user, options, API_RECORD_COUNT, queryPetFinderAPIService);
     } else if ($scope.petsRemaining.count === 0) {
       $scope.alert = "You've run out of pets! Try changing your settings.";
     }
