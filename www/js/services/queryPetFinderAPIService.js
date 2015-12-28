@@ -24,6 +24,22 @@ function queryPetFinderAPIService($http, API_ROUTE) {
         '&offset=' + options.offset
       ).then( function(response){
         console.log(response);
+        // API will return array (pet[]) if more than 1 pet,
+        // will return pet Object if 1 pet found,
+        // pet is undefined if NO pets 
+        if (!Array.isArray(response.data.petfinder.pets.pet)) {
+          console.log("API RETURNED NOT ARRAY");
+          if (typeof response.data.petfinder.pets.pet === 'object') {
+            console.log("API RETURNED 1 OBJECT PET");
+            //convert to array
+            var petArray = [response.data.petfinder.pets.pet];
+            response.data.petfinder.pets.pet = petArray;
+          } else {
+            console.log("API RETURNED NO PETS");
+          }
+        } else {
+          console.log("API RETURNED ARRAY");
+        }
         return {
           pets: response.data.petfinder.pets.pet,
           offset: response.data.petfinder.lastOffset
