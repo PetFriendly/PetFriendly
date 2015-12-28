@@ -15,7 +15,7 @@ var requestProxy = require('express-request-proxy');
 app.get('/pfapi/pets', requestProxy({
     url: "http://api.petfinder.com/pet.find",
     query: {
-      key: 'f7940f8a4ac510a56c2b8bebbd6df0ce',
+      key: config.pfAPI,
       format: 'json',
       output: 'full',
       count: config.apiRecordCount
