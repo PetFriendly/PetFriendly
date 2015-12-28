@@ -21,6 +21,7 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
       } else {
         //Save only original 'x' photos returned from API
         filterPhotos(data.pets);
+        $scope.petsRemaining.count = data.pets.length;
       }
 
       if (user) {
@@ -28,13 +29,13 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
         // If sends back same # records as requested,
         // API reload is required
         if (data.pets.length === apiRecordCount) {
-          $scope.petsRemaining.apiReload = true;
+          $rootScope.session.apiReload = true;
         } else {
-           $scope.petsRemaining.apiReload = false;
+          $rootScope.session.apiReload = false;
         }
         console.log('pets.length = ', data.pets.length);
         console.log('apiRecordCount = ', apiRecordCount);
-        console.log('$scope.petsRemaining.apiReload = ', $scope.petsRemaining.apiReload);
+        console.log('$rootScope.session.apiReload = ', $rootScope.session.apiReload);
         
         //filter the below search to only show pets that do not already exist in DB
         var dbIds = [];
@@ -55,7 +56,7 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
           console.log('FILTERED PET NAME : ', i, $scope.pets[i].name.$t);
         }
 
-        if ($scope.petsRemaining.count === 0) {
+        if ($scope.petsRemaining.count === 0 && $rootScope.session.apiReload ){
           callAPIService($scope, $rootScope, user, options, apiRecordCount, queryPetFinderAPIService);
         }
 
@@ -77,8 +78,8 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECO
   $scope.pet = {};
   $scope.alert = '';
   $scope.petsRemaining = {
-    count: -1,
-    apiReload: false
+    count: -1//,
+    //apiReload: false
   };
   var options = {
     settings: {}
@@ -86,12 +87,14 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECO
   var user;
 
   console.log('Entering MatchCtrl....');
+  console.log('petRemaining', $scope.petsRemaining);
   if ($rootScope.session) {
     user = $rootScope.session.user;
+    //$scope.petsRemaining.apiReload = $rootScope.session.apiReload;
   }
 
   if (user) {
-    //console.log(user);
+    //console.og(user);
     options.settings.animal = user.settings.animal;
     options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
@@ -113,7 +116,9 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECO
     };
   }
 
-  callAPIService($scope, $rootScope, user, options, API_RECORD_COUNT, queryPetFinderAPIService);
+  if ($rootScope.session.apiReload === true) {
+    callAPIService($scope, $rootScope, user, options, API_RECORD_COUNT, queryPetFinderAPIService);
+  }
 
   $scope.photoNext = function (pet){
     $scope.photoSelected = $scope.photoSelected + 1
@@ -159,7 +164,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECO
   };
 
   $scope.$watch('petsRemaining.count', function(newValue, oldValue){
-    if ($scope.petsRemaining.count === 0 && $scope.petsRemaining.apiReload === true) {
+    if ($scope.petsRemaining.count === 0 && $rootScope.session.apiReload === true) {
       console.log('Ready to call API again!!!!');
       options.offset = $rootScope.session.apiOffset;
       console.log('offset = ', options.offset);

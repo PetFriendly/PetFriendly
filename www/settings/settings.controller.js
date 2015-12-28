@@ -28,6 +28,7 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
     dirty = true;
     console.log('is dirty', newValue, oldValue);
     $rootScope.session.apiOffset = 0;
+    $rootScope.session.apiReload = true;
   }, true)
   $scope.$on('$destroy', function(){
     var settings = $scope.settings;
