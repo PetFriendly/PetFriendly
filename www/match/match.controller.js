@@ -145,7 +145,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
           $scope.alert = data.alert;
         } else {
           // Login successful
-          console.log('Save successful');
+          console.log('Save favorite successful');
           console.log(data);
           $rootScope.session.user = data.user;
         }

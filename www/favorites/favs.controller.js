@@ -11,7 +11,7 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
 
   if ($rootScope.session && $rootScope.session.user) {
     user = $rootScope.session.user;
-    $scope.petFavs = $rootScope.session.user.petFavs;
+    $scope.petFavs = user.petFavs;
     console.log('$scope.petFavs', $scope.petFavs);
   } else {
     console.log('User session unavailable, route to login..');
@@ -25,14 +25,14 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
           if (data.alert) {
             $scope.alert = data.alert;
           } else {
-            // DeleteFav successful
-            console.log('Save successful');
+            // deleteFav successful
+            console.log('Delete favorite successful');
             console.log(data);
             $rootScope.session.user = data.user;
           }
         })
         .error(function(err) {
-          $scope.alert = 'Settings save failed'
+          $scope.alert = 'Delete favorite failed'
           console.log(err);
         });
   }
