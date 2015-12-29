@@ -1,7 +1,7 @@
 "use strict";
 
 function mapPetAPIParmsToFavs(pet, isFav) {
-  var favorite = {}; 
+  var favorite = {};
   favorite.contact = {};
   favorite.options = {};
 
@@ -31,7 +31,7 @@ function mapPetAPIParmsToFavs(pet, isFav) {
     favorite.photo1 = pet.media.photos.photo[0] ? pet.media.photos.photo[0].$t : '';
     favorite.photo2 = pet.media.photos.photo[1] ? pet.media.photos.photo[1].$t : '';
     favorite.photo3 = pet.media.photos.photo[2] ? pet.media.photos.photo[2].$t : '';
-   } 
+   }
 
   return favorite;
 }
@@ -42,16 +42,16 @@ angular.module('pfApp')
 function favoritesService($http) {
   return {
     savFav: function(id, pet, isFav) {
-      var petFav = mapPetAPIParmsToFavs(pet, isFav); 
-      console.log('petFav in savFav:', petFav);
+      var petFav = mapPetAPIParmsToFavs(pet, isFav);
+      // console.log('petFav in savFav:', petFav);
 
-      return $http.put('/favorite/add/' + id, {petFav: petFav}); 
+      return $http.put('/favorite/add/' + id, {petFav: petFav});
     },
     deleteFav: function(id, petFav) {
-      petFav.isFav = false; 
-      console.log('petFav in deleteFav:', petFav);
+      petFav.isFav = false;
+      // console.log('petFav in deleteFav:', petFav);
 
-      return $http.put('/favorite/update/' + id, {petFav: petFav}); 
+      return $http.put('/favorite/update/' + id, {petFav: petFav});
     }
   };
 }

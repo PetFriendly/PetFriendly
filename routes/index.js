@@ -4,12 +4,6 @@ var passport = require('passport');
 var User = require('../models/User');
 var apiRecordCount = require('../config').apiRecordCount;
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   if (req.isAuthenticated()) res.redirect('/dashboard');
-//   res.render('index', { user: req.user});
-// });
-
 router.get('/#/register', function(req, res, next) {
   //console.log('Checking if user is already logged in');
   if (req.isAuthenticated()) {
@@ -43,11 +37,6 @@ router.post('/register', function(req, res) {
         });
     });
 });
-
-// router.get('/login', function(req, res) {
-//   if (req.isAuthenticated()) res.redirect('/dashboard');
-//   res.render('login', { user: req.user, loginErr: req.session.loginErr });
-// });
 
 router.post('/login', function(req, res, next) {
   // console.log('Received Login POST from CLIENT');
@@ -156,10 +145,5 @@ router.put('/favorite/update/:id', function(req, res, next) {
   });
 
 });
-
-// router.get('/logout', function(req, res) {
-//   req.logout();
-//   res.redirect('/');
-// });
 
 module.exports = router;

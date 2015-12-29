@@ -60,7 +60,7 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 mongoose.connect(config.dbURI);
-console.log(config.dbURI);
+// console.log(config.dbURI);
 
 // Basic routes -- index.js
 app.use('/', routes);

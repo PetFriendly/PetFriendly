@@ -12,15 +12,7 @@ function filterPhotos(pets) {
   return;
 }
 
-function callAPIService(
-  $scope,
-  $rootScope,
-  user,
-  options,
-  queryPetFinderAPIService,
-  $ionicGesture,
-  $ionicSlideBoxDelegate
-) {
+function callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService, $ionicGesture, $ionicSlideBoxDelegate) {
   queryPetFinderAPIService.getPets(options)
     .then(function(data) {
       if (!data.pets) {
@@ -41,9 +33,9 @@ function callAPIService(
         } else {
            $scope.petsRemaining.apiReload = false;
         }
-        console.log('pets.length = ', data.pets.length);
-        console.log('$rootScope.session.apiRecordCount = ', $rootScope.session.apiRecordCount);
-        console.log('$scope.petsRemaining.apiReload = ', $scope.petsRemaining.apiReload);
+        // console.log('pets.length = ', data.pets.length);
+        // console.log('$rootScope.session.apiRecordCount = ', $rootScope.session.apiRecordCount);
+        // console.log('$scope.petsRemaining.apiReload = ', $scope.petsRemaining.apiReload);
 
         //filter the below search to only show pets that do not already exist in DB
         var dbIds = [];
@@ -56,12 +48,12 @@ function callAPIService(
         $scope.petsRemaining.count = $scope.pets.length;
         $rootScope.session.apiOffset = data.offset.$t;
         options.offset = data.offset.$t;
-        console.log($scope.pets);
-        console.log('petsRemaining = ', $scope.petsRemaining.count);
-        console.log('apiOffset = ', $rootScope.session.apiOffset);
-        console.log('filtered results from petfinder:');
+        // console.log($scope.pets);
+        // console.log('petsRemaining = ', $scope.petsRemaining.count);
+        // console.log('apiOffset = ', $rootScope.session.apiOffset);
+        // console.log('filtered results from petfinder:');
         for (var i = 0; i < $scope.pets.length; i++) {
-          console.log('FILTERED PET NAME : ', i, $scope.pets[i].name.$t);
+          // console.log('FILTERED PET NAME : ', i, $scope.pets[i].name.$t);
         }
 
         if ($scope.petsRemaining.count === 0) {
@@ -69,14 +61,14 @@ function callAPIService(
         }
 
       } else {
-        console.log('unfiltered query results from petfinder:');
-        console.log(data.pets);
+        // console.log('unfiltered query results from petfinder:');
+        // console.log(data.pets);
         $scope.pets = data.pets;
       }
 
     })
     .catch(function(error) {
-      console.log('GET/POST error');
+      // console.log('GET/POST error');
     });
 }
 
@@ -94,7 +86,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
   };
   var user;
 
-  console.log('Entering MatchCtrl....');
+  // console.log('Entering MatchCtrl....');
   if ($rootScope.session) {
     user = $rootScope.session.user;
   }
@@ -107,7 +99,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     options.settings.age = user.settings.age;
     options.settings.zipcode = user.settings.zipcode;
     options.offset = $rootScope.session.apiOffset;
-    console.log(options);
+    // console.log(options);
   } else {
     //Initialize all setting to blank srings
     var options = {
@@ -129,7 +121,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
     if ($scope.photoSelected === pet.media.photos.photo.length) {
       $scope.photoSelected = 0;
     }
-    console.log('photoSelected = ', $scope.photoSelected);
+    // console.log('photoSelected = ', $scope.photoSelected);
   };
 
   $scope.saveFavorite = function(pet, isFav) {
@@ -138,7 +130,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
       $scope.selected = $scope.selected + 1;
       $scope.petsRemaining.count--;
       $scope.photoSelected = 0;
-      console.log('petsRemaining = ', $scope.petsRemaining.count);
+      // console.log('petsRemaining = ', $scope.petsRemaining.count);
     };
 
     //No user logged in so don't attempt to save
@@ -153,8 +145,8 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
           $scope.alert = data.alert;
         } else {
           // Login successful
-          console.log('Save favorite successful');
-          console.log(data);
+          // console.log('Save favorite successful');
+          // console.log(data);
           $rootScope.session.user = data.user;
         }
       })
@@ -164,14 +156,14 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, favorite
       });
 
     $scope.selectNext();
-    console.log('pets.length =', $scope.pets.length);
+    // console.log('pets.length =', $scope.pets.length);
   };
 
   $scope.$watch('petsRemaining.count', function(newValue, oldValue) {
     if ($scope.petsRemaining.count === 0 && $scope.petsRemaining.apiReload === true) {
-      console.log('Ready to call API again!!!!');
+      // console.log('Ready to call API again!!!!');
       options.offset = $rootScope.session.apiOffset;
-      console.log('offset = ', options.offset);
+      // console.log('offset = ', options.offset);
       callAPIService($scope, $rootScope, user, options, queryPetFinderAPIService);
     } else if ($scope.petsRemaining.count === 0) {
       $scope.alert = 'You\'ve run out of pets! Try changing your settings.';

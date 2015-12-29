@@ -1,5 +1,5 @@
 function LogoutCtrl ($rootScope, $state) {
-  console.log('Entering LogoutCtrl....');
+  // console.log('Entering LogoutCtrl....');
   $rootScope.session = undefined;
   $state.go('login');
 }

@@ -1,5 +1,5 @@
 function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
-  console.log('Entering FavoritesCtrl....');
+  // console.log('Entering FavoritesCtrl....');
 
   $scope.selected = 0;
   $scope.petFav = {};
@@ -12,9 +12,9 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
   if ($rootScope.session && $rootScope.session.user) {
     user = $rootScope.session.user;
     $scope.petFavs = user.petFavs;
-    console.log('$scope.petFavs', $scope.petFavs);
+    // console.log('$scope.petFavs', $scope.petFavs);
   } else {
-    console.log('User session unavailable, route to login..');
+    // console.log('User session unavailable, route to login..');
     $state.go('login');
   }
 
@@ -26,8 +26,8 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
             $scope.alert = data.alert;
           } else {
             // deleteFav successful
-            console.log('Delete favorite successful');
-            console.log(data);
+            // console.log('Delete favorite successful');
+            // console.log(data);
             $rootScope.session.user = data.user;
           }
         })
