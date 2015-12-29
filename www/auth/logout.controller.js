@@ -1,6 +1,8 @@
 function LogoutCtrl ($rootScope, $state) {
   // console.log('Entering LogoutCtrl....');
-  $rootScope.session = undefined;
+  $rootScope.session = {};
+  $rootScope.session.apiReload = true;
+  $rootScope.session.apiOffset = 0;
   $state.go('login');
 }
 

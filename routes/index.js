@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/User');
-var apiRecordCount = require('../config').apiRecordCount;
 
 router.get('/#/register', function(req, res, next) {
   //console.log('Checking if user is already logged in');
@@ -27,13 +26,13 @@ router.post('/register', function(req, res) {
     }), req.body.password, function(err, user) {
         if (err) {
           // console.log('register ERROR....')
-          return res.json({alert:'Sorry. That username already exists. Try again.'});
+          return res.json({alert:'Sorry, invalid username or password. Try again.'});
         }
         passport.authenticate('local')(req, res, function() {
           // Zero out hash and salt before passing back to App
           user.hash = '';
           user.salt = '';
-          res.send({user: user, apiRecordCount: apiRecordCount});
+          res.send({user: user});
         });
     });
 });
@@ -54,7 +53,7 @@ router.post('/login', function(req, res, next) {
       // Zero out hash and salt before passing back to App
       user.hash = '';
       user.salt = '';
-      return res.send({user: user, apiRecordCount: apiRecordCount});
+      return res.send({user: user});
     });
   })(req, res, next);
 });
@@ -80,7 +79,7 @@ router.put('/settings/:id', function(req, res, next) {
         if (err) {
           return next(err);
         } else {
-          res.send({user : user});
+          res.send({user: user});
         }
       });
     }
@@ -107,7 +106,7 @@ router.put('/favorite/add/:id', function(req, res, next) {
       if (err) {
         return next(err);
       } else {
-        res.send({user : user});
+        res.send({user: user});
       }
     });
   });
@@ -139,7 +138,7 @@ router.put('/favorite/update/:id', function(req, res, next) {
       if (err) {
         return next(err);
       } else {
-        res.send({user : user});
+        res.send({user: user});
       }
     });
   });
