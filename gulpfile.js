@@ -59,17 +59,24 @@ gulp.task('git-check', function(done) {
 //   .pipe(jshint.reporter('default'));
 // });
 
-gulp.task('jscs', function (){
+gulp.task('jscs', function() {
   return gulp.src([
     'models/*.js',
     'routes/*.js',
-    'www/*.js',
-    './*.js'])
+    'www/auth/*.js',
+    'www/favorites/*.js',
+    'www/js/*.js',
+    'www/services/*.js',
+    'www/match/*.js',
+    'www/settings/*.js',
+    './*.js'
+  ])
   .pipe(jscs())
+  // .pipe(gulp.dest('src'));
   .pipe(jscs.reporter());
 })
 
-gulp.task('mocha/chai', function(){
+gulp.task('mocha/chai', function() {
   return gulp.src('/test/*.js')
   .pipe(mocha({reporter:'nyan'}));
 });

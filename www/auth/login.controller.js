@@ -7,7 +7,7 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
   };
   $scope.alert = '';
 
-  $scope.login = function(user){
+  $scope.login = function(user) {
     $scope.alert = '';
     console.log(user);
     $http.post('/login', user).
@@ -34,7 +34,7 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
 
   };
 
-  $scope.register = function(user){
+  $scope.register = function(user) {
     $scope.alert = '';
     $http.post('/register', user).
       success(function(data) {
@@ -57,4 +57,4 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
 }
 
 angular.module('pfApp.controllers')
-    .controller( 'LoginCtrl', LoginCtrl );
+    .controller('LoginCtrl', LoginCtrl);

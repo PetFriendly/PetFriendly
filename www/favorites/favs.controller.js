@@ -5,7 +5,7 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
   $scope.petFav = {};
   $scope.pet = {};
   var user;
-  $scope.selectNext = function (){
+  $scope.selectNext = function() {
     $scope.selected = $scope.selected + 1
   };
 
@@ -20,7 +20,7 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
 
   $scope.deleteFavorite = function(pet) {
 
-      favoritesService.deleteFav(user._id, pet)  
+      favoritesService.deleteFav(user._id, pet)
         .success(function(data) {
           if (data.alert) {
             $scope.alert = data.alert;
@@ -39,4 +39,4 @@ function FavoritesCtrl($scope, $rootScope, $state, favoritesService) {
 }
 
 angular.module('pfApp.controllers')
-    .controller( 'FavoritesCtrl', FavoritesCtrl );
+    .controller('FavoritesCtrl', FavoritesCtrl);

@@ -13,7 +13,7 @@ var config = require('./config');
 var requestProxy = require('express-request-proxy');
 
 app.get('/pfapi/pets', requestProxy({
-    url: "http://api.petfinder.com/pet.find",
+    url: 'http://api.petfinder.com/pet.find',
     query: {
       key: config.pfAPI,
       format: 'json',
@@ -25,11 +25,11 @@ app.get('/pfapi/pets', requestProxy({
 app.set('port', config.port);
 app.set('env', process.env.NODE_ENV);
 
-app.use( ( req, res, next ) => {
+app.use((req, res, next) => {
   const url = '*';
-  res.header( 'Access-Control-Allow-Origin', url );
-  res.header( 'Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, PATCH, DELETE' );
-  res.header( 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept' );
+  res.header('Access-Control-Allow-Origin', url);
+  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, PATCH, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
@@ -62,7 +62,6 @@ app.use(methodOverride());
 mongoose.connect(config.dbURI);
 console.log(config.dbURI);
 
-
 // Basic routes -- index.js
 app.use('/', routes);
 
@@ -71,6 +70,6 @@ app.use('/', routes);
 
 app.use(router);
 
-app.listen(config.port, function () {
+app.listen(config.port, function() {
   console.log('Express server listening on port', config.port);
 });

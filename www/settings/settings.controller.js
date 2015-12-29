@@ -20,7 +20,7 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
   console.log('SettingsCtrl....user', user);
   var initialized = false;
   var dirty = false;
-  $scope.$watch('settings', function(newValue, oldValue){
+  $scope.$watch('settings', function(newValue, oldValue) {
     if (!initialized) {
       initialized = true;
       return;
@@ -29,7 +29,7 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
     console.log('is dirty', newValue, oldValue);
     $rootScope.session.apiOffset = 0;
   }, true)
-  $scope.$on('$destroy', function(){
+  $scope.$on('$destroy', function() {
     var settings = $scope.settings;
     $scope.alert = '';
 
@@ -54,4 +54,4 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
 }
 
 angular.module('pfApp.controllers')
-    .controller( 'SettingsCtrl', SettingsCtrl );
+    .controller('SettingsCtrl', SettingsCtrl);

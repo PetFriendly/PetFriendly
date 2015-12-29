@@ -27,15 +27,15 @@ router.post('/register', function(req, res) {
         sizes: '',
         sex: '',
         age: '',
-        zipcode: req.body.zipcode || "97024"
+        zipcode: req.body.zipcode || '97024'
       },
       petFavs: []
     }), req.body.password, function(err, user) {
         if (err) {
           // console.log('register ERROR....')
-          return res.json({'alert':'Sorry. That username already exists. Try again.'});
+          return res.json({alert:'Sorry. That username already exists. Try again.'});
         }
-        passport.authenticate('local')(req, res, function () {
+        passport.authenticate('local')(req, res, function() {
           // Zero out hash and salt before passing back to App
           user.hash = '';
           user.salt = '';
@@ -56,11 +56,11 @@ router.post('/login', function(req, res, next) {
       // console.log('ERROR received POST req');
       return next(err); }
     if (!user) {
-      return res.json({'alert':'Sorry. Username and/or password are invalid. Try again.'});
+      return res.json({alert:'Sorry. Username and/or password are invalid. Try again.'});
     }
     req.logIn(user, function(err) {
       if (err) {
-        return res.json({'alert':'Sorry. Username and/or password are invalid. Try again.'});
+        return res.json({alert:'Sorry. Username and/or password are invalid. Try again.'});
       }
       // Zero out hash and salt before passing back to App
       user.hash = '';
@@ -140,7 +140,7 @@ router.put('/favorite/update/:id', function(req, res, next) {
     if (err) {
       return next(err);
     } else {
-      user.petFavs.forEach( function(ele, index) {
+      user.petFavs.forEach(function(ele, index) {
         if (ele.pfId === petFav.pfId) {
           user.petFavs[index].isFav = petFav.isFav;
         }
@@ -156,7 +156,6 @@ router.put('/favorite/update/:id', function(req, res, next) {
   });
 
 });
-
 
 // router.get('/logout', function(req, res) {
 //   req.logout();
