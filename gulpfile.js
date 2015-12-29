@@ -13,7 +13,7 @@ var paths = {
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass', 'mocha/chai', 'jshint']);
+gulp.task('default', ['sass', 'mocha/chai', 'jscs']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -52,14 +52,19 @@ gulp.task('git-check', function(done) {
   done();
 });
 
-gulp.task('jshint', function(){
-  gulp.src(['/models/*.js', '/test/*.js'])
-  .pipe(jshint())
-  .pipe(jshint.reporter('default'));
-});
+// not using jshint
+// gulp.task('jshint', function(){
+//   gulp.src(['/models/*.js', '/test/*.js'])
+//   .pipe(jshint())
+//   .pipe(jshint.reporter('default'));
+// });
 
 gulp.task('jscs', function (){
-  return gulp.src(['models/*.js', '/*test.js'])
+  return gulp.src([
+    'models/*.js',
+    'routes/*.js',
+    'www/*.js',
+    './*.js'])
   .pipe(jscs())
   .pipe(jscs.reporter());
 })
