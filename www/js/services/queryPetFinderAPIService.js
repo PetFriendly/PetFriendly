@@ -37,11 +37,7 @@ function queryPetFinderAPIService($http, API_ROUTE, API_RECORD_COUNT) {
             //convert to array
             var petArray = [response.data.petfinder.pets.pet];
             response.data.petfinder.pets.pet = petArray;
-          } else {
-            console.log("API RETURNED NO PETS");
           }
-        } else {
-          console.log("API RETURNED ARRAY");
         }
         return {
           pets: response.data.petfinder.pets.pet,
