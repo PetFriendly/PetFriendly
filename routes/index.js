@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/User');
-var apiRecordCount = require('../config').apiRecordCount; 
+var apiRecordCount = require('../config').apiRecordCount;
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -56,11 +56,11 @@ router.post('/login', function(req, res, next) {
       // console.log('ERROR received POST req');
       return next(err); }
     if (!user) {
-      return res.json({'alert':'Sorry. That username or password are invalid. Try again.'});
+      return res.json({'alert':'Sorry. Username and/or password are invalid. Try again.'});
     }
     req.logIn(user, function(err) {
       if (err) {
-        return res.json({'alert':'Sorry. That username or password are invalid. Try again.'});
+        return res.json({'alert':'Sorry. Username and/or password are invalid. Try again.'});
       }
       // Zero out hash and salt before passing back to App
       user.hash = '';
@@ -104,7 +104,7 @@ router.put('/favorite/add/:id', function(req, res, next) {
   if (!req.isAuthenticated()) {
     // console.log('User is NOT logged in; cannot update Settings');
     return res.redirect('/#/login');
-  } 
+  }
   // console.log('user id', req.params.id);
   // console.log('petFav', req.body.petFav);
 
@@ -132,7 +132,7 @@ router.put('/favorite/update/:id', function(req, res, next) {
   if (!req.isAuthenticated()) {
     // console.log('User is NOT logged in; cannot update Settings');
     return res.redirect('/#/login');
-  } 
+  }
   // console.log('user id', req.params.id);
   // console.log('petFav', petFav);
 
@@ -142,7 +142,7 @@ router.put('/favorite/update/:id', function(req, res, next) {
     } else {
       user.petFavs.forEach( function(ele, index) {
         if (ele.pfId === petFav.pfId) {
-          user.petFavs[index].isFav = petFav.isFav; 
+          user.petFavs[index].isFav = petFav.isFav;
         }
       });
     }
