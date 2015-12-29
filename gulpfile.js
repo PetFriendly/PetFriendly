@@ -13,7 +13,7 @@ var paths = {
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass', 'mocha/chai', 'jshint']);
+gulp.task('default', ['sass', 'mocha/chai', 'jscs']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -52,19 +52,31 @@ gulp.task('git-check', function(done) {
   done();
 });
 
-gulp.task('jshint', function(){
-  gulp.src(['/models/*.js', '/test/*.js'])
-  .pipe(jshint())
-  .pipe(jshint.reporter('default'));
-});
+// not using jshint
+// gulp.task('jshint', function(){
+//   gulp.src(['/models/*.js', '/test/*.js'])
+//   .pipe(jshint())
+//   .pipe(jshint.reporter('default'));
+// });
 
-gulp.task('jscs', function (){
-  return gulp.src(['models/*.js', '/*test.js'])
+gulp.task('jscs', function() {
+  return gulp.src([
+    'models/*.js',
+    'routes/*.js',
+    'www/auth/*.js',
+    'www/favorites/*.js',
+    'www/js/*.js',
+    'www/services/*.js',
+    'www/match/*.js',
+    'www/settings/*.js',
+    './*.js'
+  ])
   .pipe(jscs())
+  // .pipe(gulp.dest('src'));
   .pipe(jscs.reporter());
 })
 
-gulp.task('mocha/chai', function(){
+gulp.task('mocha/chai', function() {
   return gulp.src('/test/*.js')
   .pipe(mocha({reporter:'nyan'}));
 });

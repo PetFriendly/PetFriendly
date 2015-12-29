@@ -1,5 +1,5 @@
 function LoginCtrl ($scope, $http, $state, $rootScope) {
-  console.log('Entering LoginCtrl....');
+  // console.log('Entering LoginCtrl....');
 
   $scope.user  = {
     username: '',
@@ -7,32 +7,32 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
   };
   $scope.alert = '';
 
-  $scope.login = function(user){
+  $scope.login = function(user) {
     $scope.alert = '';
-    console.log(user);
+    // console.log(user);
     $http.post('/login', user).
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
         } else {
           // Login successful
-          console.log('Login successful');
-          console.log(data);
+          // console.log('Login successful');
+          // console.log(data);
           $rootScope.session.user = data.user;
           $rootScope.session.apiOffset = 0;
           $state.go('tab.match');
-          console.log('exiting LoginCtrl')
+          // console.log('exiting LoginCtrl')
         }
       }).
       error(function(err) {
         $scope.alert = 'Login failed'
-        console.log(err);
+        // console.log(err);
       });
-    console.log('Login pressed...');
+    // console.log('Login pressed...');
 
   };
 
-  $scope.register = function(user){
+  $scope.register = function(user) {
     $scope.alert = '';
     $http.post('/register', user).
       success(function(data) {
@@ -48,10 +48,10 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
       error(function() {
         $scope.alert = 'Registration failed'
       });
-    console.log('Register pressed...');
+    // console.log('Register pressed...');
 
   };
 }
 
 angular.module('pfApp.controllers')
-    .controller( 'LoginCtrl', LoginCtrl );
+    .controller('LoginCtrl', LoginCtrl);
