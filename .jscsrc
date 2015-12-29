@@ -26,5 +26,8 @@
     "maximumLineLength": 120,
     "requireCapitalizedConstructors": true,
     "requireDotNotation": true,
-    "excludeFiles": [ "node_modules/**" ]
+    "excludeFiles": [
+        "node_modules/**",
+        "hooks/**"
+    ]
 }
