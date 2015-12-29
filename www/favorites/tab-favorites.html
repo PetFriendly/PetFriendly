@@ -1,7 +1,7 @@
 <ion-view view-title="<img class='title-image-pic' src='./img/PetBar.jpg'>" hide-back-button="true" class="padding">
   <ion-content>
     <ion-list>
-      <a class="item item-avatar item-button-right" ng-repeat="petFav in petFavs" ng-click="description = ! description" ng-hide="petFav.isFav == false" href="#">
+      <a class="item item-thumbnail-left item-button-right" ng-repeat="petFav in petFavs" ng-click="description = ! description" ng-hide="petFav.isFav == false" href="#">
         <img ng-src="{{petFav.photo1}}">
         <h2>{{petFav.name}}</h2>
         <p>{{petFav.age}}</p>
