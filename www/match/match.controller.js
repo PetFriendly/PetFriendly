@@ -78,7 +78,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECO
   $scope.pet = {};
   $scope.alert = '';
   $scope.petsRemaining = {
-    count: -1//,
+    count: 0//,
     //apiReload: false
   };
   var options = {
@@ -88,6 +88,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECO
 
   console.log('Entering MatchCtrl....');
   console.log('petRemaining', $scope.petsRemaining);
+  console.log('apiOffset', $rootScope.session.apiOffset);
   if ($rootScope.session) {
     user = $rootScope.session.user;
     //$scope.petsRemaining.apiReload = $rootScope.session.apiReload;
