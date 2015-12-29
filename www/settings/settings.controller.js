@@ -42,10 +42,11 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
-        } else {
-          // console.log('Settings save successful');
-          // console.log(data);
         }
+        // else {
+        //   console.log('Settings save successful');
+        //   console.log(data);
+        // }
       }).
       error(function(err) {
         $scope.alert = 'Settings save failed'

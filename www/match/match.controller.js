@@ -12,7 +12,8 @@ function filterPhotos(pets) {
   return;
 }
 
-function callAPIService($scope, $rootScope, user, options, apiRecordCount, queryPetFinderAPIService, $ionicGesture, $ionicSlideBoxDelegate) {
+function callAPIService($scope, $rootScope, user, options, apiRecordCount,
+                          queryPetFinderAPIService, $ionicGesture, $ionicSlideBoxDelegate) {
   queryPetFinderAPIService.getPets(options)
     .then(function(data) {
       if (!data.pets) {
@@ -36,7 +37,7 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
         // console.log('pets.length = ', data.pets.length);
         // console.log('apiRecordCount = ', apiRecordCount);
         // console.log('$rootScope.session.apiReload = ', $rootScope.session.apiReload);
-        
+
         //filter the below search to only show pets that do not already exist in DB
         var dbIds = [];
         user.petFavs.forEach(function(el) {
@@ -52,11 +53,11 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
         // console.log('petsRemaining = ', $scope.petsRemaining.count);
         // console.log('apiOffset = ', $rootScope.session.apiOffset);
         // console.log('filtered results from petfinder:');
-        for (var i = 0; i < $scope.pets.length; i++) {
-          // console.log('FILTERED PET NAME : ', i, $scope.pets[i].name.$t);
-        }
+        // for (var i = 0; i < $scope.pets.length; i++) {
+        //   console.log('FILTERED PET NAME : ', i, $scope.pets[i].name.$t);
+        // }
 
-        if ($scope.petsRemaining.count === 0 && $rootScope.session.apiReload ){
+        if ($scope.petsRemaining.count === 0 && $rootScope.session.apiReload) {
           callAPIService($scope, $rootScope, user, options, apiRecordCount, queryPetFinderAPIService);
         }
 
@@ -72,7 +73,8 @@ function callAPIService($scope, $rootScope, user, options, apiRecordCount, query
     });
 }
 
-function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECORD_COUNT, favoritesService, $ionicSlideBoxDelegate) {
+function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService,
+                    API_RECORD_COUNT, favoritesService, $ionicSlideBoxDelegate) {
   $scope.selected = 0;
   $scope.photoSelected = 0;
   $scope.pet = {};
