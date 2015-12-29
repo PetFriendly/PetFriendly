@@ -26,7 +26,7 @@ router.post('/register', function(req, res) {
     }), req.body.password, function(err, user) {
         if (err) {
           // console.log('register ERROR....')
-          return res.json({alert:'Sorry. That username already exists. Try again.'});
+          return res.json({alert:'Sorry, invalid username or password. Try again.'});
         }
         passport.authenticate('local')(req, res, function() {
           // Zero out hash and salt before passing back to App
