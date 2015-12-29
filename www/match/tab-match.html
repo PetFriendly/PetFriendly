@@ -1,5 +1,5 @@
-<ion-view view-title="<img class='title-image-pic' src='./img/PetBar.jpg'>" hide-back-button="true" class="padding">
-  <ion-content>
+<ion-view view-title="<img class='title-image-pic' src='./img/PetBar.jpg'>" hide-back-button="true">
+  <ion-content class="padding">
     <ion-list class="swipe">
       <ion-item can swipe="true" class="item item-text-wrap" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)" ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2 class="animal-name">{{pet.name.$t}}, {{pet.age.$t}}</h2>

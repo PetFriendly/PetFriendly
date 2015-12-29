@@ -21,7 +21,8 @@ button.del-btn {
   margin-top: 12px; }
 
 img.title-image-pic {
-  padding-top: 8px; }
+  padding-top: 8px;
+  text-align: left; }
 
 div.alert-style.ng-binding {
   font-size: 15px;
@@ -39,6 +40,9 @@ div.item.item-text-wrap {
 img.item-avatar {
   max-height: 50px;
   max-width: 50px; }
+
+.item-image img:first-child, .item-image .list-img {
+  margin: 1px; }
 
 .padding {
   padding: 20px; }

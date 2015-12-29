@@ -17,6 +17,9 @@ $dark:                            #444 !default;
 
 
 $font-family-base: "Open-Sans", sans-serif !default;
+$base-background-color:           #fffcf7 !default;
+$content-padding:                 20px !default;
+$grid-padding-width:              20px !default;
 $button-margin-top:               1px !default;
 $button-clear-font-size:          16px !default;
 $button-font-size:                20px !default;
@@ -44,6 +47,11 @@ button.del-btn {
 
 img.title-image-pic {
   padding-top: 8px;
+  text-align: 
+}
+
+title title-center header-item {
+
 }
 
 div.alert-style.ng-binding {
@@ -68,8 +76,12 @@ img.item-avatar {
 
 }
 
-.padding {
-  padding: 20px;
+.item-image img:first-child, .item-image .list-img {
+  margin: 1px;
+}
+
+.ion-content.padding.scroll-content.ionic-scroll.has-header {
+  padding: 50px;
 }
 
 .scroll h2.animal-name {
