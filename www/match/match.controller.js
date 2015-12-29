@@ -89,7 +89,6 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService,
 
   // console.log('Entering MatchCtrl....');
   // console.log('petRemaining', $scope.petsRemaining);
-  // console.log('apiOffset', $rootScope.session.apiOffset);
 
   if ($rootScope.session) {
     user = $rootScope.session.user;
@@ -97,7 +96,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService,
   }
 
   if (user) {
-    //console.log(user);
+    // console.log(user);
     options.settings.animal = user.settings.animal;
     options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
@@ -119,7 +118,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService,
     };
   }
 
-  if ($rootScope.session.apiReload === true) {
+  if ($rootScope.session && $rootScope.session.apiReload === true) {
     callAPIService($scope, $rootScope, user, options, API_RECORD_COUNT, queryPetFinderAPIService);
   }
 

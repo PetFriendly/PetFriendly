@@ -16,7 +16,7 @@ angular.module('pfApp', ['ionic', 'pfApp.controllers'])
     }
   });
 
-  //Initialize $rootScope.session.apiReload
+  //Initialize $rootScope.session
   $rootScope.session = {};
   $rootScope.session.apiReload = true;
   $rootScope.session.apiOffset = 0;
