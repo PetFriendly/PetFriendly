@@ -95,7 +95,7 @@ function MatchCtrl($scope, $rootScope, $http, queryPetFinderAPIService, API_RECO
   }
 
   if (user) {
-    //console.og(user);
+    //console.log(user);
     options.settings.animal = user.settings.animal;
     options.settings.sizes = user.settings.sizes;
     options.settings.sex = user.settings.sex;
