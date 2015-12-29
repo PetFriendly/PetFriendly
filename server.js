@@ -39,7 +39,7 @@ var session = require('express-session');
 app.use(express.static(__dirname + '/www'));
 
 app.use(require('express-session')({
-  secret: 'I love pets',
+  secret: config.expressSecret,
   resave: false,
   saveUninitialized: false,
 }));
