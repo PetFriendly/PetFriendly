@@ -41,6 +41,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 /* custom styles */
 
+.ion-item {
+  background-color: #fffcf7;
+}
+
 .padding {
   margin: 0 2px;
 }
@@ -69,7 +73,7 @@ img.title-image-pic {
 }
 
 div.item.item-text-wrap.ng-binding {
-  margin-top: 5px;
+  margin-top: 14px;
 }
 
 div.alert-style.ng-binding {
@@ -107,6 +111,10 @@ img.item-avatar {
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
 }
+
+// .tabs-icon-top.tabs-color-active-royal {
+//   padding: 5px 0;
+// }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 

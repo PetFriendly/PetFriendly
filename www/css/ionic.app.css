@@ -17,6 +17,9 @@ $dark:                            #444 !default;
 */
 /* custom styles */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+.ion-item {
+  background-color: #fffcf7; }
+
 .padding {
   margin: 0 2px; }
 
@@ -39,7 +42,7 @@ img.title-image-pic {
   text-align: left; }
 
 div.item.item-text-wrap.ng-binding {
-  margin-top: 5px; }
+  margin-top: 14px; }
 
 div.alert-style.ng-binding {
   font-size: 15px;
