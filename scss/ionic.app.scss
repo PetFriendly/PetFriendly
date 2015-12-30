@@ -1,21 +1,3 @@
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
-
-
 $font-family-base: "Open-Sans", sans-serif !default;
 $base-background-color:           #fffcf7 !default;
 $content-padding:                 20px !default;
@@ -35,11 +17,20 @@ $royal:                           #886aea !default;
 $button-padding:                  50px !default;
 $stable:                          #e1e1fb !default;
 $font-size:                       25px !default;
-// The path for our ionicons font files, relative to the built CSS in www/css
+
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
-
 /* custom styles */
+
+label.item.item-input.item-select {
+  padding: 20px;
+  font-size: 15px;
+}
+
+label.item.item-input {
+  padding: 20px;
+  font-size: 15px;
+}
 
 .ion-item {
   background-color: #fffcf7;
@@ -77,6 +68,10 @@ button.button-clear {
 
 button.del-btn {
   margin-top: 20px;
+}
+
+h2.favorites.ng-binding {
+  margin-top: 15px;
 }
 
 p.italic.ng-binding {
@@ -128,26 +123,8 @@ img.item-avatar {
   font-family: 'Open Sans', sans-serif;
 }
 
-.tabs-icon-top.tabs-color-active-royal {
-  padding: 5px 0;
-}
-
-// @media (max-width: 768px) {
-//   .btn-responsive {
-//     padding:2px 4px;
-//     font-size:80%;
-//     line-height: 1;
-//   }
-// }
-
-// @media (min-width: 300px) and (max-width: 700px) {
-//   button.side-btn {
-//     padding:4px 9px;
-//   }
-// }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 
-// Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
