@@ -49,14 +49,30 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   margin: 0 2px;
 }
 
+div.col.text-center {
+  width: 100%;
+  vertical-align: middle;
+}
+
 button.wide-btn {
   width: 90%;
   display: block;
   margin: auto;
 }
 
+button.button-large {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+button.btn-no {
+  padding-left: 44px;
+  padding-right: 44px;
+}
+
 button.button-clear {
   margin-left: 4%;
+  font-size: 16px;
 }
 
 button.del-btn {
@@ -112,8 +128,22 @@ img.item-avatar {
   font-family: 'Open Sans', sans-serif;
 }
 
-// .tabs-icon-top.tabs-color-active-royal {
-//   padding: 5px 0;
+.tabs-icon-top.tabs-color-active-royal {
+  padding: 5px 0;
+}
+
+// @media (max-width: 768px) {
+//   .btn-responsive {
+//     padding:2px 4px;
+//     font-size:80%;
+//     line-height: 1;
+//   }
+// }
+
+// @media (min-width: 300px) and (max-width: 700px) {
+//   button.side-btn {
+//     padding:4px 9px;
+//   }
 // }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
