@@ -59,13 +59,10 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 mongoose.connect(config.dbURI);
-// console.log(config.dbURI);
+console.log(config.dbURI);
 
-// Basic routes -- index.js
+// Basic routes -- routes/index.js
 app.use('/', routes);
-
-//Pet is going to send to route '/Pets'.
-//http methods are going to save to db collection pets
 
 app.use(router);
 
