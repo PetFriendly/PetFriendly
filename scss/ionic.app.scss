@@ -41,17 +41,35 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 /* custom styles */
 
+.padding {
+  margin: 0 2px;
+}
+
+button.wide-btn {
+  width: 90%;
+  display: block;
+  margin: auto;
+}
+
+button.button-clear {
+  margin-left: 4%;
+}
+
 button.del-btn {
-  margin-top: 12px;
+  margin-top: 20px;
+}
+
+p.italic.ng-binding {
+  font-style: italic;
 }
 
 img.title-image-pic {
   padding-top: 8px;
-  text-align: 
+  text-align: left;
 }
 
-title title-center header-item {
-
+div.item.item-text-wrap.ng-binding {
+  margin-top: 5px;
 }
 
 div.alert-style.ng-binding {
@@ -64,6 +82,7 @@ h1.alert-style.ng-binding {
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
   margin-top: 10px;
+  font-style: center;
 }
 
 div.item.item-text-wrap {
