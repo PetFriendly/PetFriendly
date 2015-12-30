@@ -51,14 +51,8 @@ This app utilizes MongoDB. You can either use a local database or a cloud deploy
 
 5. Connect to database:
   1. Local mongo database
-    1. Set up local environment variable. Refer to your terminal documentation if not using default settings for OhMyZsh and Sublime:
-    2. Navigate to root ```~```
-    3. Open in Sublime ```subl ./zshrc```
-    4. add following lines to file:
-      1. ```# PetFriendly - Provide local access to MongoDB```
-      2. ```export PF_USE_LOCAL_DB=1```
-    5. Open the config.js file and replace '/pet_app' with the database you would like to use
-  2.  mongolabs database
+    1. Open the config.js file and replace '/pet_app' with the database you would like to use
+  2.  Mongolabs database
     1. add following line to your .env file, replacing dbuser, dbpassword, host, port, and dbname with the appropriate information
     2. ```MONGOLAB_URI='mongodb://dbuser:dbpassword@host:port/dbname'```
     3. if database is connected through heroku check https://devcenter.heroku.com/articles/mongolab#getting-your-connection-uri.
