@@ -1,4 +1,4 @@
-<ion-view view-title="Register | PetFriendly">
+<ion-view view-title="Register | PetFriendly" hide-back-button="true">
   <ion-nav-title>
     <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
@@ -16,5 +16,10 @@
       </label>
     </div>
     <button class="wide-btn button button-royal" ng-click="register(user)">Register</button>
+    <a href="/#/login">
+      <button class="button button-clear button-royal">
+        Already a user? Back to login
+      </button>
+    </a>
   </ion-content>
 </ion-view>
