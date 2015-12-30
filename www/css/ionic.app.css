@@ -55,13 +55,15 @@ div.item.item-text-wrap.ng-binding {
 div.alert-style.ng-binding {
   font-size: 15px;
   font-family: 'Open Sans', sans-serif;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  background-color: #fffcf7; }
 
 h1.alert-style.ng-binding {
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
   margin-top: 10px;
-  font-style: center; }
+  font-style: center;
+  background-color: #fffcf7; }
 
 div.item.item-text-wrap {
   border: 0; }
