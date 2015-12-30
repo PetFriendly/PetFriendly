@@ -1,7 +1,7 @@
 // PetFriendly App
 angular.module('pfApp', ['ionic', 'pfApp.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -15,6 +15,12 @@ angular.module('pfApp', ['ionic', 'pfApp.controllers'])
       StatusBar.styleDefault();
     }
   });
+
+  //Initialize $rootScope.session
+  $rootScope.session = {};
+  $rootScope.session.apiReload = true;
+  $rootScope.session.apiOffset = 0;
+  console.log('run...$rootScope.session.apiReload', $rootScope.session.apiReload);
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {

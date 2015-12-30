@@ -18,9 +18,9 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
           // Login successful
           // console.log('Login successful');
           // console.log(data);
-          $rootScope.session = {}
+          $rootScope.session = {};
           $rootScope.session.user = data.user;
-          $rootScope.session.apiRecordCount = data.apiRecordCount;
+          $rootScope.session.apiReload = true;
           $rootScope.session.apiOffset = 0;
           $state.go('tab.match');
           // console.log('exiting LoginCtrl')
@@ -42,9 +42,12 @@ function LoginCtrl ($scope, $http, $state, $rootScope) {
           $scope.alert = data.alert;
         } else {
           // Registration successful
-          $rootScope.session = {}
+          // console.log(data);
+          // console.log($rootScope);
+          $rootScope.session = {};
           $rootScope.session.user = data.user;
-          $rootScope.session.apiRecordCount = data.apiRecordCount;
+          $rootScope.session.apiReload = true;
+          $rootScope.session.apiOffset = 0;
           $state.go('tab.settings');
         }
       }).

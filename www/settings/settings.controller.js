@@ -28,6 +28,7 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
     dirty = true;
     // console.log('is dirty', newValue, oldValue);
     $rootScope.session.apiOffset = 0;
+    $rootScope.session.apiReload = true;
   }, true)
   $scope.$on('$destroy', function() {
     var settings = $scope.settings;
@@ -41,10 +42,11 @@ function SettingsCtrl($scope, $rootScope, $http, $state) {
       success(function(data) {
         if (data.alert) {
           $scope.alert = data.alert;
-        } else {
-          // console.log('Settings save successful');
-          // console.log(data);
         }
+        // else {
+        //   console.log('Settings save successful');
+        //   console.log(data);
+        // }
       }).
       error(function(err) {
         $scope.alert = 'Settings save failed'
