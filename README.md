@@ -16,7 +16,7 @@ User can click picture of the pet for additional pictures (if available) and cli
 
 Pets can be deleted from favorites list. They will not be shown again in the match view. A future feature will allow user to see pets they have previously declined.
 
-##Developer Notes:
+##Developer Notes
 Currently at v1.0.0 in 'Dev' branch. This will shortly be pushed to 'Master' branch. 'Dev' will be primary location for newest experimental features.
 
 ###Petfinder Integration
@@ -51,7 +51,7 @@ This app utilizes MongoDB. You can either use a local database or a cloud deploy
 
 5. Connect to database:
   1. Local mongo database
-    1. Open the config.js file and replace '/pet_app' with the database you would like to use
+    1. open the config.js file and replace '/pet_app' with the database you would like to use
   2.  Mongolabs database
     1. add following line to your .env file, replacing dbuser, dbpassword, host, port, and dbname with the appropriate information
     2. ```MONGOLAB_URI='mongodb://dbuser:dbpassword@host:port/dbname'```
