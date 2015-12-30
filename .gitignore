@@ -26,5 +26,6 @@ npm-debug.log
 
 .DS*
 
+#local environmental file for sensitive informatio
 .env
 

@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/* colors
+Off White - #fffcf7
+Dark Purple - #886aea
+Light Purple - #e1e1fb
+*/
 /* custom styles */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 label.item.item-input.item-select {

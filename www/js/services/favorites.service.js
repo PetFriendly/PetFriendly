@@ -4,7 +4,6 @@ function mapPetAPIParmsToFavs(pet, isFav) {
   var favorite = {};
   favorite.contact = {};
   favorite.options = {};
-
   favorite.isFav = isFav;
   favorite.name = pet.name ? pet.name.$t : '';
   favorite.pfId = pet.id ? pet.id.$t : '';
