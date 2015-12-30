@@ -1,27 +1,56 @@
 @charset "UTF-8";
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
 /* custom styles */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+label.item.item-input.item-select {
+  padding: 20px;
+  font-size: 15px; }
+
+label.item.item-input {
+  padding: 20px;
+  font-size: 15px; }
+
+.ion-item {
+  background-color: #fffcf7; }
+
+.padding {
+  margin: 0 2px; }
+
+div.col.text-center {
+  width: 100%;
+  vertical-align: middle; }
+
+button.wide-btn {
+  width: 90%;
+  display: block;
+  margin: auto; }
+
+button.button-large {
+  padding-left: 40px;
+  padding-right: 40px; }
+
+button.btn-no {
+  padding-left: 44px;
+  padding-right: 44px; }
+
+button.button-clear {
+  margin-left: 4%;
+  font-size: 16px; }
+
 button.del-btn {
-  margin-top: 12px; }
+  margin-top: 20px; }
+
+h2.favorites.ng-binding {
+  margin-top: 15px; }
+
+p.italic.ng-binding {
+  font-style: italic; }
 
 img.title-image-pic {
-  padding-top: 8px; }
+  padding-top: 8px;
+  text-align: left; }
+
+div.item.item-text-wrap.ng-binding {
+  margin-top: 14px; }
 
 div.alert-style.ng-binding {
   font-size: 15px;
@@ -31,7 +60,8 @@ div.alert-style.ng-binding {
 h1.alert-style.ng-binding {
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
-  margin-top: 10px; }
+  margin-top: 10px;
+  font-style: center; }
 
 div.item.item-text-wrap {
   border: 0; }
@@ -40,8 +70,11 @@ img.item-avatar {
   max-height: 50px;
   max-width: 50px; }
 
-.padding {
-  padding: 20px; }
+.item-image img:first-child, .item-image .list-img {
+  margin: 1px; }
+
+.ion-content.padding.scroll-content.ionic-scroll.has-header {
+  padding: 50px; }
 
 .scroll h2.animal-name {
   font-size: 30px;
@@ -3588,7 +3621,7 @@ ion-infinite-scroll {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #fffcf7;
   overflow: hidden; }
 
 .view-container {
@@ -6610,7 +6643,7 @@ button.item.item-button-right {
 .card,
 .list-inset {
   overflow: hidden;
-  margin: 20px 10px;
+  margin: 40px 20px;
   border-radius: 2px;
   background-color: #fff; }
 
@@ -9010,7 +9043,7 @@ a.button {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 5px;
+  padding: 10px;
   width: 100%; }
 
 .row-wrap {
@@ -9025,7 +9058,7 @@ a.button {
     padding: 0; }
 
 .row + .row {
-  margin-top: -5px;
+  margin-top: -10px;
   padding-top: 0; }
 
 .col {
@@ -9036,7 +9069,7 @@ a.button {
   -ms-flex: 1;
   flex: 1;
   display: block;
-  padding: 5px;
+  padding: 10px;
   width: 100%; }
 
 /* Vertically Align Columns */
@@ -9247,7 +9280,7 @@ a.button {
       -moz-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
       margin-left: 0;
       max-width: 100%;
       width: 100%; } }
@@ -9268,7 +9301,7 @@ a.button {
       -moz-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
       margin-left: 0;
       max-width: 100%;
       width: 100%; } }
@@ -9289,7 +9322,7 @@ a.button {
       -moz-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
       margin-left: 0;
       max-width: 100%;
       width: 100%; } }
@@ -9392,23 +9425,23 @@ a.button {
  * --------------------------------------------------
  */
 .padding {
-  padding: 10px; }
+  padding: 20px; }
 
 .padding-top,
 .padding-vertical {
-  padding-top: 10px; }
+  padding-top: 20px; }
 
 .padding-right,
 .padding-horizontal {
-  padding-right: 10px; }
+  padding-right: 20px; }
 
 .padding-bottom,
 .padding-vertical {
-  padding-bottom: 10px; }
+  padding-bottom: 20px; }
 
 .padding-left,
 .padding-horizontal {
-  padding-left: 10px; }
+  padding-left: 20px; }
 
 /**
  * Scrollable iFrames

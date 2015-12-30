@@ -1,6 +1,6 @@
 <ion-view view-title='Match | PetFriendly' hide-back-button="true" class="padding">
   <ion-nav-title>
-    <img src="../img/PetBar.jpg">
+    <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
   <ion-content>
     <ion-list class="swipe">
@@ -25,10 +25,10 @@
           </div><br>
           <div class="row">
             <div class="col text-center">
-              <button class="button button-royal" ng-click="saveFavorite(pet, false)">
+              <button class=" btn-no button button-large button-royal" ng-click="saveFavorite(pet, false)">
                 No
               </button>
-              <button class="button button-royal" ng-click="saveFavorite(pet, true)">
+              <button class="button button-large button-royal" ng-click="saveFavorite(pet, true)">
                 Yes
               </button>
             </div>
@@ -37,7 +37,6 @@
     </ion-list>
   </ion-content>
   <br><br>
-  <div class="item item-text-wrap col text-center">
     <h1 class="alert-style">{{alert}}</h1>
   </div>
 </ion-view>

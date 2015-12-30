@@ -1,10 +1,9 @@
 <ion-view view-title="Register | PetFriendly">
   <ion-nav-title>
-    <img src="../img/PetBar.jpg">
+    <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
   <ion-content class="padding">
     <div class="list list-inset">
-      <!-- Alert below needs styling -->
       <div ng-show="alert">{{alert}}</div>
       <label class="item item-input">
         <input type="text" placeholder="Username" ng-model="user.username">
@@ -16,6 +15,6 @@
         <input type="text" placeholder="Zipcode" ng-model="user.zipcode">
       </label>
     </div>
-    <button class="wide-btn button button-block button-royal" ng-click="register(user)">Register</button>
+    <button class="wide-btn button button-royal" ng-click="register(user)">Register</button>
   </ion-content>
 </ion-view>
