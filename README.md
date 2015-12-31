@@ -17,7 +17,10 @@ User can click picture of the pet for additional pictures (if available) and cli
 Pets can be deleted from favorites list. They will not be shown again in the match view. A future feature will allow user to see pets they have previously declined.
 
 ##Developer Notes
-Currently at v1.0.0 in 'Dev' branch. This will shortly be pushed to 'Master' branch. 'Dev' will be primary location for newest experimental features.
+Currently at v1.0.0 in 'Master' branch. 'Dev' will be primary branch for newest experimental features. Major changes will be noted here.
+
+###Release history/Change Log
+12/30/15 - v1.0.0 released to master branch
 
 ###Petfinder Integration
 All pet data comes from www.petfinder.com through their public API. This may result in certain fields being empty or appearing to have odd characters/grammar and is not an error in this application.
