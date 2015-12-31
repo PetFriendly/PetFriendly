@@ -5,7 +5,6 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
-var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var mocha = require('gulp-mocha');
 
@@ -52,13 +51,6 @@ gulp.task('git-check', function(done) {
   done();
 });
 
-// not using jshint
-// gulp.task('jshint', function(){
-//   gulp.src(['/models/*.js', '/test/*.js'])
-//   .pipe(jshint())
-//   .pipe(jshint.reporter('default'));
-// });
-
 gulp.task('jscs', function() {
   return gulp.src([
     'models/*.js',
@@ -72,7 +64,6 @@ gulp.task('jscs', function() {
     './*.js'
   ])
   .pipe(jscs())
-  // .pipe(gulp.dest('src'));
   .pipe(jscs.reporter());
 })
 
