@@ -2,7 +2,7 @@
   <ion-nav-title>
     <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
-  <ion-content>
+  <ion-content overflow-scroll="true">
     <ion-list class="swipe">
       <ion-item can swipe="true" class="item item-text-wrap" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)" ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
         <h2 class="animal-name">{{pet.name.$t}}, {{pet.age.$t}}</h2>
