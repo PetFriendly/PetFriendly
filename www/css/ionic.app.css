@@ -6,6 +6,10 @@ Light Purple - #e1e1fb
 */
 /* custom styles */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+.clickLink {
+  text-align: center;
+}
+
 label.item.item-input.item-select {
   padding: 20px;
   font-size: 15px; }
