@@ -15,7 +15,10 @@ label.item.item-input {
   font-size: 15px; }
 
 .ion-item {
-  background-color: #fffcf7; }
+  background-color: #fffcf7;}
+
+ion-item {
+    max-width: 500px;}
 
 .padding {
   margin: 0 2px; }
