@@ -27,12 +27,12 @@
         </button>
         <div ng:show="description" class="item item-text-wrap">
           <h2>Contact Info</h2>
-          {{pet.contact.name.$t}} <br>
-          <a href="tel:{{pet.contact.phone.$t}}">{{pet.contact.phone.$t}}</a> <br>
-          <a href="mailto:{{pet.contact.email.$t}}?subject={{pet.name.$t}}">{{pet.contact.email.$t}}</a><br>
-          {{pet.contact.address1.$t}} {{pet.contact.address2.$t}} <br>
-          {{pet.contact.city.$t}}, {{pet.contact.state.$t}} {{pet.contact.zip.$t}} <br><br>
-          {{pet.description.$t}} <br><br>
+          {{pet.contact.name.$t}}<br>
+          <a href="tel:{{pet.contact.phone.$t}}">{{pet.contact.phone.$t}}</a><br>
+          <a  href="mailto:{{pet.contact.email.$t}}?subject={{pet.name.$t}}">{{pet.contact.email.$t}}</a><br>
+          {{pet.contact.address1.$t}} {{pet.contact.address2.$t}}<br>
+          {{pet.contact.city.$t}}, {{pet.contact.state.$t}} {{pet.contact.zip.$t}}<br><br>
+          {{pet.description.$t}}<br><br>
           <a target="_blank" href="http://www.petfinder.com/petdetail/{{pet.id.$t}}">See additional information</a>
         </div>
       </ion-item>
