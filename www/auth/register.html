@@ -3,23 +3,25 @@
     <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
   <ion-content class="padding">
-    <div class="list list-inset">
-      <div class="alert-style" ng-show="alert">{{alert}}</div>
-      <label class="item item-input">
-        <input type="text" placeholder="Username" ng-model="user.username">
-      </label>
-      <label class="item item-input">
-        <input type="password" placeholder="Password" ng-model="user.password">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Zipcode" ng-model="user.zipcode">
-      </label>
+    <div class="page-wrap">
+      <div class="list list-inset">
+        <div class="alert-style" ng-show="alert">{{alert}}</div>
+        <label class="item item-input">
+          <input type="text" placeholder="Username" ng-model="user.username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Zipcode" ng-model="user.zipcode">
+        </label>
+      </div>
+      <button class="wide-btn button button-royal" ng-click="register(user)">Register</button>
+      <a href="/#/login">
+        <button class="button button-clear button-royal">
+          Already a user? Back to login
+        </button>
+      </a>
     </div>
-    <button class="wide-btn button button-royal" ng-click="register(user)">Register</button>
-    <a href="/#/login">
-      <button class="button button-clear button-royal">
-        Already a user? Back to login
-      </button>
-    </a>
   </ion-content>
 </ion-view>

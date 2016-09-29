@@ -6,6 +6,15 @@ Light Purple - #e1e1fb
 */
 /* custom styles */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+.clickLink {
+  text-align: center;
+}
+
+.page-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 label.item.item-input.item-select {
   padding: 20px;
   font-size: 15px; }
@@ -15,7 +24,7 @@ label.item.item-input {
   font-size: 15px; }
 
 .ion-item {
-  background-color: #fffcf7; }
+  background-color: #fffcf7;}
 
 .padding {
   margin: 0 2px; }
