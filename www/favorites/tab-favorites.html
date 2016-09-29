@@ -3,25 +3,27 @@
     <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
   <ion-content overflow-scroll="true">
-    <ion-list>
-      <ion-item class="item item-thumbnail-left item-button-right" ng-repeat="petFav in petFavs" ng-click="description = ! description" ng-hide="petFav.isFav == false" href="#">
-        <img ng-src="{{petFav.photo1}}">
-        <h2 class="favorites">{{petFav.name}}</h2>
-        <p class="italic">{{petFav.age}}</p>
-        <div ng:show="description" class="item item-text-wrap">
-          <h2>Contact Info</h2>
-          {{petFav.contact.name}}<br>
-          <a href="tel:{{petFav.contact.phone}}">{{petFav.contact.phone}}</a><br>
-          <a href="mailto:{{petFav.contact.email}}">{{petFav.contact.email}}</a><br>
-          {{petFav.contact.address1}} {{petFav.contact.address2}}<br>
-          {{petFav.contact.city}}, {{petFav.contact.state}}<br> {{petFav.contact.zip}}<br><br>
-          {{petFav.description}}<br><br>
-          <a target="_blank" href="http://www.petfinder.com/petdetail/{{petFav.id}}">See additional information</a>
-        </div>
-        <button class="del-btn button button-royal" ng-click="deleteFavorite(petFav)">
-          <i class="icon ion-trash-a"></i>
-        </button>
-      </ion-item>
-    <ion-list>
+    <div class="page-wrap">
+      <ion-list>
+        <ion-item class="item item-thumbnail-left item-button-right" ng-repeat="petFav in petFavs" ng-click="description = ! description" ng-hide="petFav.isFav == false" href="#">
+          <img ng-src="{{petFav.photo1}}">
+          <h2 class="favorites">{{petFav.name}}</h2>
+          <p class="italic">{{petFav.age}}</p>
+          <div ng:show="description" class="item item-text-wrap">
+            <h2>Contact Info</h2>
+            {{petFav.contact.name}}<br>
+            <a href="tel:{{petFav.contact.phone}}">{{petFav.contact.phone}}</a><br>
+            <a href="mailto:{{petFav.contact.email}}">{{petFav.contact.email}}</a><br>
+            {{petFav.contact.address1}} {{petFav.contact.address2}}<br>
+            {{petFav.contact.city}}, {{petFav.contact.state}}<br> {{petFav.contact.zip}}<br><br>
+            {{petFav.description}}<br><br>
+            <a target="_blank" href="http://www.petfinder.com/petdetail/{{petFav.id}}">See additional information</a>
+          </div>
+          <button class="del-btn button button-royal" ng-click="deleteFavorite(petFav)">
+            <i class="icon ion-trash-a"></i>
+          </button>
+        </ion-item>
+      <ion-list>
+    </div>
   </ion-content>
 </ion-view>

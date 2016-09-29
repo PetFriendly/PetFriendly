@@ -3,61 +3,63 @@
     <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
   <ion-content>
-  <form name="frm">
-    <label class="item item-input item-select">
-      <div class="input-label">Type
-      </div>
-        <select class="dropdowns" ng-model="settings.animal">
-          <option value="" selected>Any</option>
-          <option value="bird">Bird</option>
-          <option value="barnyard">Farm Animal</option>
-          <option value="cat">Cat</option>
-          <option value="dog">Dog</option>
-          <option value="horse">Horse</option>
-          <option value="pig">Pig</option>
-          <option value="reptile">Reptile</option>
-          <option value="smallfurry">Small & Furry</option>
-        </select>
-    </label>
-    <label class="item item-input item-select">
-      <div class="input-label">Size
-      </div>
-        <select class="dropdowns" ng-model="settings.sizes">
-          <option value="" selected>Any</option>
-          <option value="S">Small</option>
-          <option value="M">Medium</option>
-          <option value="L">Large</option>
-          <option value="XL">Extra Large</option>
-        </select>
-    </label>
-    <label class="item item-input item-select">
-      <div class="input-label">Sex
-      </div>
-        <select class="dropdowns" ng-model="settings.sex">
-          <option value="" selected>Any</option>
-          <option value="M">Male</option>
-          <option value="F">Female</option>
-        </select>
-    </label>
-    <label class="item item-input item-select">
-      <div class="input-label">Age
-      </div>
-        <select class="dropdowns" ng-model="settings.age">
-          <option value="" selected>Any</option>
-          <option value="Baby">Baby</option>
-          <option value="Young">Young</option>
-          <option value="Adult">Adult</option>
-          <option value="Senior">Senior</option>
-        </select>
-    </label>
-    <label class="item item-input">Zip Code:
-      <input type="text" style="margin-left: 10px" placeholder="zip code" ng-model="settings.zipcode">
-    </label>
-  </form>
-    <a href="https://www.petfinder.com/">
-      <button class="button button-clear button-royal">
-        Pet information provided by Petfinder.com
-      </button>
-    </a>
+    <div class="page-wrap">
+      <form name="frm">
+        <label class="item item-input item-select">
+          <div class="input-label">Type
+          </div>
+            <select class="dropdowns" ng-model="settings.animal">
+              <option value="" selected>Any</option>
+              <option value="bird">Bird</option>
+              <option value="barnyard">Farm Animal</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+              <option value="horse">Horse</option>
+              <option value="pig">Pig</option>
+              <option value="reptile">Reptile</option>
+              <option value="smallfurry">Small & Furry</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Size
+          </div>
+            <select class="dropdowns" ng-model="settings.sizes">
+              <option value="" selected>Any</option>
+              <option value="S">Small</option>
+              <option value="M">Medium</option>
+              <option value="L">Large</option>
+              <option value="XL">Extra Large</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Sex
+          </div>
+            <select class="dropdowns" ng-model="settings.sex">
+              <option value="" selected>Any</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Age
+          </div>
+            <select class="dropdowns" ng-model="settings.age">
+              <option value="" selected>Any</option>
+              <option value="Baby">Baby</option>
+              <option value="Young">Young</option>
+              <option value="Adult">Adult</option>
+              <option value="Senior">Senior</option>
+            </select>
+        </label>
+        <label class="item item-input">Zip Code:
+          <input type="text" style="margin-left: 10px" placeholder="zip code" ng-model="settings.zipcode">
+        </label>
+      </form>
+      <a href="https://www.petfinder.com/">
+        <button class="button button-clear button-royal">
+          Pet information provided by Petfinder.com
+        </button>
+      </a>
+    </div>
   </ion-content>
 </ion-view>

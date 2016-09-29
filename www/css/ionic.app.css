@@ -10,6 +10,11 @@ Light Purple - #e1e1fb
   text-align: center;
 }
 
+.page-wrap {
+     width: 800px;
+     margin: 0 auto;
+}
+
 label.item.item-input.item-select {
   padding: 20px;
   font-size: 15px; }
@@ -20,14 +25,14 @@ label.item.item-input {
 
 .ion-item {
   background-color: #fffcf7;}
-
+  /*
 ion-item {
     max-width: 640px;
     }
 
-.auth {
+.boxed {
   max-width: 640px;
-}
+}*/
 
 .padding {
   margin: 0 2px; }
