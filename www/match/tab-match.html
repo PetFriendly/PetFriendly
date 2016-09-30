@@ -2,7 +2,7 @@
   <ion-nav-title>
     <img class="title-image-pic" src="../img/PetBar.jpg">
   </ion-nav-title>
-  <ion-content overflow-scroll="true">
+  <ion-content>
     <div class="page-wrap">
       <ion-list class="swipe">
         <ion-item can swipe="true" class="item item-text-wrap" on-swipe-right="saveFavorite(pet, true)" on-swipe-left="saveFavorite(pet, false)" ng-repeat="pet in pets" ng:show="$parent.selected == $index" >
@@ -37,9 +37,9 @@
             <a target="_blank" href="http://www.petfinder.com/petdetail/{{pet.id.$t}}">See additional information</a>
           </div>
         </ion-item>
+        <br><br>
+        <h1 class="alert-style">{{alert}}</h1>
       </ion-list>
-      <br><br>
-      <h1 class="alert-style">{{alert}}</h1>
     </div>
   </ion-content>
 </ion-view>
