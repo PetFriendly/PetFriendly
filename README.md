@@ -1,14 +1,14 @@
-#PetFriendly
+# PetFriendly
 
 ## Demo
 For an active demo please visit http://petfriendly.herokuapp.com/
 
 This app was developed as a proof of concept. While functional, it is still in development and has not been thoroughly tested for security. Therefore please use throwaway login/password info while testing. Do not reuse important login credentials from gmail/facebook, banking sites, etc.
 
-##User Overview
+## User Overview
 PetFriendly is an application that helps people quickly browse and save nearby pets available for adoption. For the best experience please view on a mobile phone or touch enabled device. If using on a desktop the user should adjust the window size to be smaller and be prepared for limited mouse/keyboard navigation.
 
-###How it works
+### How it works
 
 Upon registering user enters zip code and is taken to options tab to specify the type of pet they would like to see in match results. Zip code can be updated at any time. It is required for matching to work.
 
@@ -16,10 +16,10 @@ User can click picture of the pet for additional pictures (if available) and cli
 
 Pets can be deleted from favorites list. They will not be shown again in the match view. A future feature will allow user to see pets they have previously declined.
 
-##Developer Notes
+### Developer Notes
 Currently at v1.0.0 in 'Master' branch. 'Dev' will be primary branch for newest experimental features. Major changes will be noted here.
 
-###Release history/Change Log
+### Release history/Change Log
 12/30/15 - v1.0.0 released to master branch
 
 ###Petfinder Integration
@@ -27,21 +27,21 @@ All pet data comes from www.petfinder.com through their public API. This may res
 
 please refer to https://www.petfinder.com/developers/api-docs for additional help regarding utilizing the API.
 
-###Future Development
+### Future Development
 This app is under active development and we would love your help. Feel free to inform of bugs and submit pull requests.
 
-##Build details
+### Build details
 1. npm package express-request-proxy used to query petfinder API from server to avoid CORS errors.
 2. If you would like to build for mobile platforms you may need to install ionic and cordova globally.
 3. npm package passport used for local login
 
 
-##How to build and deploy yourself
+### How to build and deploy yourself
 This app requires Node.js and NPM(node package manager) installed globally if being deployed locally. visit https://nodejs.org/ for additional information.
 
 This app utilizes MongoDB. You can either use a local database or a cloud deployment such as MongoLab. Mongo must be installed and running if you are using local.
 
-###Setup Instructions
+### Setup Instructions
 1. Clone this repository ```git clone https://github.com/PetFriendly/PetFriendly.git```
 2. Change into the directory ```cd PetFriendly```
 3. Add package dependencies using ```npm install```
@@ -62,7 +62,7 @@ This app utilizes MongoDB. You can either use a local database or a cloud deploy
     4. if connected through mongolab directly navigate to https://mongolab.com/databases/yourDBNamehere
   6. You can then run the application locally using ```npm start``` and navigating to 'localhost:YourChosenPort'.
 
-###Code Style and Directory Structire
+### Code Style and Directory Structire
 1. We used jscs as our style and linting tool to maintain a common coding convention. Custom settings are included in .jscsrc in the root directory
 
 2. The repo has the following directory structure. Not all files are shown in the individual directories. Self Explanatory configuration files in the root directory are also seletively listed. hooks, node_modules, www/lib are system folders and should not be modified without knowledge of how they work.
