@@ -20,7 +20,7 @@
     "express": "^4.13.3",
     "express-request-proxy": "^1.0.10",
     "express-session": "^1.12.1",
-    "foreman": "^1.4.1",
+    "foreman": "^3.0.1",
     "method-override": "^2.3.5",
     "mongoose": "^5.7.8",
     "passport": "^0.3.2",
