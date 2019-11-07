@@ -22,7 +22,7 @@
     "express-session": "^1.12.1",
     "foreman": "^1.4.1",
     "method-override": "^2.3.5",
-    "mongoose": "^4.3.1",
+    "mongoose": "^5.7.8",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^3.1.0"
